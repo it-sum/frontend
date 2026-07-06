@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-"scripts": {
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -15,8 +15,8 @@
     "coverage": "vitest run --coverage",
     "e2e": "playwright test",
     "audit": "npm audit --audit-level=high",
-    "check": "npm run type-check && npm run lint && npm run format-check && npm run test && npm run build",
-    "check:full": "npm run type-check && npm run lint && npm run format-check && npm run coverage && npm run build && npm run e2e && npm run audit"
+    "check": "npm run type-check && npm run lint && npm run format-check && npm run build",
+    "check:full": "npm run type-check && npm run lint && npm run format-check && npm run test && npm run coverage && npm run build && npm run e2e && npm run audit"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import {
-  alexandria,
-  inter,
-  montserrat,
-  notoSansArabic,
-} from "@/src/lib/fonts";
+import { alexandria, inter, montserrat, notoSansArabic } from "@/src/lib/fonts";
 
 export const metadata: Metadata = {
   title: "IT-SUM",

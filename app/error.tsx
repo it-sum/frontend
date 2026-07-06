@@ -10,10 +10,7 @@ type ErrorPageProps = {
   reset: () => void;
 };
 
-export default function Error({
-  error,
-  reset,
-}: ErrorPageProps) {
+export default function Error({ error, reset }: ErrorPageProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -21,15 +18,10 @@ export default function Error({
   return (
     <main className="flex min-h-screen items-center justify-center px-6">
       <div className="flex max-w-md flex-col items-center gap-6 text-center">
-
         <div className="space-y-2">
-          <h1 className="text-7xl font-black tracking-tight">
-            500
-          </h1>
+          <h1 className="text-7xl font-black tracking-tight">500</h1>
 
-          <h2 className="text-2xl font-semibold">
-            Something went wrong
-          </h2>
+          <h2 className="text-2xl font-semibold">Something went wrong</h2>
 
           <p className="text-muted-foreground">
             An unexpected error occurred while loading this page.
@@ -51,7 +43,6 @@ export default function Error({
             Go Home
           </Link>
         </div>
-
       </div>
     </main>
   );

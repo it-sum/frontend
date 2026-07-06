@@ -8,21 +8,21 @@ The frontend is designed around scalability, maintainability, performance, and a
 
 # Features
 
-* Modern App Router Architecture
-* React Server Components
-* Feature-Based Folder Structure
-* TypeScript First
-* Tailwind CSS v4
-* Shadcn UI Components
-* Dark / Light Theme Support
-* TanStack Query
-* Zustand State Management
-* React Hook Form + Zod Validation
-* Axios API Layer
-* Reusable UI System
-* Authentication Ready
-* Modular Providers
-* Enterprise Scalable Structure
+- Modern App Router Architecture
+- React Server Components
+- Feature-Based Folder Structure
+- TypeScript First
+- Tailwind CSS v4
+- Shadcn UI Components
+- Dark / Light Theme Support
+- TanStack Query
+- Zustand State Management
+- React Hook Form + Zod Validation
+- Axios API Layer
+- Reusable UI System
+- Authentication Ready
+- Modular Providers
+- Enterprise Scalable Structure
 
 ---
 
@@ -151,12 +151,12 @@ Centralized application configuration.
 
 Examples:
 
-* API Endpoints
-* Environment Variables
-* Navigation
-* Metadata
-* Routes
-* Sidebar Configuration
+- API Endpoints
+- Environment Variables
+- Navigation
+- Metadata
+- Routes
+- Sidebar Configuration
 
 ---
 
@@ -166,13 +166,13 @@ Application-wide constants.
 
 Examples:
 
-* API Constants
-* Cookie Keys
-* Local Storage Keys
-* Permissions
-* Roles
-* Regex Patterns
-* Query Keys
+- API Constants
+- Cookie Keys
+- Local Storage Keys
+- Permissions
+- Roles
+- Regex Patterns
+- Query Keys
 
 ---
 
@@ -182,20 +182,20 @@ Feature-based application modules.
 
 Each feature owns its:
 
-* Components
-* Hooks
-* Services
-* Schemas
-* Types
+- Components
+- Hooks
+- Services
+- Schemas
+- Types
 
 Current modules:
 
-* Authentication
-* Dashboard
-* Profile
-* Subjects
-* Summaries
-* Quizzes
+- Authentication
+- Dashboard
+- Profile
+- Subjects
+- Summaries
+- Quizzes
 
 ---
 
@@ -211,13 +211,13 @@ Core utilities and infrastructure.
 
 Includes:
 
-* Axios Instance
-* API Client
-* Authentication Helpers
-* Query Client
-* Font Configuration
-* Utility Functions
-* Interceptors
+- Axios Instance
+- API Client
+- Authentication Helpers
+- Query Client
+- Font Configuration
+- Utility Functions
+- Interceptors
 
 ---
 
@@ -225,8 +225,8 @@ Includes:
 
 Frontend middleware utilities.
 
-* Authentication
-* Permission Guards
+- Authentication
+- Permission Guards
 
 ---
 
@@ -234,9 +234,9 @@ Frontend middleware utilities.
 
 Global React Providers.
 
-* Theme Provider
-* Query Provider
-* Application Provider
+- Theme Provider
+- Query Provider
+- Application Provider
 
 ---
 
@@ -260,9 +260,9 @@ Global Zustand stores.
 
 Examples:
 
-* Authentication
-* UI
-* Application State
+- Authentication
+- UI
+- Application State
 
 ---
 
@@ -278,28 +278,28 @@ Shared TypeScript types.
 
 Examples:
 
-* API
-* Auth
-* User
-* Subjects
-* Summaries
-* Pagination
-* Requests
-* Responses
+- API
+- Auth
+- User
+- Subjects
+- Summaries
+- Pagination
+- Requests
+- Responses
 
 ---
 
 # Architecture Principles
 
-* Feature-first architecture
-* Separation of concerns
-* Reusable UI components
-* Typed API layer
-* Centralized configuration
-* Scalable state management
-* Server-first rendering
-* Minimal client components
-* Maintainable folder structure
+- Feature-first architecture
+- Separation of concerns
+- Reusable UI components
+- Typed API layer
+- Centralized configuration
+- Scalable state management
+- Server-first rendering
+- Minimal client components
+- Maintainable folder structure
 
 ---
 
@@ -307,13 +307,13 @@ Examples:
 
 ## Client State
 
-* Zustand
+- Zustand
 
 Used for:
 
-* Authentication
-* UI State
-* Global App State
+- Authentication
+- UI State
+- Global App State
 
 ---
 
@@ -321,11 +321,11 @@ Used for:
 
 TanStack Query manages:
 
-* Data Fetching
-* Caching
-* Background Refetching
-* Mutations
-* Optimistic Updates
+- Data Fetching
+- Caching
+- Background Refetching
+- Mutations
+- Optimistic Updates
 
 ---
 
@@ -333,14 +333,14 @@ TanStack Query manages:
 
 Validation stack:
 
-* React Hook Form
-* Zod
+- React Hook Form
+- Zod
 
 Provides:
 
-* Type-safe forms
-* Runtime validation
-* Better developer experience
+- Type-safe forms
+- Runtime validation
+- Better developer experience
 
 ---
 
@@ -348,24 +348,24 @@ Provides:
 
 The project uses:
 
-* Tailwind CSS v4
-* CSS Variables
-* Design Tokens
-* Responsive Utilities
+- Tailwind CSS v4
+- CSS Variables
+- Design Tokens
+- Responsive Utilities
 
 ---
 
 # Animations
 
-* Motion
-* GSAP
+- Motion
+- GSAP
 
 Used for:
 
-* Page transitions
-* UI interactions
-* Hero animations
-* Scroll animations
+- Page transitions
+- UI interactions
+- Hero animations
+- Scroll animations
 
 ---
 
@@ -373,13 +373,13 @@ Used for:
 
 Powered by:
 
-* next-themes
+- next-themes
 
 Supports:
 
-* Light Theme
-* Dark Theme
-* System Theme
+- Light Theme
+- Dark Theme
+- System Theme
 
 ---
 
@@ -387,9 +387,9 @@ Supports:
 
 Built using:
 
-* Base UI
-* Shadcn UI
-* Lucide React
+- Base UI
+- Shadcn UI
+- Lucide React
 
 All components are reusable and accessible.
 
@@ -399,11 +399,11 @@ All components are reusable and accessible.
 
 Axios provides:
 
-* Centralized API Client
-* Request Interceptors
-* Response Interceptors
-* Authentication Handling
-* Error Handling
+- Centralized API Client
+- Request Interceptors
+- Response Interceptors
+- Authentication Handling
+- Error Handling
 
 ---
 
@@ -411,15 +411,15 @@ Axios provides:
 
 Frontend is optimized using:
 
-* React Server Components
-* Code Splitting
-* Lazy Loading
-* Optimized Fonts
-* Static Rendering
-* Streaming
-* Suspense
-* Partial Prerendering
-* Image Optimization
+- React Server Components
+- Code Splitting
+- Lazy Loading
+- Optimized Fonts
+- Static Rendering
+- Streaming
+- Suspense
+- Partial Prerendering
+- Image Optimization
 
 ---
 
@@ -450,6 +450,7 @@ http://localhost:3000
 ```
 
 ---
+
 # Environment Variables
 
 Create a `.env` file in the project root using the provided example.
@@ -481,7 +482,6 @@ NODE_ENV=development
 
 ---
 
-
 # Required Checks (Before Every Commit)
 
 Every change **must** pass the development quality gate before it can be committed or submitted for review.
@@ -492,11 +492,11 @@ npm run check
 
 This command verifies:
 
-* TypeScript type safety
-* ESLint rules
-* Code formatting
-* Unit tests
-* Production build
+- TypeScript type safety
+- ESLint rules
+- Code formatting
+- Unit tests
+- Production build
 
 If **any** step fails, the code **must not** be committed or merged.
 
@@ -512,9 +512,9 @@ npm run check:full
 
 This command additionally verifies:
 
-* Test coverage
-* End-to-end tests
-* Security audit
+- Test coverage
+- End-to-end tests
+- Security audit
 
 A Pull Request **must not** be merged unless this command completes successfully.
 
@@ -533,7 +533,6 @@ Run the production server.
 ```bash
 npm run start
 ```
-
 
 # Development Dependencies
 
@@ -560,30 +559,30 @@ next-themes
 
 # Design Goals
 
-* Enterprise Ready
-* High Performance
-* Modular
-* Maintainable
-* Scalable
-* Reusable
-* Type Safe
-* Accessible
-* Developer Friendly
+- Enterprise Ready
+- High Performance
+- Modular
+- Maintainable
+- Scalable
+- Reusable
+- Type Safe
+- Accessible
+- Developer Friendly
 
 ---
 
 # Future Improvements
 
-* Internationalization (i18n)
-* Offline Support (PWA)
-* Storybook
-* Unit Testing
-* End-to-End Testing
-* Performance Dashboard
-* Accessibility Auditing
-* Feature Flags
-* Error Monitoring
-* Analytics Integration
+- Internationalization (i18n)
+- Offline Support (PWA)
+- Storybook
+- Unit Testing
+- End-to-End Testing
+- Performance Dashboard
+- Accessibility Auditing
+- Feature Flags
+- Error Monitoring
+- Analytics Integration
 
 ---
 
