@@ -1,0 +1,17 @@
+{
+  "Navigation": {
+    "features": "Features",
+    "resources": "Resources",
+    "solutions": "Solutions",
+    "community": "Community",
+    "pricing": "Pricing",
+    "about": "About",
+    "login": "Login",
+    "getStarted": "Get Started"
+  },
+  "HomePage": {
+    "title": "IT-SUM",
+    "subtitle": "Your Platform for IT Education",
+    "section": "Explore our courses and resources"
+  }
+}

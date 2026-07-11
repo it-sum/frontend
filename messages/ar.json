@@ -1,0 +1,17 @@
+{
+  "Navigation": {
+    "features": "مميزات",
+    "resources": "مصادر",
+    "solutions": "حلول",
+    "community": "مجتمع",
+    "pricing": "أسعار",
+    "about": "حول",
+    "login": "تسجيل الدخول",
+    "getStarted": "ابدأ الآن"
+  },
+  "HomePage": {
+    "title": "IT-SUM",
+    "subtitle": "منصتك لتعليم تكنولوجيا المعلومات",
+    "section": "استكشف دوراتنا ومواردنا"
+  }
+}
