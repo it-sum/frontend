@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { useTheme } from "@/src/components/providers/theme-provider";
 import { useMounted } from "@/src/hooks/use-mounted";
 import { Moon, Sun } from "lucide-react";
 

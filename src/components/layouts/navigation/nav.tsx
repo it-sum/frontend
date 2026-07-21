@@ -23,6 +23,7 @@ export default function Nav() {
 
   return (
     <motion.nav
+      dir="ltr"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
