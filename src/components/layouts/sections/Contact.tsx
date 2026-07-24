@@ -117,7 +117,8 @@ const Contact = () => {
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const arrowClass = `transition-transform duration-300 ${isArabic ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"}`;
+  const arrowClass =
+    "transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1";
 
   const handleChange = (
     e: React.ChangeEvent<

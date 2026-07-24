@@ -130,7 +130,7 @@ const FeatureCard = ({
         <div
           className={`flex size-14.5 shrink-0 items-center justify-center rounded-full border shadow-[0_0_24px_rgba(0,0,0,0.03)] ${styles.circle}`}
         >
-          <Icon className={`size-7 ${styles.icon}`} strokeWidth={1.8} />
+          <Icon className={`size-7 ${styles.icon}`} strokeWidth={2.6} />
         </div>
         <div className="ms-5 flex h-full min-w-0 flex-1 flex-col pt-1">
           <h3 className="text-[16px] font-semibold leading-5 tracking-[-0.015em] text-slate-900 dark:text-[#f3f6fa]">
@@ -139,7 +139,8 @@ const FeatureCard = ({
           <p className="mt-2 max-w-52 text-[14px] leading-[1.55] text-slate-500 dark:text-[#9aa8b8]">
             {description}
           </p>
-          <div className="mt-auto flex justify-end pb-0.5 text-slate-400 transition-transform duration-200 group-hover:translate-x-0.5 rtl:justify-start rtl:group-hover:-translate-x-0.5 dark:text-[#c7d0da]">
+          {/* تعديل السهم ليكون على اليسار في العربية تلقائياً عبر justify-end */}
+          <div className="mt-auto flex justify-end pb-0.5 text-slate-400 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 dark:text-[#c7d0da]">
             <ArrowRight className="size-4.25 rtl:hidden" strokeWidth={2.6} />
             <ArrowLeft
               className="hidden size-4.25 rtl:block"

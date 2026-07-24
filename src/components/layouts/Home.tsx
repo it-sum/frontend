@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, Boxes, Play } from "lucide-react";
-import { getTranslations } from "next-intl/server"; // تم إزالة getLocale
+import { ArrowLeft, ArrowRight, Boxes, Play } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import bgLight from "@/src/assets/images/light.webp";
 import bgDark from "@/src/assets/images/dark.webp";
@@ -14,7 +14,14 @@ const avatars = [
 
 export default async function Home() {
   const t = await getTranslations("HomePage");
-  // تم إزالة المتغيرات غير المستخدمة
+  const locale = await getLocale();
+  const isArabic = locale === "ar";
+
+  // فصل آخر كلمتين من العنوان لتلوينهما
+  const titleText = t("title");
+  const titleWords = titleText.split(" ");
+  const lastTwoWords = titleWords.slice(-2).join(" ");
+  const restOfTitle = titleWords.slice(0, -2).join(" ");
 
   return (
     <main className="relative min-h-screen overflow-hidden pt-16">
@@ -38,10 +45,12 @@ export default async function Home() {
         />
       </div>
 
-      {/* محتوى الـ Hero */}
-      <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-360 items-center px-6 sm:px-8 lg:px-12 xl:px-16">
-        {/* استخدام text-start بدلاً من الشروط، وستتماشى تلقائياً حسب dir الصفحة */}
-        <div className="relative z-10 w-full max-w-130 text-start">
+      {/* إجبار القسم على البقاء LTR ليحافظ على نفس تخطيط الـ EN والمحاذاة لليسار */}
+      <section
+        dir="ltr"
+        className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-360 items-center px-6 sm:px-8 lg:px-12 xl:px-16"
+      >
+        <div className="relative z-10 w-full max-w-130 text-left">
           {/* الشارة (Badge) */}
           <div className="mb-7 inline-flex h-9 items-center gap-2 rounded-lg border border-cyan-500/20 bg-white/55 px-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] backdrop-blur-md dark:border-cyan-400/20 dark:bg-[#07131f]/65 dark:shadow-[0_6px_24px_rgba(0,0,0,0.22)]">
             <Boxes
@@ -53,9 +62,12 @@ export default async function Home() {
             </span>
           </div>
 
-          {/* العنوان الرئيسي */}
+          {/* العنوان الرئيسي مع تلوين آخر كلمتين */}
           <h1 className="max-w-127.5 text-[42px] font-bold leading-[1.08] tracking-[-0.035em] text-[#101923] sm:text-5xl lg:text-[56px] dark:text-white">
-            {t("title")}
+            {restOfTitle}{" "}
+            <span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              {lastTwoWords}
+            </span>
           </h1>
 
           {/* الوصف */}
@@ -63,18 +75,25 @@ export default async function Home() {
             {t("subtitle")}
           </p>
 
-          {/* الأزرار */}
+          {/* الأزرار - ستبقى دائماً على اليسار بنفس الترتيب */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#start"
               className="group inline-flex h-12 items-center justify-center gap-5 rounded-lg bg-linear-to-r from-[#079bf5] via-[#08bddd] to-[#32d575] px-6 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)]"
             >
               {t("ctaPrimary")}
-              {/* استخدام rtl: للتحكم في اتجاه السهم */}
-              <ArrowRight
-                aria-hidden="true"
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
-              />
+              {/* استخدام الشرط البرمجي لتحديد اتجاه السهم بدلاً من rtl: */}
+              {isArabic ? (
+                <ArrowLeft
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                />
+              ) : (
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                />
+              )}
             </a>
 
             <a
@@ -89,9 +108,9 @@ export default async function Home() {
             </a>
           </div>
 
-          {/* الثقة (Avatars) */}
+          {/* الثقة (Avatars) - ستبقى دائماً على اليسار */}
           <div className="mt-10 flex items-center gap-4">
-            <div className="flex shrink-0 -space-x-2.5 rtl:space-x-reverse">
+            <div className="flex shrink-0 -space-x-2.5">
               {avatars.map((src, index) => (
                 <div
                   key={src}

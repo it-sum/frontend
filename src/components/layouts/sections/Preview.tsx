@@ -97,9 +97,7 @@ const Preview = () => {
                 className="group mt-5.25 flex h-11.25 items-center justify-between gap-7 rounded-[7px] bg-linear-to-r from-[#1478e9] via-[#08aee7] to-[#6bd22c] px-4.5 text-[11px] font-semibold text-white shadow-[0_8px_24px_rgba(14,165,233,.16)] transition duration-300 hover:brightness-110"
               >
                 <span>{t("cta")}</span>
-                <ArrowRight
-                  className={`h-3.75 w-3.75 transition-transform group-hover:translate-x-0.5 ${isArabic ? "rotate-180" : ""}`}
-                />
+                <ArrowRight className="h-3.75 w-3.75 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
               </button>
 
               <p className="mt-2 text-[9.5px] text-slate-500 dark:text-[#8490a0]">
@@ -109,7 +107,7 @@ const Preview = () => {
 
             {/* DASHBOARD PREVIEW */}
             <div className="relative hidden lg:block">
-              <div className="relative ml-auto w-full max-w-192.5 overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_55px_rgba(15,23,42,.08)] dark:border-[#102238] dark:bg-[#020b15] dark:shadow-[0_18px_55px_rgba(0,0,0,.22)]">
+              <div className="relative ms-auto w-full max-w-192.5 overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_55px_rgba(15,23,42,.08)] dark:border-[#102238] dark:bg-[#020b15] dark:shadow-[0_18px_55px_rgba(0,0,0,.22)]">
                 <div className="grid h-68 grid-cols-[150px_1fr]">
                   {/* SIDEBAR */}
                   <aside className="border-e border-slate-200 px-3.5 py-3.25 dark:border-[#102033]">

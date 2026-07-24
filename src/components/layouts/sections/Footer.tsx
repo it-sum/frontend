@@ -91,11 +91,8 @@ const Footer = () => {
   const locale = useLocale();
   const isArabic = locale === "ar";
 
-  const arrowClass = `transition-transform duration-300 ${
-    isArabic
-      ? "rotate-180 group-hover:-translate-x-1"
-      : "group-hover:translate-x-1"
-  }`;
+  const arrowClass =
+    "transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1";
 
   const socials = [
     { icon: Code2, label: "GitHub" },

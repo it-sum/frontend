@@ -29,7 +29,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
