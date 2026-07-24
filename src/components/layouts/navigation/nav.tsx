@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link, usePathname } from "@/src/i18n/navigation";
 import { NavLinksArray } from "@/src/constants";
-import Logo from "@/src/assets/images/Logo.png";
+import Logo from "@/src/assets/images/logo.webp";
 import ThemeToggle from "./theme-toggle";
 import LanguageToggle from "./language-toggle";
 
@@ -30,66 +30,74 @@ export default function Nav() {
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "dark:bg-[#0B1120]/80 bg-white/80 backdrop-blur-xl dark:border-white/5 border-black/5 border-b"
-          : "bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 px-4 pt-4"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
+      <div
+        className={`mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl border px-4 transition-all duration-300 lg:px-5 ${
+          scrolled
+            ? "border-black/5 bg-white/85 shadow-[0_8px_30px_rgba(2,8,18,0.06)] backdrop-blur-xl dark:border-white/8 dark:bg-[#0B1120]/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+            : "border-black/5 bg-white/40 backdrop-blur-md dark:border-white/6 dark:bg-white/2"
+        }`}
+      >
+        <Link href="/" className="flex items-center gap-2.5">
+          <div className="relative">
             <Image
               src={Logo}
               alt="IT-SUM"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               style={{ width: "auto", height: "auto" }}
-              className="h-9 w-9"
+              className="h-8 w-8"
               priority
             />
-            <h1 className="text-xl font-bold tracking-tight flex items-baseline">
-              <span className="dark:text-white text-neutral-900">IT</span>
-              <span className="dark:text-[#06B6D4] text-[#0284C7] transition-colors duration-300">
-                -SUM
-              </span>
-            </h1>
-          </Link>
-
-          <div className="hidden lg:flex lg:items-center lg:gap-1">
-            {NavLinksArray.map((item) => (
+          </div>
+          <h1 className="flex items-baseline text-lg font-bold tracking-tight italic">
+            <span className="text-neutral-900 dark:text-white">IT</span>
+            <span className="text-[#0284C7] transition-colors duration-300 dark:text-[#06B6D4]">
+              -SUM
+            </span>
+          </h1>
+        </Link>
+        <div className="hidden lg:flex lg:items-center lg:gap-1">
+          {NavLinksArray.map((item) => {
+            const isActive = pathname === item.href;
+            return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3.5 py-2 text-sm transition-colors duration-200 group ${
-                  pathname === item.href
-                    ? "text-[#06B6D4]"
-                    : "dark:text-neutral-400 text-neutral-500 dark:hover:text-white hover:text-neutral-900"
+                className={`relative rounded-lg px-3.5 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                  isActive
+                    ? "bg-[#06B6D4]/10 text-[#0284C7] dark:bg-[#06B6D4]/12 dark:text-[#22d3ee]"
+                    : // Fixed Tailwind v4 classes here
+                      "text-neutral-500 hover:bg-black/4 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-white/6 dark:hover:text-white"
                 }`}
               >
                 {t(item.label.toLowerCase())}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 bg-[#06B6D4] group-hover:w-5 transition-all duration-300 rounded-full" />
               </Link>
-            ))}
-          </div>
-
-          <div className="hidden lg:flex lg:items-center lg:gap-2">
+            );
+          })}
+        </div>
+        <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <div className="flex items-center gap-1">
             <LanguageToggle />
             <ThemeToggle />
-            <Link
-              href="/login"
-              className="px-4 py-2 text-sm dark:text-neutral-300 text-neutral-600 dark:hover:text-white hover:text-neutral-900 transition-colors duration-200 rounded-lg dark:hover:bg-white/5 hover:bg-black/5"
-            >
-              {t("login")}
-            </Link>
-            <Link
-              href="/get-started"
-              className="relative px-5 py-2.5 text-sm font-medium text-white bg-linear-to-r from-[#06B6D4] to-[#0284C7] rounded-lg overflow-hidden group hover:from-[#0891B2] hover:to-[#0369A1] transition-all duration-200"
-              style={{ boxShadow: "0 8px 20px -4px rgba(6, 182, 212, 0.3)" }}
-            >
-              <span className="relative z-10">{t("getStarted")}</span>
-            </Link>
           </div>
+
+          <div className="h-5 w-px bg-black/10 dark:bg-white/10" />
+
+          <Link
+            href="/login"
+            className="rounded-lg px-3.5 py-1.5 text-sm font-medium text-neutral-600 transition-colors duration-200 hover:bg-black/4 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/6 dark:hover:text-white"
+          >
+            {t("login")}
+          </Link>
+          <Link
+            href="/get-started"
+            className="rounded-lg bg-linear-to-r from-[#06B6D4] to-[#0284C7] px-4 py-1.5 text-sm font-semibold text-white transition-all duration-200 hover:from-[#0891B2] hover:to-[#0369A1]"
+            style={{ boxShadow: "0 6px 16px -4px rgba(6, 182, 212, 0.4)" }}
+          >
+            {t("getStarted")}
+          </Link>
         </div>
       </div>
     </motion.nav>

@@ -10,8 +10,318 @@
     "getStarted": "Get Started"
   },
   "HomePage": {
-    "title": "IT-SUM",
-    "subtitle": "Your Platform for IT Education",
-    "section": "Explore our courses and resources"
+    "badge": "Smart Learning Ecosystem",
+    "title": "The All-in-One Platform for IT Students",
+    "subtitle": "Access high-quality resources, interactive video lessons, smart quizzes, and a 24/7 AI assistant designed to elevate your IT education.",
+    "ctaPrimary": "Start Learning",
+    "ctaSecondary": "Explore Features",
+    "feature1Title": "PDF Summaries",
+    "feature1Value": "12,500+ High Quality",
+    "feature2Title": "Video Lessons",
+    "feature2Value": "3,400+ Hours",
+    "feature3Title": "Smart Quizzes",
+    "feature3Value": "8,200+ Questions",
+    "feature4Title": "AI Assistant",
+    "feature4Value": "24/7 Learning Help",
+    "trustText": "Trusted by 5,000+ IT students worldwide"
+  },
+  "Features": {
+    "badge": "OUR PLATFORM",
+    "title": "Everything you need to",
+    "titleHighlight": "succeed",
+    "subtitle": "Powerful tools designed to enhance your learning experience.",
+    "academicTitle": "Academic Resources",
+    "academicDescription": "Well-structured materials organized by semester, subject & department.",
+    "quizTitle": "Smart Quiz Engine",
+    "quizDescription": "Practice, test, and improve with intelligent quizzes and real-time results.",
+    "videoTitle": "Video Learning",
+    "videoDescription": "High-quality video lessons to help you understand complex concepts.",
+    "progressTitle": "Student Progress",
+    "progressDescription": "Track your learning, achievements and performance analytics.",
+    "aiTitle": "AI-Powered Learning",
+    "aiDescription": "Get smart suggestions, explanations and personalized guidance.",
+    "communityTitle": "Community",
+    "communityDescription": "Connect with peers, share knowledge and grow together."
+  },
+  "Stats": {
+    "activeStudents": "Active Students",
+    "pdfSummaries": "PDF Summaries",
+    "videoLessons": "Video Lessons",
+    "quizQuestions": "Quiz Questions",
+    "satisfactionRate": "Satisfaction Rate"
+  },
+  "Works": {
+    "eyebrow": "HOW IT-SUM WORKS",
+    "title": "How IT-SUM Works",
+    "subtitle": "Everything you need in one simple, powerful platform.",
+    "steps": {
+      "explore": {
+        "title": "Explore",
+        "description": "Browse resources, videos and summaries."
+      },
+      "learn": {
+        "title": "Learn",
+        "description": "Study with smart tools and interactive content."
+      },
+      "practice": {
+        "title": "Practice",
+        "description": "Take quizzes and test your knowledge."
+      },
+      "achieve": {
+        "title": "Achieve",
+        "description": "Track progress and unlock your achievements."
+      }
+    }
+  },
+  "Recent": {
+    "eyebrow": "LATEST CONTENT",
+    "title": "Recently Added",
+    "subtitle": "New resources uploaded by instructors.",
+    "viewAll": "View all content",
+    "filters": {
+      "all": "All",
+      "pdf": "PDF",
+      "video": "Video",
+      "quiz": "Quiz",
+      "course": "Course"
+    },
+    "items": {
+      "dsa": { "title": "Data Structures", "meta": "Semester 2 • Prof. Ahmed" },
+      "react": {
+        "title": "React.js Full Course",
+        "meta": "Beginner to Advanced"
+      },
+      "db": { "title": "Database Systems", "meta": "Semester 3 • Prof. Sara" },
+      "os": { "title": "Operating Systems Quiz", "meta": "Prof. Omar" },
+      "python": { "title": "Python Advanced Concepts", "meta": "Prof. Ahmed" },
+      "js": {
+        "title": "JavaScript Essentials",
+        "meta": "Semester 1 • Prof. John"
+      },
+      "css": {
+        "title": "CSS Animations Mastery",
+        "meta": "Beginner to Advanced"
+      },
+      "node": {
+        "title": "Node.js Bootcamp",
+        "meta": "Semester 4 • Prof. Sarah"
+      },
+      "git": { "title": "Git & GitHub Quiz", "meta": "Prof. Omar" },
+      "aws": {
+        "title": "AWS Fundamentals",
+        "meta": "Cloud Computing • Prof. Ahmed"
+      }
+    }
+  },
+  "Preview": {
+    "eyebrow": "Join thousands of learners",
+    "titleLine1": "Ready to accelerate",
+    "titleLine2": "your",
+    "titleHighlight": "IT journey?",
+    "description": "Join thousands of students who are already learning smarter with IT-SUM.",
+    "cta": "Create Your Free Account",
+    "noCard": "No credit card required",
+    "menu": {
+      "dashboard": "Dashboard",
+      "courses": "Courses",
+      "quizzes": "Quizzes",
+      "resources": "Resources",
+      "progress": "Progress",
+      "community": "Community"
+    },
+    "chart": {
+      "overview": "Overview",
+      "range": "Jan–Jun",
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun"
+      }
+    },
+    "metrics": {
+      "studyTime": { "label": "Study Time", "info": "+18% this week" },
+      "quizzesPassed": { "label": "Quizzes Passed", "info": "+12% this week" },
+      "resourcesRead": { "label": "Resources Read", "info": "+21% this week" }
+    },
+    "overallProgress": "Overall Progress",
+    "onTrack": "On track",
+    "monthGrowth": "+8% this month",
+    "quizAccuracy": "Quiz Accuracy",
+    "excellent": "Excellent"
+  },
+  "Contact": {
+    "eyebrow": "Get in touch",
+
+    "titleStart": "Have",
+    "titleHighlight": "questions or suggestions?",
+
+    "description": "We’d love to hear from you. Whether you need help, have feedback, or want to collaborate, our team is here to assist you.",
+
+    "contact": {
+      "email": {
+        "title": "Email Us",
+        "description": "support@it-sum.com"
+      },
+      "support": {
+        "title": "Support Center",
+        "description": "Get help & find answers"
+      },
+      "faq": {
+        "title": "FAQ",
+        "description": "Common questions answered"
+      }
+    },
+
+    "social": {
+      "title": "Connect with us"
+    },
+
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+
+      "subject": {
+        "placeholder": "What is this about?",
+        "support": "Technical Support",
+        "feedback": "Feedback & Suggestions",
+        "collaboration": "Collaboration",
+        "other": "Other"
+      },
+
+      "message": "Your Message",
+      "submit": "Send Message",
+
+      "benefits": {
+        "secure": "Secure & Private",
+        "response": "Quick Response",
+        "care": "We Care"
+      }
+    },
+
+    "info": {
+      "response": {
+        "title": "Response Time",
+        "description": "We typically respond within 24 hours"
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your information is always protected"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our team is here to help you"
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "description": "Empowering IT students with the best resources, tools, and community to build a successful future.",
+      "features": {
+        "resources": {
+          "title": "Quality Resources",
+          "description": "Curated by experts"
+        },
+        "community": {
+          "title": "Active Community",
+          "description": "Learn together"
+        },
+        "progress": {
+          "title": "Track Progress",
+          "description": "Achieve your goals"
+        },
+        "learning": {
+          "title": "Smart Learning",
+          "description": "Learn faster, achieve better"
+        }
+      }
+    },
+
+    "columns": {
+      "platform": {
+        "title": "Platform",
+        "links": {
+          "dashboard": "Dashboard",
+          "courses": "Courses",
+          "summaries": "Summaries",
+          "videos": "Videos",
+          "quizzes": "Quizzes",
+          "progress": "Progress",
+          "changelog": "Changelog"
+        }
+      },
+
+      "resources": {
+        "title": "Resources",
+        "links": {
+          "blog": "Blog",
+          "guides": "Guides",
+          "helpCenter": "Help Center",
+          "community": "Community",
+          "updates": "Updates",
+          "roadmap": "Roadmap",
+          "apiDocs": "API Docs"
+        }
+      },
+
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About Us",
+          "careers": "Careers",
+          "contact": "Contact",
+          "partners": "Partners",
+          "pressKit": "Press Kit"
+        }
+      },
+
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "terms": "Terms of Service",
+          "privacy": "Privacy Policy",
+          "cookies": "Cookie Policy",
+          "refund": "Refund Policy"
+        }
+      }
+    },
+
+    "newsletter": {
+      "title": "Stay Connected",
+      "description": "Subscribe to our newsletter and never miss an update.",
+      "placeholder": "Your email address",
+      "button": "Subscribe",
+      "privacy": "We respect your privacy. Unsubscribe anytime."
+    },
+
+    "trust": {
+      "trusted": "Trusted by",
+      "students": "Students",
+      "uptime": "Uptime",
+
+      "secure": {
+        "title": "Secure",
+        "description": "Your data is safe"
+      },
+
+      "fast": {
+        "title": "Fast",
+        "description": "Optimized performance"
+      },
+
+      "support": {
+        "title": "24/7 Support",
+        "description": "We're here to help"
+      }
+    },
+
+    "copyright": "All rights reserved.",
+
+    "credit": {
+      "addBy": "Add by",
+      "and": "and"
+    }
   }
 }

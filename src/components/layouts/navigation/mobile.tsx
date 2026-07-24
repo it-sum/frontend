@@ -7,7 +7,7 @@ import { motion, AnimatePresence, type Variants } from "motion/react";
 import { X } from "lucide-react";
 import { Link } from "@/src/i18n/navigation";
 import { NavLinksArray } from "@/src/constants";
-import Logo from "@/src/assets/images/Logo.png";
+import Logo from "@/src/assets/images/logo.webp";
 import ThemeToggle from "./theme-toggle";
 import LanguageToggle from "./language-toggle";
 

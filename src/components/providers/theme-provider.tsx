@@ -24,12 +24,11 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-// Custom event dispatched whenever theme changes (so useSyncExternalStore re-renders)
 const THEME_EVENT = "theme-change";
 
 function subscribe(callback: () => void) {
   window.addEventListener(THEME_EVENT, callback);
-  window.addEventListener("storage", callback); // cross-tab sync
+  window.addEventListener("storage", callback);
   return () => {
     window.removeEventListener(THEME_EVENT, callback);
     window.removeEventListener("storage", callback);
@@ -50,10 +49,8 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  // useSyncExternalStore reads from localStorage without setState-in-effect
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  // Apply theme class to <html> — this is a legitimate DOM sync effect
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
