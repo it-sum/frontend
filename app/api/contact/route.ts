@@ -1,12 +1,86 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+// =========================================================
+// SECURITY UTILITIES
+// =========================================================
+
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5; // 5 requests per IP
+const ipRequests = new Map<string, { count: number; startTime: number }>();
+
+function rateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = ipRequests.get(ip);
+
+  if (!record || now - record.startTime > RATE_LIMIT_WINDOW_MS) {
+    ipRequests.set(ip, { count: 1, startTime: now });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
+// 1. XSS Protection
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// 2. CRLF / Header Injection Protection
+function removeNewlines(str: string): string {
+  return str.replace(/[\r\n]/g, "");
+}
+
+// 3. Email Validation
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// =========================================================
+// API ROUTE HANDLER
+// =========================================================
+
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    // --- Step 1: Rate Limiting ---
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
+    if (ip === "unknown") {
+      return NextResponse.json(
+        { success: false, message: "Cannot verify IP address." },
+        { status: 400 },
+      );
+    }
 
+    const clientIp = ip.split(",")[0].trim();
+
+    if (!rateLimit(clientIp)) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Too many requests. Please try again later.",
+        },
+        { status: 429 },
+      );
+    }
+
+    const body = await req.json();
     const { name, email, subject, message } = body;
 
+    // --- Step 2: Input Validation ---
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { success: false, message: "All fields are required." },
@@ -14,6 +88,49 @@ export async function POST(req: Request) {
       );
     }
 
+    const MAX_LENGTHS = {
+      name: 100,
+      email: 100,
+      subject: 150,
+      message: 5000,
+    };
+
+    if (
+      typeof name !== "string" ||
+      name.length > MAX_LENGTHS.name ||
+      typeof email !== "string" ||
+      email.length > MAX_LENGTHS.email ||
+      typeof subject !== "string" ||
+      subject.length > MAX_LENGTHS.subject ||
+      typeof message !== "string" ||
+      message.length > MAX_LENGTHS.message
+    ) {
+      return NextResponse.json(
+        { success: false, message: "Invalid input length or type." },
+        { status: 400 },
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { success: false, message: "Invalid email address." },
+        { status: 400 },
+      );
+    }
+
+    // --- Step 3: Sanitization (XSS + CRLF Prevention) ---
+
+    // إزالة الأسطر من الإيميل والموضوع لمنع حقن الرؤوس (Header Injection)
+    const cleanEmail = removeNewlines(email);
+    const cleanSubject = removeNewlines(subject);
+
+    // تطهير النصوص من أكواد HTML (XSS)
+    const sanitizedName = escapeHtml(name);
+    const sanitizedEmail = escapeHtml(cleanEmail);
+    const sanitizedSubject = escapeHtml(cleanSubject);
+    const sanitizedMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
+    // --- Step 4: Environment Variables Check ---
     if (
       !process.env.SMTP_USER ||
       !process.env.SMTP_PASS ||
@@ -26,10 +143,11 @@ export async function POST(req: Request) {
       );
     }
 
+    // --- Step 5: Nodemailer Setup ---
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -41,8 +159,8 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"IT-SUM Contact" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL,
-      replyTo: email,
-      subject: `New Contact: ${subject}`,
+      replyTo: sanitizedEmail,
+      subject: `New Contact: ${sanitizedSubject}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -61,7 +179,6 @@ export async function POST(req: Request) {
                     <tr>
                       <td style="padding:40px;background:radial-gradient(circle at top right, rgba(6,182,212,0.2), transparent 45%), #06101d;border-bottom:1px solid rgba(6,182,212,0.15);">
                         
-                        <!-- IT-SUM Text Logo -->
                         <h1 style="margin:0 0 24px;font-size:24px;font-weight:900;letter-spacing:-0.02em;">
                           <span style="color:#ffffff;">IT</span><span style="color:#06B6D4;">-SUM</span>
                         </h1>
@@ -71,7 +188,7 @@ export async function POST(req: Request) {
                         </p>
                         
                         <h2 style="margin:16px 0 0;font-size:28px;line-height:1.2;font-weight:800;color:#ffffff;text-transform:capitalize;">
-                          ${subject}
+                          ${sanitizedSubject}
                         </h2>
 
                         <p style="margin:18px 0 0;color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;">
@@ -91,7 +208,7 @@ export async function POST(req: Request) {
                                 Full Name
                               </p>
                               <p style="margin:0;font-size:16px;font-weight:600;color:#ffffff;">
-                                ${name}
+                                ${sanitizedName}
                               </p>
                             </td>
                           </tr>
@@ -104,7 +221,7 @@ export async function POST(req: Request) {
                                 Email Address
                               </p>
                               <p style="margin:0;font-size:16px;font-weight:600;color:#ffffff;">
-                                <a href="mailto:${email}" style="color:#ffffff;text-decoration:none;">${email}</a>
+                                <a href="mailto:${sanitizedEmail}" style="color:#ffffff;text-decoration:none;">${sanitizedEmail}</a>
                               </p>
                             </td>
                           </tr>
@@ -117,7 +234,7 @@ export async function POST(req: Request) {
                                 Message
                               </p>
                               <p style="margin:0;color:rgba(255,255,255,0.85);font-size:15px;line-height:1.8;">
-                                ${message.replace(/\n/g, "<br>")}
+                                ${sanitizedMessage}
                               </p>
                             </td>
                           </tr>

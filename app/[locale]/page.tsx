@@ -6,6 +6,7 @@ import Preview from "@/src/components/layouts/sections/Preview";
 import Recent from "@/src/components/layouts/sections/Recent";
 import Stats from "@/src/components/layouts/sections/Stats";
 import Works from "@/src/components/layouts/sections/Works";
+import Responsive from "@/src/components/layouts/navigation/responsive";
 import { setRequestLocale } from "next-intl/server";
 
 export default async function HomePage({
@@ -18,6 +19,7 @@ export default async function HomePage({
 
   return (
     <>
+      <Responsive />
       <Home />
       <div className="bg-white text-slate-950 dark:bg-[#020812] dark:text-white">
         <Features />

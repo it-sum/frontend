@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react"; // تم إضافة useState
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -91,6 +91,10 @@ const Footer = () => {
   const locale = useLocale();
   const isArabic = locale === "ar";
 
+  // --- Security States for Newsletter ---
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+
   const arrowClass =
     "transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1";
 
@@ -142,6 +146,29 @@ const Footer = () => {
       description: t("trust.support.description"),
     },
   ];
+
+  // --- Newsletter Submit Handler with Validation ---
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // 1. Basic XSS & Length Check
+    if (email.length > 100 || email.includes("<") || email.includes(">")) {
+      setStatus("error");
+      return;
+    }
+
+    // 2. Email Regex Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      return;
+    }
+
+    // 3. If valid (Here you would normally call your API)
+    // fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) })
+    setStatus("success");
+    setEmail("");
+  };
 
   return (
     <footer
@@ -273,13 +300,32 @@ const Footer = () => {
             {t("newsletter.description")}
           </p>
 
-          <form onSubmit={(event) => event.preventDefault()} className="mt-5">
+          {/* Updated Form with Validation */}
+          <form onSubmit={handleNewsletterSubmit} className="mt-5">
             <input
               type="email"
               required
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setStatus("idle");
+              }}
               placeholder={t("newsletter.placeholder")}
               className="h-11 w-full rounded-lg border border-slate-200 bg-white/30 px-3 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/6 dark:border-[#31465b] dark:bg-[#0b1826]/55 dark:text-white dark:placeholder:text-[#8290a2]"
             />
+
+            {/* Error/Success Messages */}
+            {status === "error" && (
+              <p className="mt-2 text-[10px] font-medium text-red-500">
+                {isArabic ? "بريد إلكتروني غير صالح" : "Invalid email address"}
+              </p>
+            )}
+            {status === "success" && (
+              <p className="mt-2 text-[10px] font-medium text-emerald-500">
+                {isArabic ? "تم الاشتراك بنجاح!" : "Subscribed successfully!"}
+              </p>
+            )}
+
             <button
               type="submit"
               className="group mt-3 flex h-11 w-full items-center justify-center gap-6 rounded-lg bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-400 px-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(14,165,233,.20)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_13px_35px_rgba(14,165,233,.28)]"

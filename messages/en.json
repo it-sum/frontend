@@ -1,11 +1,10 @@
 {
   "Navigation": {
-    "features": "Features",
+    "home": "Home",
+    "departments": "Departments",
     "resources": "Resources",
-    "solutions": "Solutions",
-    "community": "Community",
-    "pricing": "Pricing",
     "about": "About",
+    "contact": "Contact",
     "login": "Login",
     "getStarted": "Get Started"
   },
@@ -323,5 +322,204 @@
       "addBy": "Add by",
       "and": "and"
     }
+  },
+  "AboutHero": {
+    "badge": "About IT-SUM",
+    "titleStart": "Empowering IT students",
+    "titleMiddle": "to build a",
+    "titleHighlight": "successful future",
+    "description1": "IT-SUM is a centralized educational platform designed specifically for Information Technology students.",
+    "description2": "We bring together the best resources, tools, and community to help you learn, practice, and grow.",
+    "features": {
+      "quality": { "title": "Quality Education", "desc": "Curated by experts" },
+      "student": {
+        "title": "Student Focused",
+        "desc": "Built for real learning"
+      },
+      "improving": { "title": "Always Improving", "desc": "Driven by feedback" }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome back, Seif 👋",
+      "search": "Search anything...",
+      "nav": {
+        "overview": "Overview",
+        "progress": "My Progress",
+        "summaries": "Summaries",
+        "videos": "Videos",
+        "quizzes": "Quizzes",
+        "bookmarks": "Bookmarks",
+        "achievements": "Achievements"
+      },
+      "stats": {
+        "progress": { "title": "Study Progress", "desc": "Keep it up!" },
+        "quizzes": { "title": "Quizzes Completed", "desc": "+12 this week" },
+        "hours": { "title": "Hours Learned", "desc": "+8 this week" }
+      },
+      "activity": {
+        "title": "Recent Activity",
+        "item1": {
+          "title": "Data Structures Summary",
+          "subtitle": "PDF Viewed",
+          "time": "2h ago"
+        },
+        "item2": {
+          "title": "Operating Systems Quiz",
+          "subtitle": "Score: 85%",
+          "time": "5h ago"
+        },
+        "item3": {
+          "title": "System Design Video",
+          "subtitle": "Watched 45 min",
+          "time": "Yesterday"
+        }
+      },
+      "achievements": {
+        "title": "Achievements",
+        "item1": { "title": "Quiz Master", "desc": "Complete 20 quizzes" },
+        "item2": {
+          "title": "Consistent Learner",
+          "desc": "Study 7 days in a row"
+        },
+        "item3": { "title": "Resource Explorer", "desc": "View 50 resources" }
+      }
+    }
+  },
+
+  "MissionVision": {
+    "badge": "Our Purpose",
+    "titlePrefix": "Our",
+    "missionText": "Mission",
+    "separator": "&",
+    "visionText": "Vision",
+    "description": "We are on a mission to make quality IT education accessible, organized, and effective for everyone.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To provide IT students with a unified platform that simplifies learning by offering high-quality resources, interactive tools, and a supportive community.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "To become the most trusted and comprehensive educational ecosystem for IT students worldwide."
+  },
+  "Team": {
+    "badge": "Our Team",
+    "title": "Meet the Minds Behind",
+    "subtitle": "A passionate team dedicated to building the future of IT education.",
+    "seif": {
+      "role": "Software Full Stack Engineer",
+      "description": "Software Full Stack Engineer specializing in scalable web applications, architecture, and modern software engineering.",
+      "skills": {
+        "fullStack": "Full Stack",
+        "softwareEngineering": "Software Engineering"
+      }
+    },
+    "ahmed": {
+      "role": "AI Engineer",
+      "description": "AI Engineer, Prompt Engineer, and Vibe Coder focused on intelligent applications and modern AI workflows.",
+      "skills": {
+        "aiEngineering": "AI Engineering",
+        "promptEngineering": "Prompt Engineering"
+      }
+    }
+  },
+  "OurStory": {
+    "badge": "OUR JOURNEY",
+    "title": "Our Story,",
+    "titleHighlight": "Built for the Future.",
+    "description1": "IT-SUM was founded to make IT learning simpler, smarter, and more accessible for everyone.",
+    "description2": "We're just getting started, and this is only the beginning of our journey.",
+    "items": {
+      "0": {
+        "title": "The Beginning",
+        "desc": "IT-SUM started with one goal: make IT learning simpler and more accessible for everyone."
+      },
+      "1": {
+        "title": "Building the Platform",
+        "desc": "We're building a complete ecosystem of resources, summaries, videos, and learning tools — all in one place."
+      },
+      "2": {
+        "title": "Growing Forward",
+        "desc": "A larger, smarter platform built for more students, more tools, and what comes next."
+      }
+    },
+    "future": {
+      "title": "2026",
+      "desc": "Our journey continues..."
+    }
+  },
+  "AboutCTA": {
+    "title": "Ready to start",
+    "titleHighlight": "your journey?",
+    "description": "Join thousands of IT students and take your learning experience to the next level with IT-SUM.",
+    "button": "Get Started for Free",
+    "features": {
+      "freeForever": "Free forever",
+      "noCard": "No credit card",
+      "startQuickly": "Start in 30 seconds"
+    }
+  },
+  "DepartmentsPage": {
+    "eyebrow": "Academic Programs",
+    "title1": "Explore Our",
+    "title2": "Academic Departments",
+    "description": "Discover IT programs and resources organized by department. Choose your path and start learning.",
+    "search": "Search departments...",
+    "stats": {
+      "departments": "Departments",
+      "subjects": "Subjects",
+      "summaries": "Summaries",
+      "resources": "Resources"
+    },
+    "explore": "Explore Department",
+    "noResults": "No departments found",
+    "noResultsDescription": "Try searching with another department name.",
+    "it": {
+      "name": "Information Technology",
+      "desc": "Focuses on computing systems, software development, networks, and emerging technologies."
+    },
+    "cs": {
+      "name": "Computer Science",
+      "desc": "Study of algorithms, data structures, software engineering, and computational problem solving."
+    },
+    "ai": {
+      "name": "Artificial Intelligence",
+      "desc": "Explore machine learning, deep learning, neural networks, and intelligent systems."
+    },
+    "cyber": {
+      "name": "Cyber Security",
+      "desc": "Learn about security systems, ethical hacking, cryptography, and network security."
+    },
+    "is": {
+      "name": "Information Systems",
+      "desc": "Combines IT and business to design solutions that improve organizational processes."
+    }
+  },
+  "DepartmentsFeatured": {
+    "eyebrow": "FEATURED DEPARTMENT",
+    "title": "Information Technology",
+    "description": "The Information Technology department provides students with a strong foundation in modern technologies, programming, networks, databases, and software development.",
+    "features": [
+      "Modern Curriculum",
+      "Industry Relevant",
+      "Expert Instructors",
+      "Practical Learning"
+    ],
+    "button": "Explore IT Department",
+    "whyTitle": "Why Choose IT-SUM?",
+    "reasons": [
+      {
+        "title": "High Quality Content",
+        "description": "Well-structured summaries and resources created by experts."
+      },
+      {
+        "title": "Easy to Access",
+        "description": "All materials are organized and easy to find."
+      },
+      {
+        "title": "Free for Students",
+        "description": "IT-SUM is a non-profit platform dedicated to supporting students."
+      },
+      {
+        "title": "Always Updated",
+        "description": "Content is reviewed and updated regularly."
+      }
+    ]
   }
 }

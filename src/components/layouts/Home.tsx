@@ -5,12 +5,13 @@ import { getLocale, getTranslations } from "next-intl/server";
 import bgLight from "@/src/assets/images/light.webp";
 import bgDark from "@/src/assets/images/dark.webp";
 
-const avatars = [
-  "/images/students/student-1.webp",
-  "/images/students/student-2.webp",
-  "/images/students/student-3.webp",
-  "/images/students/student-4.webp",
-];
+// استيراد صور الطلاب بشكل مباشر ليتمكن next/image من معالجتها
+import student1 from "@/src/assets/images/students/student-1.webp";
+import student2 from "@/src/assets/images/students/student-2.webp";
+import student3 from "@/src/assets/images/students/student-3.webp";
+import student4 from "@/src/assets/images/students/student-4.webp";
+
+const avatars = [student1, student2, student3, student4];
 
 export default async function Home() {
   const t = await getTranslations("HomePage");
@@ -113,7 +114,7 @@ export default async function Home() {
             <div className="flex shrink-0 -space-x-2.5">
               {avatars.map((src, index) => (
                 <div
-                  key={src}
+                  key={index}
                   className="relative size-9 overflow-hidden rounded-full border-2 border-white bg-slate-200 shadow-sm dark:border-[#07111d] dark:bg-slate-800"
                   style={{
                     zIndex: avatars.length - index,
