@@ -96,21 +96,26 @@ const LoginLeft = () => {
 
           {/* Features */}
           <div className="mt-8 space-y-4">
-            {features.map(({ icon: Icon, titleKey, descriptionKey, iconColor }) => (
-              <div key={titleKey} className="group flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 transition-colors duration-300 group-hover:bg-slate-200 dark:border-white/5 dark:bg-white/3 dark:group-hover:bg-white/6">
-                  <Icon className={`h-6 w-6 ${iconColor}`} strokeWidth={1.5} />
+            {features.map(
+              ({ icon: Icon, titleKey, descriptionKey, iconColor }) => (
+                <div key={titleKey} className="group flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 transition-colors duration-300 group-hover:bg-slate-200 dark:border-white/5 dark:bg-white/3 dark:group-hover:bg-white/6">
+                    <Icon
+                      className={`h-6 w-6 ${iconColor}`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                      {t(titleKey)}
+                    </h3>
+                    <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
+                      {t(descriptionKey)}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                    {t(titleKey)}
-                  </h3>
-                  <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
-                    {t(descriptionKey)}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
 

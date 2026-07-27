@@ -25,11 +25,56 @@ type FindItem = {
 };
 
 const itemsData: FindItem[] = [
-  { key: "study", icon: BookOpen, styles: { icon: "text-blue-500 dark:text-blue-400", bg: "bg-blue-500/8", border: "border-blue-500/20", glow: "bg-blue-500/10" } },
-  { key: "lectures", icon: Presentation, styles: { icon: "text-sky-500 dark:text-sky-400", bg: "bg-sky-500/8", border: "border-sky-500/20", glow: "bg-sky-500/10" } },
-  { key: "code", icon: CodeXml, styles: { icon: "text-violet-500 dark:text-violet-400", bg: "bg-violet-500/8", border: "border-violet-500/20", glow: "bg-violet-500/10" } },
-  { key: "practice", icon: FileText, styles: { icon: "text-emerald-500 dark:text-emerald-400", bg: "bg-emerald-500/8", border: "border-emerald-500/20", glow: "bg-emerald-500/10" } },
-  { key: "additional", icon: Layers3, styles: { icon: "text-amber-500 dark:text-amber-400", bg: "bg-amber-500/8", border: "border-amber-500/20", glow: "bg-amber-500/10" } },
+  {
+    key: "study",
+    icon: BookOpen,
+    styles: {
+      icon: "text-blue-500 dark:text-blue-400",
+      bg: "bg-blue-500/8",
+      border: "border-blue-500/20",
+      glow: "bg-blue-500/10",
+    },
+  },
+  {
+    key: "lectures",
+    icon: Presentation,
+    styles: {
+      icon: "text-sky-500 dark:text-sky-400",
+      bg: "bg-sky-500/8",
+      border: "border-sky-500/20",
+      glow: "bg-sky-500/10",
+    },
+  },
+  {
+    key: "code",
+    icon: CodeXml,
+    styles: {
+      icon: "text-violet-500 dark:text-violet-400",
+      bg: "bg-violet-500/8",
+      border: "border-violet-500/20",
+      glow: "bg-violet-500/10",
+    },
+  },
+  {
+    key: "practice",
+    icon: FileText,
+    styles: {
+      icon: "text-emerald-500 dark:text-emerald-400",
+      bg: "bg-emerald-500/8",
+      border: "border-emerald-500/20",
+      glow: "bg-emerald-500/10",
+    },
+  },
+  {
+    key: "additional",
+    icon: Layers3,
+    styles: {
+      icon: "text-amber-500 dark:text-amber-400",
+      bg: "bg-amber-500/8",
+      border: "border-amber-500/20",
+      glow: "bg-amber-500/10",
+    },
+  },
 ];
 
 const ResourcesFind = () => {
@@ -67,7 +112,10 @@ const ResourcesFind = () => {
                   <div
                     className={`relative flex size-16 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:-translate-y-1 ${styles.bg} ${styles.border}`}
                   >
-                    <Icon className={`size-8 ${styles.icon}`} strokeWidth={1.8} />
+                    <Icon
+                      className={`size-8 ${styles.icon}`}
+                      strokeWidth={1.8}
+                    />
                   </div>
 
                   <h3 className="mt-4 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -96,4 +144,4 @@ const ResourcesFind = () => {
   );
 };
 
-export default ResourcesFind; 
+export default ResourcesFind;

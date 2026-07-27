@@ -172,10 +172,7 @@ const ResourcesHowItWorks = () => {
                 {t("cta.explore")}
               </Link>
 
-              <Link
-                href={`/${locale}/get-started`}
-                className={primaryBtnClass}
-              >
+              <Link href={`/${locale}/get-started`} className={primaryBtnClass}>
                 {t("cta.getStarted")}
               </Link>
             </div>

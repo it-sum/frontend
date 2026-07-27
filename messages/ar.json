@@ -514,7 +514,7 @@
       }
     ]
   },
-   "resources": {
+  "resources": {
     "hero": {
       "title": "كل مصادر التعلم",
       "highlight": "في مكان واحد",
@@ -576,7 +576,7 @@
         }
       }
     },
-     "find": {
+    "find": {
       "title": "ما الذي يمكنك العثور عليه؟",
       "items": {
         "study": {
@@ -627,7 +627,7 @@
       }
     }
   },
-   "Auth": {
+  "Auth": {
     "Left": {
       "brandSubtitle": "تعلّم ذكي. مستقبل أفضل.",
       "welcomePill": "مرحباً بعودتك",
@@ -665,41 +665,4 @@
       "supportLink": "تواصل مع الدعم"
     }
   }
-}, "Auth": {
-    "Left": {
-      "brandSubtitle": "تعلّم ذكي. مستقبل أفضل.",
-      "welcomePill": "مرحباً بعودتك",
-      "heroTitlePrefix": "أكمل رحلتك",
-      "heroTitleHighlight": "التعليمية.",
-      "heroDescription": "احصل على موادك، الملخصات، المصادر، الاختبارات، وتقدمك التعليمي في مكان واحد.",
-      "features": {
-        "study": {
-          "title": "مصادر الدراسة",
-          "description": "كل ما تحتاجه في مكان واحد"
-        },
-        "track": {
-          "title": "تتبع التقدم",
-          "description": "أكمل من حيث توقفت"
-        },
-        "secure": {
-          "title": "وصول آمن",
-          "description": "مساحة التعلم الخاصة بك تبقى محمية"
-        }
-      },
-      "footerCopy": "© {year} IT-SUM. جميع الحقوق محفوظة."
-    },
-    "Right": {
-      "title": "مرحباً بعودتك",
-      "subtitle": "سجل الدخول للوصول إلى حسابك في IT-SUM.",
-      "identifierLabel": "البريد الإلكتروني أو الرقم الجامعي",
-      "identifierPlaceholder": "أدخل بريدك الإلكتروني أو رقمك الجامعي",
-      "passwordLabel": "كلمة المرور",
-      "passwordPlaceholder": "أدخل كلمة المرور",
-      "rememberMe": "تذكرني",
-      "forgotPassword": "نسيت كلمة المرور؟",
-      "submitButton": "تسجيل الدخول",
-      "secureAccess": "وصول آمن إلى حسابك في IT-SUM",
-      "supportPrefix": "تواجه مشكلة في تسجيل الدخول؟",
-      "supportLink": "تواصل مع الدعم"
-    }
-  }
+}

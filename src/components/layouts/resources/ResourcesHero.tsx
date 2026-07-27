@@ -3,7 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FolderOpen, ShieldCheck, LockKeyhole, Heart, type LucideIcon } from "lucide-react";
+import {
+  FolderOpen,
+  ShieldCheck,
+  LockKeyhole,
+  Heart,
+  type LucideIcon,
+} from "lucide-react";
 
 // استيراد الصورة بشكل ثابت
 import folder from "@/src/assets/images/folder.webp";
@@ -20,10 +26,34 @@ type Feature = {
 };
 
 const featuresData: Feature[] = [
-  { key: "formats", icon: FolderOpen, iconClass: "text-violet-500 dark:text-violet-400", iconBg: "bg-violet-500/10", border: "border-violet-500/15 dark:border-violet-400/15" },
-  { key: "verified", icon: ShieldCheck, iconClass: "text-emerald-500 dark:text-emerald-400", iconBg: "bg-emerald-500/10", border: "border-emerald-500/15 dark:border-emerald-400/15" },
-  { key: "free", icon: LockKeyhole, iconClass: "text-amber-500 dark:text-amber-400", iconBg: "bg-amber-500/10", border: "border-amber-500/15 dark:border-amber-400/15" },
-  { key: "students", icon: Heart, iconClass: "text-rose-500 dark:text-rose-400", iconBg: "bg-rose-500/10", border: "border-rose-500/15 dark:border-rose-400/15" },
+  {
+    key: "formats",
+    icon: FolderOpen,
+    iconClass: "text-violet-500 dark:text-violet-400",
+    iconBg: "bg-violet-500/10",
+    border: "border-violet-500/15 dark:border-violet-400/15",
+  },
+  {
+    key: "verified",
+    icon: ShieldCheck,
+    iconClass: "text-emerald-500 dark:text-emerald-400",
+    iconBg: "bg-emerald-500/10",
+    border: "border-emerald-500/15 dark:border-emerald-400/15",
+  },
+  {
+    key: "free",
+    icon: LockKeyhole,
+    iconClass: "text-amber-500 dark:text-amber-400",
+    iconBg: "bg-amber-500/10",
+    border: "border-amber-500/15 dark:border-amber-400/15",
+  },
+  {
+    key: "students",
+    icon: Heart,
+    iconClass: "text-rose-500 dark:text-rose-400",
+    iconBg: "bg-rose-500/10",
+    border: "border-rose-500/15 dark:border-rose-400/15",
+  },
 ];
 
 // =========================================================
@@ -81,8 +111,13 @@ const ResourcesHero = () => {
                 className="group flex min-h-23.5 items-center gap-4 rounded-2xl border border-zinc-200/70 bg-white/30 px-4 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-white/50 dark:border-white/7 dark:bg-white/1.5 dark:hover:border-white/12 dark:hover:bg-white/3 sm:px-5"
               >
                 {/* Icon */}
-                <div className={`flex size-12 shrink-0 items-center justify-center rounded-xl border ${feature.iconBg} ${feature.border}`}>
-                  <Icon strokeWidth={1.8} className={`size-6 ${feature.iconClass}`} />
+                <div
+                  className={`flex size-12 shrink-0 items-center justify-center rounded-xl border ${feature.iconBg} ${feature.border}`}
+                >
+                  <Icon
+                    strokeWidth={1.8}
+                    className={`size-6 ${feature.iconClass}`}
+                  />
                 </div>
 
                 {/* Text */}

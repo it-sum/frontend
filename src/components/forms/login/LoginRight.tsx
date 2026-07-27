@@ -140,7 +140,10 @@ const LoginRight = () => {
               />
               <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded border border-slate-400 bg-slate-100 transition-all peer-checked:border-cyan-500 peer-checked:bg-cyan-500 dark:border-slate-500 dark:bg-[#07101f] dark:peer-checked:border-cyan-400 dark:peer-checked:bg-cyan-400">
                 {rememberMe && (
-                  <Check className="h-3 w-3 text-white dark:text-[#020817]" strokeWidth={3} />
+                  <Check
+                    className="h-3 w-3 text-white dark:text-[#020817]"
+                    strokeWidth={3}
+                  />
                 )}
               </span>
               {t("rememberMe")}

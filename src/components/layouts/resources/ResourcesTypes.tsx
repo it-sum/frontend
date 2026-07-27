@@ -13,7 +13,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-type ResourceKey = "books" | "slides" | "assignments" | "labs" | "code" | "exams" | "cheatsheets";
+type ResourceKey =
+  | "books"
+  | "slides"
+  | "assignments"
+  | "labs"
+  | "code"
+  | "exams"
+  | "cheatsheets";
 
 type ResourceType = {
   key: ResourceKey;
@@ -28,13 +35,83 @@ type ResourceType = {
 };
 
 const resourceTypes: ResourceType[] = [
-  { key: "books", icon: FileText, styles: { icon: "text-rose-500 dark:text-rose-400", bg: "bg-rose-500/8", border: "border-rose-500/20", line: "bg-rose-500", glow: "bg-rose-500/10" } },
-  { key: "slides", icon: FolderOpen, styles: { icon: "text-amber-500 dark:text-amber-400", bg: "bg-amber-500/8", border: "border-amber-500/20", line: "bg-amber-500", glow: "bg-amber-500/10" } },
-  { key: "assignments", icon: ClipboardList, styles: { icon: "text-emerald-500 dark:text-emerald-400", bg: "bg-emerald-500/8", border: "border-emerald-500/20", line: "bg-emerald-500", glow: "bg-emerald-500/10" } },
-  { key: "labs", icon: FlaskConical, styles: { icon: "text-violet-500 dark:text-violet-400", bg: "bg-violet-500/8", border: "border-violet-500/20", line: "bg-violet-500", glow: "bg-violet-500/10" } },
-  { key: "code", icon: Code2, styles: { icon: "text-blue-500 dark:text-blue-400", bg: "bg-blue-500/8", border: "border-blue-500/20", line: "bg-blue-500", glow: "bg-blue-500/10" } },
-  { key: "exams", icon: FilePlus2, styles: { icon: "text-amber-500 dark:text-amber-400", bg: "bg-amber-500/8", border: "border-amber-500/20", line: "bg-amber-500", glow: "bg-amber-500/10" } },
-  { key: "cheatsheets", icon: GraduationCap, styles: { icon: "text-cyan-500 dark:text-cyan-400", bg: "bg-cyan-500/8", border: "border-cyan-500/20", line: "bg-cyan-500", glow: "bg-cyan-500/10" } },
+  {
+    key: "books",
+    icon: FileText,
+    styles: {
+      icon: "text-rose-500 dark:text-rose-400",
+      bg: "bg-rose-500/8",
+      border: "border-rose-500/20",
+      line: "bg-rose-500",
+      glow: "bg-rose-500/10",
+    },
+  },
+  {
+    key: "slides",
+    icon: FolderOpen,
+    styles: {
+      icon: "text-amber-500 dark:text-amber-400",
+      bg: "bg-amber-500/8",
+      border: "border-amber-500/20",
+      line: "bg-amber-500",
+      glow: "bg-amber-500/10",
+    },
+  },
+  {
+    key: "assignments",
+    icon: ClipboardList,
+    styles: {
+      icon: "text-emerald-500 dark:text-emerald-400",
+      bg: "bg-emerald-500/8",
+      border: "border-emerald-500/20",
+      line: "bg-emerald-500",
+      glow: "bg-emerald-500/10",
+    },
+  },
+  {
+    key: "labs",
+    icon: FlaskConical,
+    styles: {
+      icon: "text-violet-500 dark:text-violet-400",
+      bg: "bg-violet-500/8",
+      border: "border-violet-500/20",
+      line: "bg-violet-500",
+      glow: "bg-violet-500/10",
+    },
+  },
+  {
+    key: "code",
+    icon: Code2,
+    styles: {
+      icon: "text-blue-500 dark:text-blue-400",
+      bg: "bg-blue-500/8",
+      border: "border-blue-500/20",
+      line: "bg-blue-500",
+      glow: "bg-blue-500/10",
+    },
+  },
+  {
+    key: "exams",
+    icon: FilePlus2,
+    styles: {
+      icon: "text-amber-500 dark:text-amber-400",
+      bg: "bg-amber-500/8",
+      border: "border-amber-500/20",
+      line: "bg-amber-500",
+      glow: "bg-amber-500/10",
+    },
+  },
+  {
+    key: "cheatsheets",
+    icon: GraduationCap,
+    styles: {
+      icon: "text-cyan-500 dark:text-cyan-400",
+      bg: "bg-cyan-500/8",
+      border: "border-cyan-500/20",
+      line: "bg-cyan-500",
+      glow: "bg-cyan-500/10",
+    },
+  },
 ];
 
 const ResourcesTypes = () => {
