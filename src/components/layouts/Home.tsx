@@ -76,11 +76,11 @@ export default async function Home() {
             {t("subtitle")}
           </p>
 
-          {/* الأزرار - ستبقى دائماً على اليسار بنفس الترتيب */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          {/* الأزرار - تم جعلها متساوية الحجم ومتجاوبة */}
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
               href="#start"
-              className="group inline-flex h-12 items-center justify-center gap-5 rounded-lg bg-linear-to-r from-[#079bf5] via-[#08bddd] to-[#32d575] px-6 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)]"
+              className="group flex h-12 w-full items-center justify-center gap-5 rounded-lg bg-linear-to-r from-[#079bf5] via-[#08bddd] to-[#32d575] px-6 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)] sm:flex-1"
             >
               {t("ctaPrimary")}
               {/* استخدام الشرط البرمجي لتحديد اتجاه السهم بدلاً من rtl: */}
@@ -99,7 +99,7 @@ export default async function Home() {
 
             <a
               href="#features"
-              className="group inline-flex h-12 items-center justify-center gap-4 rounded-lg border border-slate-200 bg-white/60 px-6 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white dark:border-white/15 dark:bg-white/4 dark:text-white dark:hover:bg-white/8"
+              className="group flex h-12 w-full items-center justify-center gap-4 rounded-lg border border-slate-200 bg-white/60 px-6 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white dark:border-white/15 dark:bg-white/4 dark:text-white dark:hover:bg-white/8 sm:flex-1"
             >
               {t("ctaSecondary")}
               <Play

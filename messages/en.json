@@ -5,8 +5,7 @@
     "resources": "Resources",
     "about": "About",
     "contact": "Contact",
-    "login": "Login",
-    "getStarted": "Get Started"
+    "login": "Login"
   },
   "HomePage": {
     "badge": "Smart Learning Ecosystem",
@@ -521,5 +520,156 @@
         "description": "Content is reviewed and updated regularly."
       }
     ]
+  },
+  "resources": {
+    "hero": {
+      "title": "All Learning",
+      "highlight": "Resources in One Place",
+      "description": "Access a wide variety of learning materials beyond summaries. Slides, books, assignments, labs, code, past exams and more.",
+      "imageAlt": "IT-SUM learning resources",
+
+      "features": {
+        "formats": {
+          "title": "Diverse Formats",
+          "description": "Many file types"
+        },
+        "verified": {
+          "title": "Verified & Safe",
+          "description": "Checked for quality"
+        },
+        "free": {
+          "title": "Free Access",
+          "description": "100% non-profit"
+        },
+        "students": {
+          "title": "For IT Students",
+          "description": "Made for your journey"
+        }
+      }
+    },
+    "types": {
+      "title": "Browse by",
+      "highlight": "Resource Type",
+      "description": "Find the right resources for your study needs.",
+
+      "items": {
+        "books": {
+          "title": "Books & PDFs",
+          "description": "E-books, references and useful guides"
+        },
+        "slides": {
+          "title": "Slides & Presentations",
+          "description": "Lecture slides and class presentations"
+        },
+        "assignments": {
+          "title": "Assignments",
+          "description": "Homework, projects and assignments"
+        },
+        "labs": {
+          "title": "Labs & Practicals",
+          "description": "Lab manuals and practical guides"
+        },
+        "code": {
+          "title": "Source Code",
+          "description": "Examples, projects and code snippets"
+        },
+        "exams": {
+          "title": "Past Exams",
+          "description": "Previous exams and practice papers"
+        },
+        "cheatsheets": {
+          "title": "Cheat Sheets",
+          "description": "Quick reference and summary sheets"
+        }
+      }
+    },
+    "find": {
+      "title": "What You Can Find",
+      "items": {
+        "study": {
+          "title": "Study Materials",
+          "description": "Books, notes, and learning references."
+        },
+        "lectures": {
+          "title": "Lecture Materials",
+          "description": "Slides, presentations, and class resources."
+        },
+        "code": {
+          "title": "Code & Projects",
+          "description": "Source code, mini projects, and programming tasks."
+        },
+        "practice": {
+          "title": "Practice Resources",
+          "description": "Past exams, quizzes, and practice sheets."
+        },
+        "additional": {
+          "title": "Additional Files",
+          "description": "Guides, templates, and helpful tools."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+
+      "steps": {
+        "search": {
+          "title": "Search",
+          "description": "Search by subject, type, or keyword."
+        },
+        "explore": {
+          "title": "Explore",
+          "description": "Browse different resources and preview details."
+        },
+        "access": {
+          "title": "Access",
+          "description": "Download and use the resource 100% free."
+        }
+      },
+
+      "cta": {
+        "title": "Everything You Need to Learn",
+        "description": "All resources are collected for IT students to help you learn better and smarter.",
+        "explore": "Explore Departments",
+        "getStarted": "Get Started Now"
+      }
+    }
+  },
+  "Auth": {
+    "Left": {
+      "brandSubtitle": "Smart Learning. Better Future.",
+      "welcomePill": "Welcome Back",
+      "heroTitlePrefix": "Continue your",
+      "heroTitleHighlight": "learning journey.",
+      "heroDescription": "Access your subjects, summaries, resources, quizzes, and learning progress in one place.",
+      "features": {
+        "study": {
+          "title": "Study Resources",
+          "description": "Everything you need in one place"
+        },
+        "track": {
+          "title": "Track Progress",
+          "description": "Continue where you left off"
+        },
+        "secure": {
+          "title": "Secure Access",
+          "description": "Your learning space stays protected"
+        }
+      },
+      "footerCopy": "© {year} IT-SUM. All rights reserved."
+    },
+    "Right": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to access your IT-SUM account.",
+      "identifierLabel": "Email or Student ID",
+      "identifierPlaceholder": "Enter your email or student ID",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submitButton": "Sign In",
+      "secureAccess": "Secure access to your IT-SUM account",
+      "supportPrefix": "Having trouble signing in?",
+      "supportLink": "Contact Support"
+    }
   }
 }

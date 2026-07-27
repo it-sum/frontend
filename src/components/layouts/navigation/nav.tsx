@@ -87,16 +87,10 @@ export default function Nav() {
 
           <Link
             href="/login"
-            className="rounded-lg px-3.5 py-1.5 text-sm font-medium text-neutral-600 transition-colors duration-200 hover:bg-black/4 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/6 dark:hover:text-white"
-          >
-            {t("login")}
-          </Link>
-          <Link
-            href="/get-started"
             className="rounded-lg bg-linear-to-r from-[#06B6D4] to-[#0284C7] px-4 py-1.5 text-sm font-semibold text-white transition-all duration-200 hover:from-[#0891B2] hover:to-[#0369A1]"
             style={{ boxShadow: "0 6px 16px -4px rgba(6, 182, 212, 0.4)" }}
           >
-            {t("getStarted")}
+            {t("login")}
           </Link>
         </div>
       </div>

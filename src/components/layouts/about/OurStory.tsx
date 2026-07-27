@@ -64,10 +64,8 @@ const TimelineRow = ({
 
   return (
     <div style={{ display: "flex", alignItems: "stretch" }}>
-      {}
       <div style={{ width: YEAR_COL_WIDTH, flexShrink: 0 }}>{children[0]}</div>
 
-      {}
       <div
         style={{ width: DOT_COL_WIDTH, flexShrink: 0, position: "relative" }}
       >
@@ -98,7 +96,6 @@ const TimelineRow = ({
         {children[1]}
       </div>
 
-      {}
       <div style={{ flex: 1, paddingInlineStart: 24, minWidth: 0 }}>
         {children[2]}
       </div>
@@ -161,7 +158,6 @@ const OurStory = () => {
     <div className="w-full flex justify-center my-4 mb-16 px-4 sm:px-6 lg:px-8">
       <div className="relative w-full max-w-305">
         <section className="relative overflow-hidden rounded-[22px] border border-blue-500/20 bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 shadow-2xl shadow-blue-950/10 p-8 sm:p-12 lg:p-16 font-sans text-slate-800 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b] dark:text-slate-200 dark:shadow-black/30 dark:border-blue-500/20 transition-colors">
-          {}
           <DotPattern
             color="#008cff"
             className="top-0 right-0"
@@ -173,11 +169,8 @@ const OurStory = () => {
             maskDirection="to top right"
           />
 
-          <div
-            className="grid gap-10 lg:gap-16"
-            style={{ gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)" }}
-          >
-            {}
+          {/* Changed to responsive grid */}
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
             <div className="flex flex-col justify-center">
               <div className="mb-4">
                 <span className="text-[13px] font-bold tracking-[0.14em] text-blue-500 dark:text-blue-400">
@@ -205,7 +198,6 @@ const OurStory = () => {
               </p>
             </div>
 
-            {}
             <div className="flex flex-col">
               {timelineConfig.map((item, idx) => (
                 <TimelineRow
@@ -248,7 +240,6 @@ const OurStory = () => {
                 </TimelineRow>
               ))}
 
-              {}
               <TimelineRow
                 lineColor="rgba(132,204,22,0.6)"
                 lineStyle="dashed"
@@ -272,7 +263,6 @@ const OurStory = () => {
           </div>
         </section>
 
-        {}
         <div className="pointer-events-none absolute right-[10%] -bottom-7.5 left-[10%] h-16 bg-cyan-500/10 blur-[70px]"></div>
       </div>
     </div>

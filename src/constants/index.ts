@@ -5,7 +5,6 @@ export const NavLinks = {
   ABOUT: "/about",
   CONTACT: "/contact",
   LOGIN: "/login",
-  GET_STARTED: "/get-started",
 } as const;
 
 export const NavLinksArray = [

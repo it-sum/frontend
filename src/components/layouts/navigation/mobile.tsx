@@ -248,19 +248,12 @@ export default function Mobile() {
                   <Link
                     href="/login"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center px-4 py-3.5 text-sm font-medium dark:text-neutral-200 text-neutral-700 dark:hover:text-white hover:text-neutral-900 dark:border-white/10 border-black/10 border rounded-xl dark:hover:bg-white/5 hover:bg-black/5 transition-colors duration-200"
-                  >
-                    {t("login")}
-                  </Link>
-                  <Link
-                    href="/get-started"
-                    onClick={() => setIsOpen(false)}
                     className="flex items-center justify-center px-4 py-3.5 text-sm font-semibold text-white bg-linear-to-r from-[#06B6D4] to-[#0284C7] rounded-xl hover:from-[#0891B2] hover:to-[#0369A1] transition-all duration-200"
                     style={{
                       boxShadow: "0 8px 20px -4px rgba(6, 182, 212, 0.3)",
                     }}
                   >
-                    {t("getStarted")}
+                    {t("login")}
                   </Link>
                 </motion.div>
               </div>
