@@ -667,6 +667,7 @@
       "rememberMe": "Remember me",
       "forgotPassword": "Forgot password?",
       "submitButton": "Sign In",
+      "signingIn": "Signing in\u2026",
       "secureAccess": "Secure access to your IT-SUM account",
       "supportPrefix": "Having trouble signing in?",
       "supportLink": "Contact Support"

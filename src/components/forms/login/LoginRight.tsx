@@ -3,17 +3,23 @@
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Logo from "@/src/assets/images/logo.webp";
 import {
+  AlertCircle,
   ArrowRight,
   Check,
   Eye,
   EyeOff,
+  Loader2,
   LockKeyhole,
   ShieldCheck,
   UserRound,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { login } from "@/src/services/auth.service";
+import { ApiError } from "@/src/lib/api";
+import { useAuthStore } from "@/src/stores/auth.store";
 
 const inputBaseClass =
   "h-12 w-full rounded-lg border border-slate-300 bg-slate-100/80 ps-11 pe-4 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 hover:border-slate-400 focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/10 dark:border-slate-700/80 dark:bg-[#0a1424]/80 dark:text-white dark:placeholder:text-slate-500 dark:hover:border-slate-600 dark:focus:border-cyan-400/60 dark:focus:ring-cyan-400/10 [&:-webkit-autofill]:[transition:background-color_9999s_ease-in-out_0s] [&:-webkit-autofill]:[box-shadow:inset_0_0_0_1000px_rgba(241,245,249,0.8)] [&:-webkit-autofill]:[-webkit-text-fill-color:#0f172a] dark:[&:-webkit-autofill]:[box-shadow:inset_0_0_0_1000px_#0a1424] dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#fff]";
@@ -24,12 +30,50 @@ const inputIconClass =
 const LoginRight = () => {
   const t = useTranslations("Auth.Right");
   const locale = useLocale();
+  const router = useRouter();
+  const { setSession } = useAuthStore();
+
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  /** Verbatim error message from the backend — never replaced with a custom string. */
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Connect your authentication API here.
+    if (isLoading) return;
+
+    setErrorMessage(null);
+    setIsLoading(true);
+
+    const formData = new FormData(event.currentTarget);
+    const identifier = (formData.get("identifier") as string).trim();
+    const password = formData.get("password") as string;
+
+    try {
+      const res = await login(identifier, password);
+      const { accessToken, user } = res.data;
+
+      // Persist token in memory (Zustand) — never in localStorage.
+      setSession(accessToken, user);
+
+      // Redirect based on role.
+      const role = user.roleName;
+      if (role === "admin") {
+        router.push(`/${locale}/admin`);
+      } else {
+        router.push(`/${locale}/dashboard`);
+      }
+    } catch (err) {
+      // Display the exact backend message — do not invent a more specific one.
+      if (err instanceof ApiError) {
+        setErrorMessage(err.message);
+      } else {
+        setErrorMessage("An unexpected error occurred. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -72,6 +116,20 @@ const LoginRight = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+          {/* Error message — verbatim from the backend */}
+          {errorMessage && (
+            <div
+              role="alert"
+              className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-500/20 dark:bg-red-500/10 dark:text-red-400"
+            >
+              <AlertCircle
+                className="mt-0.5 h-4 w-4 shrink-0"
+                strokeWidth={1.8}
+              />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
           {/* Email / Student ID */}
           <div>
             <label
@@ -89,6 +147,7 @@ const LoginRight = () => {
                 autoComplete="username"
                 placeholder={t("identifierPlaceholder")}
                 required
+                disabled={isLoading}
                 className={inputBaseClass}
               />
             </div>
@@ -111,6 +170,7 @@ const LoginRight = () => {
                 autoComplete="current-password"
                 placeholder={t("passwordPlaceholder")}
                 required
+                disabled={isLoading}
                 className={`${inputBaseClass} pe-10`}
               />
 
@@ -160,13 +220,25 @@ const LoginRight = () => {
           {/* Sign In */}
           <button
             type="submit"
-            className="group flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-400 text-sm font-semibold text-white shadow-[0_8px_25px_rgba(6,182,212,.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_35px_rgba(6,182,212,.25)] active:translate-y-0 cursor-pointer"
+            id="login-submit-btn"
+            disabled={isLoading}
+            aria-busy={isLoading}
+            className="group flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-400 text-sm font-semibold text-white shadow-[0_8px_25px_rgba(6,182,212,.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_35px_rgba(6,182,212,.25)] active:translate-y-0 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
           >
-            {t("submitButton")}
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
-              strokeWidth={1.8}
-            />
+            {isLoading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" strokeWidth={1.8} />
+                {t("signingIn")}
+              </>
+            ) : (
+              <>
+                {t("submitButton")}
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  strokeWidth={1.8}
+                />
+              </>
+            )}
           </button>
 
           {/* Secure access */}
