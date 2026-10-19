@@ -87,6 +87,9 @@ const ResourcesFind = () => {
           <h2 className="text-3xl font-bold tracking-[-0.035em] text-zinc-950 sm:text-4xl dark:text-white">
             {t("title")}
           </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+            {t("description")}
+          </p>
         </div>
 
         <div className="relative overflow-hidden rounded-3xl border-x border-b border-zinc-200/80 bg-white/40 shadow-2xl shadow-zinc-300/30 backdrop-blur-xl dark:border-white/8 dark:bg-white/2 dark:shadow-black/40">
@@ -98,7 +101,7 @@ const ResourcesFind = () => {
               return (
                 <article
                   key={item.key}
-                  className={`group relative flex flex-col items-center px-5 py-8 text-center transition-colors duration-300 hover:bg-zinc-50/50 dark:hover:bg-white/2 ${
+                  className={`relative flex flex-col items-center px-5 py-8 text-center ${
                     index !== itemsData.length - 1
                       ? "border-b border-zinc-200/80 dark:border-white/7 sm:border-b-0 sm:border-e"
                       : ""

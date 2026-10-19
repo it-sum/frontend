@@ -10,7 +10,7 @@ export default function PublicLayout({
     <>
       <Responsive />
 
-      <main>{children}</main>
+      <div>{children}</div>
 
       <Footer />
     </>

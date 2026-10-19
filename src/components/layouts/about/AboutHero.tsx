@@ -171,6 +171,9 @@ const AboutHero = () => {
 
         {/* ================= RIGHT / DASHBOARD ================= */}
         <div className="relative">
+          <p className="mb-2 inline-flex rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-[11px] text-slate-600 dark:border-white/10 dark:bg-[#081522] dark:text-slate-300">
+            {t("dashboard.demoLabel")}
+          </p>
           <div className="overflow-hidden rounded-[22px] border border-slate-200 bg-slate-50 shadow-2xl shadow-blue-950/10 dark:border-[#17304a] dark:bg-[#04101d] dark:shadow-black/30">
             <div className="grid min-h-102.5 grid-cols-[112px_1fr] sm:grid-cols-[135px_1fr]">
               {/* Sidebar */}

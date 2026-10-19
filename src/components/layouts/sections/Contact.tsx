@@ -4,95 +4,25 @@ import React, { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
-  Camera,
   ChevronDown,
-  ChevronRight,
-  Clock3,
-  Code2,
-  FileText,
-  Headphones,
   LayoutGrid,
   Loader2,
   Mail,
-  MessageCircle,
   PencilLine,
-  PlayCircle,
   Send,
-  ShieldCheck,
-  Star,
   UserRound,
-  Zap,
   type LucideIcon,
 } from "lucide-react";
 
-type Tone = "emerald" | "blue" | "purple";
-
-const TONE_STYLES: Record<Tone, { icon: string; bg: string; border: string }> =
-  {
-    emerald: {
-      icon: "text-emerald-400",
-      bg: "bg-emerald-400/8",
-      border: "group-hover:border-emerald-400/20",
-    },
-    blue: {
-      icon: "text-sky-400",
-      bg: "bg-sky-400/8",
-      border: "group-hover:border-sky-400/20",
-    },
-    purple: {
-      icon: "text-purple-400",
-      bg: "bg-purple-400/8",
-      border: "group-hover:border-purple-400/20",
-    },
-  };
+const TONE_STYLES = {
+  icon: "text-emerald-400",
+  bg: "bg-emerald-400/8",
+};
 
 const CONTACT_LINKS: {
-  key: "email" | "support" | "faq";
+  key: "email";
   icon: LucideIcon;
-  tone: Tone;
-}[] = [
-  { key: "email", icon: Mail, tone: "emerald" },
-  { key: "support", icon: Headphones, tone: "blue" },
-  { key: "faq", icon: FileText, tone: "purple" },
-];
-
-const BENEFITS: {
-  key: "secure" | "response" | "care";
-  icon: LucideIcon;
-  color: string;
-}[] = [
-  { key: "secure", icon: ShieldCheck, color: "text-cyan-400" },
-  { key: "response", icon: Zap, color: "text-sky-400" },
-  { key: "care", icon: Star, color: "text-yellow-400" },
-];
-
-const INFO_ITEMS: {
-  key: "response" | "privacy" | "support";
-  icon: LucideIcon;
-  color: string;
-  bg: string;
-}[] = [
-  { key: "response", icon: Clock3, color: "text-sky-400", bg: "bg-sky-400/8" },
-  {
-    key: "privacy",
-    icon: ShieldCheck,
-    color: "text-emerald-400",
-    bg: "bg-emerald-400/8",
-  },
-  {
-    key: "support",
-    icon: Headphones,
-    color: "text-cyan-400",
-    bg: "bg-cyan-400/8",
-  },
-];
-
-const SOCIALS: { label: string; icon: LucideIcon }[] = [
-  { label: "Discord", icon: MessageCircle },
-  { label: "GitHub", icon: Code2 },
-  { label: "YouTube", icon: PlayCircle },
-  { label: "Instagram", icon: Camera },
-];
+}[] = [{ key: "email", icon: Mail }];
 
 const SUBJECT_OPTIONS = [
   "support",
@@ -101,10 +31,11 @@ const SUBJECT_OPTIONS = [
   "other",
 ] as const;
 
-const Contact = () => {
+const Contact = ({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) => {
   const t = useTranslations("Contact");
   const locale = useLocale();
   const isArabic = locale === "ar";
+  const Heading = headingLevel;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -149,11 +80,9 @@ const Contact = () => {
 
       // Reset success message after 5 seconds
       setTimeout(() => setStatus("idle"), 5000);
-    } catch (error) {
+    } catch {
       setStatus("error");
-      setErrorMessage(
-        error instanceof Error ? error.message : "Failed to send message.",
-      );
+      setErrorMessage(t("form.sendError"));
     }
   };
 
@@ -191,12 +120,12 @@ const Contact = () => {
                 </span>
               </div>
 
-              <h2 className="max-w-72.5 text-[26px] font-semibold leading-[1.18] tracking-[-0.04em] text-slate-950 dark:text-white sm:text-[29px] lg:text-[31px]">
+              <Heading className="max-w-72.5 text-[26px] font-semibold leading-[1.18] tracking-[-0.04em] text-slate-950 dark:text-white sm:text-[29px] lg:text-[31px]">
                 {t("titleStart")}{" "}
                 <span className="bg-linear-to-r from-blue-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   {t("titleHighlight")}
                 </span>
-              </h2>
+              </Heading>
 
               <p className="mt-3.5 max-w-72.5 text-[12px] leading-[1.75] text-slate-500 dark:text-slate-400">
                 {t("description")}
@@ -205,53 +134,30 @@ const Contact = () => {
               <div className="my-5 h-px bg-slate-200/80 dark:bg-white/6" />
 
               <div className="space-y-2">
-                {CONTACT_LINKS.map(({ key, icon: Icon, tone }) => {
-                  const styles = TONE_STYLES[tone];
-                  return (
-                    <button
-                      key={key}
-                      type="button"
-                      className={`group flex w-full items-center rounded-xl border border-transparent p-1.5 text-start transition-all duration-300 hover:bg-slate-50/70 dark:hover:bg-white/2.5 ${styles.border}`}
+                {CONTACT_LINKS.map(({ key, icon: Icon }) => (
+                  <a
+                    key={key}
+                    href={`mailto:${t("contact.email.description")}`}
+                    className="flex w-full items-center rounded-xl border border-transparent p-1.5 text-start transition-colors hover:bg-slate-50/70 dark:hover:bg-white/2.5"
+                  >
+                    <div
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-[11px] ${TONE_STYLES.bg}`}
                     >
-                      <div
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-[11px] ${styles.bg}`}
-                      >
-                        <Icon
-                          strokeWidth={1.7}
-                          className={`h-4.5 w-4.5 ${styles.icon}`}
-                        />
-                      </div>
-                      <div className="min-w-0 px-3">
-                        <h3 className="text-[12px] font-semibold text-slate-900 dark:text-slate-100">
-                          {t(`contact.${key}.title`)}
-                        </h3>
-                        <p className="mt-0.5 truncate text-[11px] text-slate-500 dark:text-slate-400">
-                          {t(`contact.${key}.description`)}
-                        </p>
-                      </div>
-                      <ChevronRight
-                        className={`ms-auto h-4 w-4 text-slate-400 dark:text-slate-500 ${arrowClass}`}
+                      <Icon
+                        strokeWidth={1.7}
+                        className={`h-4.5 w-4.5 ${TONE_STYLES.icon}`}
                       />
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="my-5 h-px bg-slate-200/80 dark:bg-white/6" />
-
-              <div>
-                <h3 className="text-[13px] font-semibold text-slate-900 dark:text-white">
-                  {t("social.title")}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2.5">
-                  {SOCIALS.map((social) => (
-                    <SocialButton
-                      key={social.label}
-                      label={social.label}
-                      icon={social.icon}
-                    />
-                  ))}
-                </div>
+                    </div>
+                    <div className="min-w-0 px-3">
+                      <h3 className="text-[12px] font-semibold text-slate-900 dark:text-slate-100">
+                        {t(`contact.${key}.title`)}
+                      </h3>
+                      <p className="mt-0.5 truncate text-[11px] text-slate-500 dark:text-slate-400">
+                        {t(`contact.${key}.description`)}
+                      </p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -263,10 +169,15 @@ const Contact = () => {
                 <div className="p-3.5 sm:p-4">
                   <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
                     <Field icon={UserRound} color="text-emerald-400">
+                      <label htmlFor="contact-name" className="sr-only">
+                        {t("form.name")}
+                      </label>
                       <input
+                        id="contact-name"
                         type="text"
                         name="name"
                         required
+                        maxLength={100}
                         value={formData.name}
                         onChange={handleChange}
                         placeholder={t("form.name")}
@@ -274,10 +185,15 @@ const Contact = () => {
                       />
                     </Field>
                     <Field icon={Mail} color="text-emerald-400">
+                      <label htmlFor="contact-email" className="sr-only">
+                        {t("form.email")}
+                      </label>
                       <input
+                        id="contact-email"
                         type="email"
                         name="email"
                         required
+                        maxLength={100}
                         value={formData.email}
                         onChange={handleChange}
                         placeholder={t("form.email")}
@@ -292,7 +208,11 @@ const Contact = () => {
                       color="text-sky-400"
                       focusColor="focus-within:border-sky-400/45 focus-within:ring-sky-400/8"
                     >
+                      <label htmlFor="contact-subject" className="sr-only">
+                        {t("form.subject.placeholder")}
+                      </label>
                       <select
+                        id="contact-subject"
                         name="subject"
                         required
                         value={formData.subject}
@@ -320,49 +240,42 @@ const Contact = () => {
                       className="absolute inset-s-5 top-4.5 h-4.5 w-4.5 text-purple-400"
                       strokeWidth={1.7}
                     />
+                    <label htmlFor="contact-message" className="sr-only">
+                      {t("form.message")}
+                    </label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      maxLength={1000}
+                      maxLength={5000}
                       placeholder={t("form.message")}
                       className="contact-input min-h-40 w-full resize-none bg-transparent pb-8 pe-5 ps-13 pt-4 text-[13px] text-slate-900 outline-none placeholder:text-slate-500 dark:text-slate-100 dark:placeholder:text-slate-400"
                     />
                     <span className="absolute bottom-3 inset-e-4 text-[10px] tabular-nums text-slate-400 dark:text-slate-500">
-                      {formData.message.length}/1000
+                      {formData.message.length}/5000
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-4 border-t border-slate-200/80 bg-slate-50/25 px-4 py-3.5 dark:border-white/5.5 dark:bg-black/4 xl:flex-row xl:items-center xl:justify-between">
-                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
-                    {BENEFITS.map(({ key, icon: Icon, color }) => (
-                      <div
-                        key={key}
-                        className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400"
-                      >
-                        <Icon
-                          className={`h-3.5 w-3.5 ${color}`}
-                          strokeWidth={1.8}
-                        />
-                        <span>{t(`form.benefits.${key}`)}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-3 border-t border-slate-200/80 bg-slate-50/25 px-4 py-3.5 dark:border-white/5.5 dark:bg-black/4 sm:flex-row sm:items-center sm:justify-end">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
                     {status === "success" && (
-                      <span className="text-xs font-medium text-emerald-500">
-                        {isArabic ? "تم الإرسال بنجاح!" : "Sent successfully!"}
+                      <span
+                        role="status"
+                        aria-live="polite"
+                        className="text-xs font-medium text-emerald-500"
+                      >
+                        {t("form.success")}
                       </span>
                     )}
                     {status === "error" && (
-                      <span className="max-w-50 text-xs font-medium text-red-500">
-                        {errorMessage ||
-                          (isArabic
-                            ? "حدث خطأ، حاول مرة أخرى."
-                            : "Error, try again.")}
+                      <span
+                        role="alert"
+                        className="max-w-50 text-xs font-medium text-red-500"
+                      >
+                        {errorMessage}
                       </span>
                     )}
                     <button
@@ -382,36 +295,6 @@ const Contact = () => {
                   </div>
                 </div>
               </form>
-
-              <div className="mt-4 grid grid-cols-1 overflow-hidden rounded-[15px] border border-slate-200/80 bg-white/25 backdrop-blur-sm dark:border-white/7 dark:bg-[#081421]/35 sm:grid-cols-3">
-                {INFO_ITEMS.map(({ key, icon: Icon, color, bg }, index) => (
-                  <div
-                    key={key}
-                    className={`flex items-center gap-3 px-4 py-4 ${
-                      index !== 0
-                        ? "border-t border-slate-200/70 dark:border-white/5.5 sm:border-s sm:border-t-0"
-                        : ""
-                    }`}
-                  >
-                    <div
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${bg}`}
-                    >
-                      <Icon
-                        strokeWidth={1.7}
-                        className={`h-4.5 w-4.5 ${color}`}
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-[11px] font-semibold text-slate-900 dark:text-slate-100">
-                        {t(`info.${key}.title`)}
-                      </h4>
-                      <p className="mt-0.5 max-w-32.5 text-[10px] leading-[1.65] text-slate-500 dark:text-slate-400">
-                        {t(`info.${key}.description`)}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -492,25 +375,6 @@ function Field({
       />
       <div className="relative h-full min-w-0 flex-1 ps-3">{children}</div>
     </div>
-  );
-}
-
-function SocialButton({
-  icon: Icon,
-  label,
-}: {
-  icon: React.ElementType;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      aria-label={label}
-      title={label}
-      className="group flex h-10.5 w-10.5 items-center justify-center rounded-full border border-slate-200 bg-white/20 text-slate-500 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/35 hover:bg-cyan-400/5 hover:text-cyan-500 dark:border-white/10 dark:bg-white/1.5 dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:text-cyan-300"
-    >
-      <Icon className="h-4.25 w-4.25" strokeWidth={1.8} />
-    </button>
   );
 }
 

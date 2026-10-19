@@ -5,6 +5,7 @@ import { routing } from "@/src/i18n/routing";
 import ThemeProvider from "@/src/components/providers/theme-provider";
 import LocaleSync from "@/src/components/layouts/navigation/locale-sync";
 import AppProvider from "@/src/providers/app-provider";
+import { MotionConfig } from "motion/react";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -29,12 +30,14 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <ThemeProvider>
-        <AppProvider>
-          <LocaleSync />
-          {children}
-        </AppProvider>
-      </ThemeProvider>
+      <MotionConfig reducedMotion="user">
+        <ThemeProvider>
+          <AppProvider>
+            <LocaleSync />
+            {children}
+          </AppProvider>
+        </ThemeProvider>
+      </MotionConfig>
     </NextIntlClientProvider>
   );
 }

@@ -121,6 +121,9 @@ const ResourcesTypes = () => {
     <section className="relative w-full overflow-hidden bg-transparent">
       <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="mb-8 sm:mb-10">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">
+            {t("statusLabel")}
+          </p>
           <h2 className="text-3xl font-bold tracking-[-0.035em] text-zinc-950 sm:text-4xl dark:text-white">
             {t("title")}{" "}
             <span className="bg-linear-to-r from-violet-500 to-indigo-400 bg-clip-text text-transparent">
@@ -128,7 +131,7 @@ const ResourcesTypes = () => {
             </span>
           </h2>
 
-          <p className="mt-4 text-sm leading-7 text-zinc-500 sm:text-base dark:text-zinc-400">
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-zinc-600 sm:text-base dark:text-zinc-300">
             {t("description")}
           </p>
         </div>
@@ -141,7 +144,7 @@ const ResourcesTypes = () => {
             return (
               <article
                 key={resource.key}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/30 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white/50 hover:shadow-[0_15px_40px_-20px_rgba(0,0,0,0.2)] dark:border-white/8 dark:bg-white/1.5 dark:hover:border-white/14 dark:hover:bg-white/2.5 dark:hover:shadow-[0_15px_40px_-20px_rgba(0,0,0,0.7)]"
+                className="relative flex flex-col overflow-hidden rounded-xl border border-zinc-200/80 bg-white/40 p-5 dark:border-white/8 dark:bg-white/2"
               >
                 <div
                   aria-hidden="true"

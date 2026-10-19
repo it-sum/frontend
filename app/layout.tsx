@@ -1,12 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { alexandria, inter, montserrat, notoSansArabic } from "@/src/lib/fonts";
 
-export const metadata: Metadata = {
-  title: "IT-SUM",
-  description: "Enterprise Educational Platform",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Metadata");
+  const title = t("title");
+  const description = t("description");
+
+  return {
+    title: { default: title, template: t("titleTemplate") },
+    description,
+    applicationName: "IT-SUM",
+    openGraph: {
+      title,
+      description,
+      siteName: "IT-SUM",
+      type: "website",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

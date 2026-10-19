@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type KeyboardEvent } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import { X } from "lucide-react";
 import { Link } from "@/src/i18n/navigation";
@@ -53,8 +53,13 @@ const linkVariants: Variants = {
 
 export default function Mobile() {
   const t = useTranslations("Navigation");
+  const locale = useLocale();
+  const isArabic = locale === "ar";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuPanelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -73,6 +78,39 @@ export default function Mobile() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isOpen) closeButtonRef.current?.focus();
+  }, [isOpen]);
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  };
+
+  const handleMenuKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeMenu();
+      return;
+    }
+
+    if (event.key !== "Tab") return;
+    const focusable = menuPanelRef.current?.querySelectorAll<HTMLElement>(
+      "a[href], button:not([disabled])",
+    );
+    if (!focusable?.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <>
       <motion.nav
@@ -82,10 +120,10 @@ export default function Mobile() {
           duration: 0.5,
           ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
         }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 lg:hidden ${
+        className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-xl transition-all duration-300 lg:hidden ${
           scrolled
-            ? "dark:bg-[#0B1120]/80 bg-white/80 backdrop-blur-xl dark:border-white/5 border-black/5 border-b"
-            : "bg-transparent"
+            ? "border-black/5 bg-white/95 shadow-sm dark:border-white/8 dark:bg-[#0B1120]/95"
+            : "border-black/5 bg-white/85 dark:border-white/6 dark:bg-[#0B1120]/85"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6">
@@ -100,18 +138,25 @@ export default function Mobile() {
                 className="h-9 w-9"
                 priority
               />
-              <h1 className="text-xl font-bold tracking-tight flex items-baseline">
+              <span
+                dir="ltr"
+                className="flex items-baseline text-xl font-bold tracking-tight"
+              >
                 <span className="dark:text-white text-neutral-900">IT</span>
                 <span className="dark:text-[#06B6D4] text-[#0284C7] transition-colors duration-300">
                   -SUM
                 </span>
-              </h1>
+              </span>
             </Link>
 
             <button
+              ref={menuButtonRef}
               onClick={() => setIsOpen(true)}
-              className="relative w-10 h-10 flex items-center justify-center rounded-lg dark:hover:bg-white/5 hover:bg-black/5 transition-colors"
-              aria-label="Open menu"
+              className="relative flex h-11 w-11 items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+              aria-label={t("openMenu")}
+              aria-haspopup="dialog"
+              aria-expanded={isOpen}
+              aria-controls="site-mobile-menu"
             >
               <div className="w-5 h-4 flex flex-col justify-between">
                 <span className="block h-[1.5px] w-full dark:bg-white bg-neutral-800 rounded-full" />
@@ -132,16 +177,22 @@ export default function Mobile() {
               animate="open"
               exit="closed"
               className="fixed inset-0 z-40 dark:bg-black/60 bg-black/40 backdrop-blur-sm lg:hidden"
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
             />
 
             <motion.div
-              dir="ltr"
+              dir={isArabic ? "rtl" : "ltr"}
+              id="site-mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label={t("menuLabel")}
+              onKeyDown={handleMenuKeyDown}
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 left-0 right-0 z-50 dark:bg-[#0B1120]/95 bg-white/95 backdrop-blur-2xl dark:border-white/5 border-black/5 border-b lg:hidden shadow-2xl"
+              ref={menuPanelRef}
+              className="fixed inset-x-0 top-0 z-50 max-h-dvh overflow-y-auto overscroll-contain border-b border-black/5 bg-white/95 shadow-2xl backdrop-blur-2xl dark:border-white/5 dark:bg-[#0B1120]/95 lg:hidden"
             >
               {/* Header inside popup: Logo + Close button */}
               <div className="mx-auto max-w-7xl px-6">
@@ -159,20 +210,24 @@ export default function Mobile() {
                       style={{ width: "auto", height: "auto" }}
                       className="h-9 w-9"
                     />
-                    <h1 className="text-xl font-bold tracking-tight flex items-baseline">
+                    <span
+                      dir="ltr"
+                      className="flex items-baseline text-xl font-bold tracking-tight"
+                    >
                       <span className="dark:text-white text-neutral-900">
                         IT
                       </span>
                       <span className="dark:text-[#06B6D4] text-[#0284C7] transition-colors duration-300">
                         -SUM
                       </span>
-                    </h1>
+                    </span>
                   </Link>
 
                   <button
-                    onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl dark:hover:bg-white/10 hover:bg-black/5 dark:text-white text-neutral-700 transition-colors"
-                    aria-label="Close menu"
+                    ref={closeButtonRef}
+                    onClick={closeMenu}
+                    className="flex h-11 w-11 items-center justify-center rounded-xl text-neutral-700 transition-colors hover:bg-black/5 dark:text-white dark:hover:bg-white/10"
+                    aria-label={t("closeMenu")}
                   >
                     <X className="w-5 h-5" />
                   </button>

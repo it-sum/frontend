@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/src/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
@@ -72,7 +72,7 @@ const AboutCTA = () => {
             <div className="flex w-full flex-col items-center gap-6 lg:w-auto lg:items-end">
               {}
               <Link
-                href="/get-started"
+                href="/resources"
                 className="group inline-flex h-12 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-400 px-8 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)] md:w-auto md:text-base"
               >
                 {t("button")}

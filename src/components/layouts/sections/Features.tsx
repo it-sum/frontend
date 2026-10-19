@@ -2,62 +2,46 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/navigation";
 import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Brain,
-  LineChart,
   Sparkles,
-  Users,
-  Video,
+  Compass,
   type LucideIcon,
 } from "lucide-react";
 
-type FeatureColor = "emerald" | "violet" | "amber" | "blue" | "teal" | "cyan";
+type FeatureColor = "emerald" | "violet" | "amber";
 type FeatureItem = {
   icon: LucideIcon;
   titleKey: string;
   descKey: string;
   color: FeatureColor;
+  href: "/resources" | "/departments" | "/about";
 };
 
 const featuresData: FeatureItem[] = [
   {
     icon: BookOpen,
-    titleKey: "Features.academicTitle",
-    descKey: "Features.academicDescription",
+    titleKey: "Features.resourcesTitle",
+    descKey: "Features.resourcesDescription",
     color: "emerald",
+    href: "/resources",
   },
   {
-    icon: Brain,
-    titleKey: "Features.quizTitle",
-    descKey: "Features.quizDescription",
+    icon: Compass,
+    titleKey: "Features.departmentsTitle",
+    descKey: "Features.departmentsDescription",
     color: "violet",
-  },
-  {
-    icon: Video,
-    titleKey: "Features.videoTitle",
-    descKey: "Features.videoDescription",
-    color: "amber",
-  },
-  {
-    icon: LineChart,
-    titleKey: "Features.progressTitle",
-    descKey: "Features.progressDescription",
-    color: "blue",
+    href: "/departments",
   },
   {
     icon: Sparkles,
-    titleKey: "Features.aiTitle",
-    descKey: "Features.aiDescription",
-    color: "teal",
-  },
-  {
-    icon: Users,
-    titleKey: "Features.communityTitle",
-    descKey: "Features.communityDescription",
-    color: "cyan",
+    titleKey: "Features.aboutTitle",
+    descKey: "Features.aboutDescription",
+    color: "amber",
+    href: "/about",
   },
 ];
 
@@ -83,24 +67,6 @@ const colorStyles: Record<
       "border-amber-500/30 bg-amber-500/5 dark:border-[#d9ae00]/35 dark:bg-[#d9ae00]/5",
     glow: "bg-amber-400/10 dark:bg-[#ffd000]/10",
   },
-  blue: {
-    icon: "text-blue-500 dark:text-[#009cff]",
-    circle:
-      "border-blue-500/30 bg-blue-500/5 dark:border-[#008de5]/35 dark:bg-[#008de5]/5",
-    glow: "bg-blue-400/10 dark:bg-[#009cff]/12",
-  },
-  teal: {
-    icon: "text-teal-500 dark:text-[#00e6b0]",
-    circle:
-      "border-teal-500/30 bg-teal-500/5 dark:border-[#00dba6]/35 dark:bg-[#00dba6]/5",
-    glow: "bg-teal-400/10 dark:bg-[#00e6b0]/12",
-  },
-  cyan: {
-    icon: "text-cyan-500 dark:text-[#00c8ff]",
-    circle:
-      "border-cyan-500/30 bg-cyan-500/5 dark:border-[#00b9ef]/35 dark:bg-[#00b9ef]/5",
-    glow: "bg-cyan-400/10 dark:bg-[#00c8ff]/12",
-  },
 };
 
 const FeatureCard = ({
@@ -116,7 +82,10 @@ const FeatureCard = ({
   const styles = colorStyles[feature.color];
 
   return (
-    <article className="group relative h-42 overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-[0_4px_18px_rgba(15,23,42,0.035)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 dark:border-[#172638] dark:bg-[#071421]/90 dark:shadow-[0_4px_20px_rgba(0,0,0,0.18)] dark:hover:border-[#21364d] dark:hover:bg-[#081725]">
+    <Link
+      href={feature.href}
+      className="group relative flex min-h-42 overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-[0_4px_18px_rgba(15,23,42,0.035)] backdrop-blur-sm transition-colors hover:border-cyan-400/35 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500 dark:border-[#172638] dark:bg-[#071421]/90 dark:shadow-[0_4px_20px_rgba(0,0,0,0.18)] dark:hover:border-[#21364d] dark:hover:bg-[#081725]"
+    >
       <div
         aria-hidden="true"
         className={`pointer-events-none absolute -top-10 -inset-s-8 h-32 w-32 rounded-full blur-[50px] ${styles.glow}`}
@@ -126,7 +95,7 @@ const FeatureCard = ({
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-slate-300/50 to-transparent dark:via-white/5"
       />
 
-      <div className="relative flex h-full items-start p-5">
+      <div className="relative flex w-full items-start p-5">
         <div
           className={`flex size-14.5 shrink-0 items-center justify-center rounded-full border shadow-[0_0_24px_rgba(0,0,0,0.03)] ${styles.circle}`}
         >
@@ -136,10 +105,9 @@ const FeatureCard = ({
           <h3 className="text-[16px] font-semibold leading-5 tracking-[-0.015em] text-slate-900 dark:text-[#f3f6fa]">
             {title}
           </h3>
-          <p className="mt-2 max-w-52 text-[14px] leading-[1.55] text-slate-500 dark:text-[#9aa8b8]">
+          <p className="mt-2 text-[14px] leading-[1.55] text-slate-500 dark:text-[#9aa8b8]">
             {description}
           </p>
-          {/* تعديل السهم ليكون على اليسار في العربية تلقائياً عبر justify-end */}
           <div className="mt-auto flex justify-end pb-0.5 text-slate-400 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 dark:text-[#c7d0da]">
             <ArrowRight className="size-4.25 rtl:hidden" strokeWidth={2.6} />
             <ArrowLeft
@@ -149,7 +117,7 @@ const FeatureCard = ({
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 
@@ -162,7 +130,10 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="relative overflow-hidden py-12">
+    <section
+      id="features"
+      className="relative scroll-mt-24 overflow-hidden py-12"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -193,7 +164,7 @@ const Features = () => {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {featuresData.map((feature) => (
             <FeatureCard
               key={feature.titleKey}

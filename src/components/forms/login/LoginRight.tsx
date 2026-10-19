@@ -69,7 +69,7 @@ const LoginRight = () => {
       if (err instanceof ApiError) {
         setErrorMessage(err.message);
       } else {
-        setErrorMessage("An unexpected error occurred. Please try again.");
+        setErrorMessage(t("unexpectedError"));
       }
     } finally {
       setIsLoading(false);
@@ -77,7 +77,7 @@ const LoginRight = () => {
   };
 
   return (
-    <section className="relative flex w-full items-center justify-center overflow-hidden bg-slate-50 px-4 py-8 lg:w-1/2 xl:px-8 dark:bg-[#020817]">
+    <section className="relative flex min-h-dvh min-w-0 w-full items-center justify-center overflow-hidden bg-slate-50 px-4 py-8 sm:px-6 lg:w-1/2 xl:px-8 dark:bg-[#020817]">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,51,85,.05),transparent_55%)] dark:bg-[radial-gradient(circle_at_center,rgba(15,51,85,.13),transparent_55%)]" />
       <div className="pointer-events-none absolute -inset-e-20 top-20 h-80 w-80 rounded-full bg-blue-500/5 blur-[120px] dark:bg-blue-500/3" />
@@ -177,7 +177,9 @@ const LoginRight = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-label={
+                  showPassword ? t("hidePassword") : t("showPassword")
+                }
                 className="absolute inset-e-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors hover:text-slate-600 dark:hover:text-white"
               >
                 {showPassword ? (
@@ -190,7 +192,7 @@ const LoginRight = () => {
           </div>
 
           {/* Options */}
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <label className="flex cursor-pointer select-none items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
               <input
                 type="checkbox"
@@ -210,7 +212,7 @@ const LoginRight = () => {
             </label>
 
             <Link
-              href={`/${locale}/forgot-password`}
+              href={`/${locale}/contact`}
               className="text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
             >
               {t("forgotPassword")}
@@ -247,20 +249,6 @@ const LoginRight = () => {
             <span>{t("secureAccess")}</span>
           </div>
         </form>
-
-        {/* Divider */}
-        <div className="my-6 h-px w-full bg-slate-200 dark:bg-slate-700/40" />
-
-        {/* Support */}
-        <p className="text-center text-xs text-slate-500 dark:text-slate-400">
-          {t("supportPrefix")}{" "}
-          <Link
-            href={`/${locale}/contact`}
-            className="ms-1 font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
-          >
-            {t("supportLink")}
-          </Link>
-        </p>
       </div>
     </section>
   );

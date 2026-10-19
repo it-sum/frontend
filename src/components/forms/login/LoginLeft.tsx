@@ -37,7 +37,7 @@ const LoginLeft = () => {
   const t = useTranslations("Auth.Left");
 
   return (
-    <section className="relative hidden w-1/2 flex-col overflow-hidden border-e border-slate-200 bg-white p-12 lg:flex xl:p-16 dark:border-white/5 dark:bg-[#020817]">
+    <section className="relative hidden min-h-dvh w-1/2 flex-col overflow-hidden border-e border-slate-200 bg-white p-12 lg:flex xl:p-16 dark:border-white/5 dark:bg-[#020817]">
       {/* Background glows */}
       <div className="pointer-events-none absolute -inset-s-20 top-10 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px] dark:bg-blue-500/3" />
       <div className="pointer-events-none absolute bottom-0 inset-e-0 h-80 w-80 rounded-full bg-cyan-400/5 blur-[120px] dark:bg-cyan-400/2.5" />
@@ -83,12 +83,12 @@ const LoginLeft = () => {
             </span>
           </div>
 
-          <h1 className="max-w-lg text-4xl font-semibold leading-tight tracking-tight text-slate-900 xl:text-5xl dark:text-white">
+          <h2 className="max-w-lg text-4xl font-semibold leading-tight tracking-tight text-slate-900 xl:text-5xl dark:text-white">
             {t("heroTitlePrefix")}{" "}
             <span className="bg-linear-to-r from-blue-500 via-cyan-400 to-emerald-300 bg-clip-text text-transparent">
               {t("heroTitleHighlight")}
             </span>
-          </h1>
+          </h2>
 
           <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-500 xl:text-base dark:text-slate-400">
             {t("heroDescription")}

@@ -31,6 +31,7 @@ const variants = {
     article:
       "border-blue-500/30 dark:bg-[linear-gradient(115deg,#031222_0%,#04101d_55%,#03101c_100%)]",
     circle: "border-blue-500 bg-blue-500/10",
+    frame: "team-photo-ring--blue",
     glow: "bg-blue-500/10",
     role: "border-blue-500/20 bg-blue-500/15 text-blue-500",
     skill: "border-blue-500/15 bg-blue-500/7 text-blue-500",
@@ -42,6 +43,7 @@ const variants = {
     article:
       "border-emerald-500/30 dark:bg-[linear-gradient(115deg,#03191a_0%,#04131b_55%,#03101a_100%)]",
     circle: "border-emerald-500 bg-emerald-500/10",
+    frame: "team-photo-ring--green",
     glow: "bg-emerald-500/10",
     role: "border-emerald-500/20 bg-emerald-500/15 text-emerald-500",
     skill: "border-emerald-500/15 bg-emerald-500/7 text-emerald-500",
@@ -106,14 +108,13 @@ const Team = () => {
           <TeamCard
             variant="green"
             image={ahmed}
+            imagePresentation="full"
             name="Ahmed"
             role={t("ahmed.role")}
             description={t("ahmed.description")}
             skills={ahmedSkills}
             githubUrl="https://github.com/alf-2006"
             githubHandle="@alf-2006"
-            linkedinUrl="#"
-            linkedinHandle="@alf-2006"
           />
         </div>
       </div>
@@ -129,19 +130,21 @@ export default Team;
 type TeamCardProps = {
   variant: "blue" | "green";
   image: StaticImageData;
+  imagePresentation?: "avatar" | "full";
   name: string;
   role: string;
   description: string;
   skills: { label: string; icon: React.ReactNode }[];
   githubUrl: string;
   githubHandle: string;
-  linkedinUrl: string;
-  linkedinHandle: string;
+  linkedinUrl?: string;
+  linkedinHandle?: string;
 };
 
 function TeamCard({
   variant,
   image,
+  imagePresentation = "avatar",
   name,
   role,
   description,
@@ -152,6 +155,7 @@ function TeamCard({
   linkedinHandle,
 }: TeamCardProps) {
   const v = variants[variant];
+  const showFullImage = imagePresentation === "full";
 
   return (
     <article
@@ -170,32 +174,37 @@ function TeamCard({
 
       <div className="relative z-10 flex h-full flex-col items-center gap-5 sm:flex-row">
         {/* PHOTO SECTION - Smaller 1:1 Aspect Ratio */}
-        <div className="relative shrink-0">
-          <div
-            className={`relative aspect-square w-32 overflow-hidden rounded-full border sm:w-40 ${v.circle}`}
-          >
+        <div className="team-photo-float relative shrink-0">
+          <div className={`team-photo-ring ${v.frame}`}>
             <div
-              className={`absolute inset-3 rounded-full blur-2xl ${v.glow}`}
-            />
-            <Image
-              src={image}
-              alt={name}
-              fill
-              sizes="160px"
-              className="relative z-10 object-cover object-center"
-            />
+              className={`relative z-10 aspect-square overflow-hidden rounded-full border ${showFullImage ? "w-36 sm:w-48" : "w-32 sm:w-40"} ${v.circle}`}
+            >
+              <div
+                className={`absolute inset-3 rounded-full blur-2xl ${v.glow}`}
+              />
+              <Image
+                src={image}
+                alt={name}
+                fill
+                sizes={showFullImage ? "192px" : "160px"}
+                unoptimized={showFullImage}
+                className="relative z-10 object-cover object-center"
+              />
+            </div>
           </div>
 
           {/* LinkedIn floating icon */}
-          <a
-            href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${name} LinkedIn`}
-            className="absolute bottom-1 inset-e-1 z-20 flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a7cff] text-white shadow-lg shadow-blue-500/20 transition-transform duration-200 hover:scale-105"
-          >
-            <LinkedinIcon className="h-4 w-4" />
-          </a>
+          {linkedinUrl && (
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${name} LinkedIn`}
+              className="absolute bottom-1 inset-e-1 z-20 flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a7cff] text-white shadow-lg shadow-blue-500/20 transition-transform duration-200 hover:scale-105"
+            >
+              <LinkedinIcon aria-hidden="true" className="h-4 w-4" />
+            </a>
+          )}
         </div>
 
         {/* INFORMATION SECTION - Tighter Spacing */}
@@ -236,9 +245,14 @@ function TeamCard({
             <SocialLink href={githubUrl} label={githubHandle}>
               <GithubIcon className="h-4 w-4" />
             </SocialLink>
-            <SocialLink href={linkedinUrl} label={linkedinHandle}>
-              <LinkedinIcon className="h-4 w-4 text-[#0a7cff]" />
-            </SocialLink>
+            {linkedinUrl && linkedinHandle && (
+              <SocialLink href={linkedinUrl} label={linkedinHandle}>
+                <LinkedinIcon
+                  aria-hidden="true"
+                  className="h-4 w-4 text-[#0a7cff]"
+                />
+              </SocialLink>
+            )}
           </div>
         </div>
       </div>

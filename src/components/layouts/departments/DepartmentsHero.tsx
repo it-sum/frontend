@@ -3,18 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import {
-  BookOpen,
-  FileText,
-  FolderOpen,
-  GraduationCap,
-  Search,
-  Sparkles,
-} from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 
 import universityImg from "@/src/assets/images/university.jpeg";
-// استيراد البيانات من مكون الشبكة لاستخدامها في حساب الإحصائيات
-import { departmentsData } from "./DepartmentsGrid";
 
 type DepartmentsHeroProps = {
   search: string;
@@ -26,37 +17,6 @@ export default function DepartmentsHero({
   setSearch,
 }: DepartmentsHeroProps) {
   const t = useTranslations("DepartmentsPage");
-
-  const stats = [
-    {
-      label: t("stats.departments"),
-      value: departmentsData.length,
-      icon: GraduationCap,
-      iconClassName: "text-blue-600 dark:text-blue-400",
-      bgClassName: "bg-blue-500/10",
-    },
-    {
-      label: t("stats.subjects"),
-      value: "62+",
-      icon: BookOpen,
-      iconClassName: "text-emerald-600 dark:text-emerald-400",
-      bgClassName: "bg-emerald-500/10",
-    },
-    {
-      label: t("stats.summaries"),
-      value: "1,240+",
-      icon: FileText,
-      iconClassName: "text-violet-600 dark:text-violet-400",
-      bgClassName: "bg-violet-500/10",
-    },
-    {
-      label: t("stats.resources"),
-      value: "850+",
-      icon: FolderOpen,
-      iconClassName: "text-orange-600 dark:text-orange-400",
-      bgClassName: "bg-orange-500/10",
-    },
-  ];
 
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 dark:border-white/6">
@@ -84,40 +44,17 @@ export default function DepartmentsHero({
             <div className="pointer-events-none absolute inset-y-0 inset-s-4 z-10 flex items-center">
               <Search className="h-4.5 w-4.5 text-slate-400" />
             </div>
+            <label htmlFor="department-search" className="sr-only">
+              {t("searchLabel")}
+            </label>
             <input
-              type="text"
+              id="department-search"
+              type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t("search")}
               className="h-12 w-full rounded-xl border border-slate-200 bg-white/80 text-sm text-slate-900 shadow-sm outline-none backdrop-blur-xl transition-all placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-500/7 dark:border-white/8 dark:bg-white/3.5 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-500/50 ps-11 pe-4"
             />
-          </div>
-
-          {/* Stats */}
-          <div className="mt-5 grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
-            {stats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.label}
-                  className="flex min-h-19 items-center gap-3 rounded-xl border border-slate-200/80 bg-white/70 px-3.5 shadow-[0_8px_30px_rgba(15,23,42,0.035)] backdrop-blur-xl transition-colors dark:border-white/7 dark:bg-white/2.5"
-                >
-                  <div
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${stat.bgClassName}`}
-                  >
-                    <Icon className={`h-4.25 w-4.25 ${stat.iconClassName}`} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[17px] font-bold leading-none tracking-tight">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1.5 truncate text-[10px] font-medium text-slate-400 dark:text-slate-500">
-                      {stat.label}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
 
@@ -126,7 +63,7 @@ export default function DepartmentsHero({
           <div className="relative w-full max-w-132.5 overflow-hidden rounded-3xl border border-slate-200/80 shadow-2xl shadow-blue-950/10 dark:border-white/8 dark:shadow-black/30">
             <Image
               src={universityImg}
-              alt="IT-SUM University"
+              alt=""
               className="h-full w-full object-cover"
               priority
             />

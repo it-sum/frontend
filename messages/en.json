@@ -1,163 +1,100 @@
 {
+  "Metadata": {
+    "title": "IT-SUM | Study information for IT students",
+    "titleTemplate": "%s | IT-SUM",
+    "description": "Explore study-area information and planned learning-resource categories for IT students.",
+    "home": {
+      "title": "Study information for IT students",
+      "description": "Explore general study-area information and planned resource categories from IT-SUM."
+    },
+    "resources": {
+      "title": "Resource categories",
+      "description": "The IT-SUM resource library is in development. View planned content categories and current availability."
+    },
+    "subjects": {
+      "title": "Subjects",
+      "description": "The IT-SUM subjects directory is not available yet."
+    },
+    "departments": {
+      "title": "Study areas",
+      "description": "Read general overviews of IT study areas. Official program and resource data are not available here."
+    },
+    "about": {
+      "title": "About IT-SUM",
+      "description": "Learn about the IT-SUM project and its current scope."
+    },
+    "contact": {
+      "title": "Contact IT-SUM",
+      "description": "Contact IT-SUM with a question, suggestion, or collaboration inquiry."
+    },
+    "login": {
+      "title": "Sign in",
+      "description": "Sign in to access your IT-SUM student or administrator account."
+    }
+  },
   "Navigation": {
     "home": "Home",
     "departments": "Departments",
     "resources": "Resources",
     "about": "About",
     "contact": "Contact",
-    "login": "Login"
+    "login": "Login",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuLabel": "Main menu",
+    "toggleLanguage": "Switch language to {locale}",
+    "toggleTheme": "Switch to {theme} theme",
+    "lightTheme": "light",
+    "darkTheme": "dark"
   },
   "HomePage": {
-    "badge": "Smart Learning Ecosystem",
-    "title": "The All-in-One Platform for IT Students",
-    "subtitle": "Access high-quality resources, interactive video lessons, smart quizzes, and a 24/7 AI assistant designed to elevate your IT education.",
-    "ctaPrimary": "Start Learning",
+    "badge": "IT study information",
+    "title": "Study resources for IT students",
+    "subtitle": "Explore planned resource categories and general study-area information for IT students.",
+    "ctaPrimary": "Explore resource plans",
     "ctaSecondary": "Explore Features",
-    "feature1Title": "PDF Summaries",
-    "feature1Value": "12,500+ High Quality",
-    "feature2Title": "Video Lessons",
-    "feature2Value": "3,400+ Hours",
-    "feature3Title": "Smart Quizzes",
-    "feature3Value": "8,200+ Questions",
-    "feature4Title": "AI Assistant",
-    "feature4Value": "24/7 Learning Help",
-    "trustText": "Trusted by 5,000+ IT students worldwide"
+    "trustText": "This site describes current project information and planned study-resource categories."
   },
   "Features": {
-    "badge": "OUR PLATFORM",
-    "title": "Everything you need to",
-    "titleHighlight": "succeed",
-    "subtitle": "Powerful tools designed to enhance your learning experience.",
-    "academicTitle": "Academic Resources",
-    "academicDescription": "Well-structured materials organized by semester, subject & department.",
-    "quizTitle": "Smart Quiz Engine",
-    "quizDescription": "Practice, test, and improve with intelligent quizzes and real-time results.",
-    "videoTitle": "Video Learning",
-    "videoDescription": "High-quality video lessons to help you understand complex concepts.",
-    "progressTitle": "Student Progress",
-    "progressDescription": "Track your learning, achievements and performance analytics.",
-    "aiTitle": "AI-Powered Learning",
-    "aiDescription": "Get smart suggestions, explanations and personalized guidance.",
-    "communityTitle": "Community",
-    "communityDescription": "Connect with peers, share knowledge and grow together."
-  },
-  "Stats": {
-    "activeStudents": "Active Students",
-    "pdfSummaries": "PDF Summaries",
-    "videoLessons": "Video Lessons",
-    "quizQuestions": "Quiz Questions",
-    "satisfactionRate": "Satisfaction Rate"
-  },
-  "Works": {
-    "eyebrow": "HOW IT-SUM WORKS",
-    "title": "How IT-SUM Works",
-    "subtitle": "Everything you need in one simple, powerful platform.",
-    "steps": {
-      "explore": {
-        "title": "Explore",
-        "description": "Browse resources, videos and summaries."
-      },
-      "learn": {
-        "title": "Learn",
-        "description": "Study with smart tools and interactive content."
-      },
-      "practice": {
-        "title": "Practice",
-        "description": "Take quizzes and test your knowledge."
-      },
-      "achieve": {
-        "title": "Achieve",
-        "description": "Track progress and unlock your achievements."
-      }
-    }
+    "badge": "EXPLORE IT-SUM",
+    "title": "Explore",
+    "titleHighlight": "IT-SUM",
+    "subtitle": "Explore study-area overviews, planned resource categories, and project information.",
+    "resourcesTitle": "Learning resources",
+    "resourcesDescription": "Check the planned resource categories and see what is currently available.",
+    "departmentsTitle": "Study-area overviews",
+    "departmentsDescription": "Read general information about study topics, not an official program catalog.",
+    "aboutTitle": "About IT-SUM",
+    "aboutDescription": "Learn about the platform and the people behind it."
   },
   "Recent": {
-    "eyebrow": "LATEST CONTENT",
-    "title": "Recently Added",
-    "subtitle": "New resources uploaded by instructors.",
-    "viewAll": "View all content",
-    "filters": {
-      "all": "All",
-      "pdf": "PDF",
-      "video": "Video",
-      "quiz": "Quiz",
-      "course": "Course"
-    },
-    "items": {
-      "dsa": { "title": "Data Structures", "meta": "Semester 2 • Prof. Ahmed" },
-      "react": {
-        "title": "React.js Full Course",
-        "meta": "Beginner to Advanced"
-      },
-      "db": { "title": "Database Systems", "meta": "Semester 3 • Prof. Sara" },
-      "os": { "title": "Operating Systems Quiz", "meta": "Prof. Omar" },
-      "python": { "title": "Python Advanced Concepts", "meta": "Prof. Ahmed" },
-      "js": {
-        "title": "JavaScript Essentials",
-        "meta": "Semester 1 • Prof. John"
-      },
-      "css": {
-        "title": "CSS Animations Mastery",
-        "meta": "Beginner to Advanced"
-      },
-      "node": {
-        "title": "Node.js Bootcamp",
-        "meta": "Semester 4 • Prof. Sarah"
-      },
-      "git": { "title": "Git & GitHub Quiz", "meta": "Prof. Omar" },
-      "aws": {
-        "title": "AWS Fundamentals",
-        "meta": "Cloud Computing • Prof. Ahmed"
-      }
-    }
+    "eyebrow": "LIBRARY STATUS",
+    "title": "The resource library is in development",
+    "subtitle": "No resource records, search, previews, or downloads are available yet. The resources page describes planned categories.",
+    "viewAll": "See planned categories"
   },
   "Preview": {
-    "eyebrow": "Join thousands of learners",
-    "titleLine1": "Ready to accelerate",
-    "titleLine2": "your",
-    "titleHighlight": "IT journey?",
-    "description": "Join thousands of students who are already learning smarter with IT-SUM.",
-    "cta": "Create Your Free Account",
-    "noCard": "No credit card required",
-    "menu": {
-      "dashboard": "Dashboard",
-      "courses": "Courses",
-      "quizzes": "Quizzes",
-      "resources": "Resources",
-      "progress": "Progress",
-      "community": "Community"
-    },
-    "chart": {
-      "overview": "Overview",
-      "range": "Jan–Jun",
-      "months": {
-        "jan": "Jan",
-        "feb": "Feb",
-        "mar": "Mar",
-        "apr": "Apr",
-        "may": "May",
-        "jun": "Jun"
-      }
-    },
-    "metrics": {
-      "studyTime": { "label": "Study Time", "info": "+18% this week" },
-      "quizzesPassed": { "label": "Quizzes Passed", "info": "+12% this week" },
-      "resourcesRead": { "label": "Resources Read", "info": "+21% this week" }
-    },
-    "overallProgress": "Overall Progress",
-    "onTrack": "On track",
-    "monthGrowth": "+8% this month",
-    "quizAccuracy": "Quiz Accuracy",
-    "excellent": "Excellent"
+    "eyebrow": "STUDENT DASHBOARD",
+    "title": "A look at the student dashboard",
+    "description": "The current dashboard shows your account greeting and available profile details, with links to resource information and study areas.",
+    "cta": "Sign in to your dashboard",
+    "demoLabel": "Illustration only · no live account data",
+    "dashboard": {
+      "title": "Student dashboard",
+      "profileLabel": "Signed-in profile",
+      "welcome": "Welcome back",
+      "profileDetails": "Your name, student ID, and academic year appear when available.",
+      "quickAccess": "Quick access",
+      "resources": "Resource information",
+      "departments": "Study areas",
+      "signOut": "Sign out"
+    }
   },
   "Contact": {
     "eyebrow": "Get in touch",
-
     "titleStart": "Have",
     "titleHighlight": "questions or suggestions?",
-
     "description": "We’d love to hear from you. Whether you need help, have feedback, or want to collaborate, our team is here to assist you.",
-
     "contact": {
       "email": {
         "title": "Email Us",
@@ -172,15 +109,12 @@
         "description": "Common questions answered"
       }
     },
-
     "social": {
       "title": "Connect with us"
     },
-
     "form": {
       "name": "Your Name",
       "email": "Your Email",
-
       "subject": {
         "placeholder": "What is this about?",
         "support": "Technical Support",
@@ -188,17 +122,16 @@
         "collaboration": "Collaboration",
         "other": "Other"
       },
-
       "message": "Your Message",
       "submit": "Send Message",
-
+      "success": "Your message was sent.",
+      "sendError": "We could not send your message. Please try again later.",
       "benefits": {
         "secure": "Secure & Private",
         "response": "Quick Response",
         "care": "We Care"
       }
     },
-
     "info": {
       "response": {
         "title": "Response Time",
@@ -216,107 +149,48 @@
   },
   "Footer": {
     "brand": {
-      "description": "Empowering IT students with the best resources, tools, and community to build a successful future.",
+      "description": "Explore general study-area information and planned resource categories.",
       "features": {
         "resources": {
-          "title": "Quality Resources",
-          "description": "Curated by experts"
+          "title": "Learning Resources",
+          "description": "See planned categories and current availability"
         },
-        "community": {
-          "title": "Active Community",
-          "description": "Learn together"
-        },
-        "progress": {
-          "title": "Track Progress",
-          "description": "Achieve your goals"
-        },
-        "learning": {
-          "title": "Smart Learning",
-          "description": "Learn faster, achieve better"
+        "departments": {
+          "title": "Study Departments",
+          "description": "Read general study-area overviews"
         }
       }
     },
-
     "columns": {
       "platform": {
         "title": "Platform",
         "links": {
           "dashboard": "Dashboard",
-          "courses": "Courses",
-          "summaries": "Summaries",
-          "videos": "Videos",
-          "quizzes": "Quizzes",
-          "progress": "Progress",
-          "changelog": "Changelog"
+          "login": "Sign in"
         }
       },
-
-      "resources": {
-        "title": "Resources",
+      "explore": {
+        "title": "Explore",
         "links": {
-          "blog": "Blog",
-          "guides": "Guides",
-          "helpCenter": "Help Center",
-          "community": "Community",
-          "updates": "Updates",
-          "roadmap": "Roadmap",
-          "apiDocs": "API Docs"
+          "departments": "Departments",
+          "resources": "Resources"
         }
       },
-
       "company": {
         "title": "Company",
         "links": {
           "about": "About Us",
-          "careers": "Careers",
-          "contact": "Contact",
-          "partners": "Partners",
-          "pressKit": "Press Kit"
-        }
-      },
-
-      "legal": {
-        "title": "Legal",
-        "links": {
-          "terms": "Terms of Service",
-          "privacy": "Privacy Policy",
-          "cookies": "Cookie Policy",
-          "refund": "Refund Policy"
+          "contact": "Contact"
         }
       }
     },
-
     "newsletter": {
       "title": "Stay Connected",
-      "description": "Subscribe to our newsletter and never miss an update.",
-      "placeholder": "Your email address",
-      "button": "Subscribe",
-      "privacy": "We respect your privacy. Unsubscribe anytime."
+      "description": "Email us to ask about receiving future updates.",
+      "contact": "Request updates by email",
+      "privacy": "Your email app will open so you can send the request."
     },
-
-    "trust": {
-      "trusted": "Trusted by",
-      "students": "Students",
-      "uptime": "Uptime",
-
-      "secure": {
-        "title": "Secure",
-        "description": "Your data is safe"
-      },
-
-      "fast": {
-        "title": "Fast",
-        "description": "Optimized performance"
-      },
-
-      "support": {
-        "title": "24/7 Support",
-        "description": "We're here to help"
-      }
-    },
-
     "copyright": "All rights reserved.",
-
     "credit": {
       "addBy": "Add by",
       "and": "and"
@@ -327,17 +201,24 @@
     "titleStart": "Empowering IT students",
     "titleMiddle": "to build a",
     "titleHighlight": "successful future",
-    "description1": "IT-SUM is a centralized educational platform designed specifically for Information Technology students.",
-    "description2": "We bring together the best resources, tools, and community to help you learn, practice, and grow.",
+    "description1": "IT-SUM is a project sharing study-area information for Information Technology students.",
+    "description2": "The resource library is still in development; this site currently describes planned categories and general study areas.",
     "features": {
-      "quality": { "title": "Quality Education", "desc": "Curated by experts" },
+      "quality": {
+        "title": "Quality Education",
+        "desc": "Information about current project scope"
+      },
       "student": {
         "title": "Student Focused",
-        "desc": "Built for real learning"
+        "desc": "Study information for IT students"
       },
-      "improving": { "title": "Always Improving", "desc": "Driven by feedback" }
+      "improving": {
+        "title": "Library in development",
+        "desc": "Search and downloads are not available yet"
+      }
     },
     "dashboard": {
+      "demoLabel": "Illustrative UI concept · no live student data",
       "title": "Dashboard",
       "welcome": "Welcome back, Seif 👋",
       "search": "Search anything...",
@@ -351,9 +232,18 @@
         "achievements": "Achievements"
       },
       "stats": {
-        "progress": { "title": "Study Progress", "desc": "Keep it up!" },
-        "quizzes": { "title": "Quizzes Completed", "desc": "+12 this week" },
-        "hours": { "title": "Hours Learned", "desc": "+8 this week" }
+        "progress": {
+          "title": "Study Progress",
+          "desc": "Keep it up!"
+        },
+        "quizzes": {
+          "title": "Quizzes Completed",
+          "desc": "+12 this week"
+        },
+        "hours": {
+          "title": "Hours Learned",
+          "desc": "+8 this week"
+        }
       },
       "activity": {
         "title": "Recent Activity",
@@ -375,16 +265,21 @@
       },
       "achievements": {
         "title": "Achievements",
-        "item1": { "title": "Quiz Master", "desc": "Complete 20 quizzes" },
+        "item1": {
+          "title": "Quiz Master",
+          "desc": "Complete 20 quizzes"
+        },
         "item2": {
           "title": "Consistent Learner",
           "desc": "Study 7 days in a row"
         },
-        "item3": { "title": "Resource Explorer", "desc": "View 50 resources" }
+        "item3": {
+          "title": "Resource Explorer",
+          "desc": "View 50 resources"
+        }
       }
     }
   },
-
   "MissionVision": {
     "badge": "Our Purpose",
     "titlePrefix": "Our",
@@ -393,9 +288,9 @@
     "visionText": "Vision",
     "description": "We are on a mission to make quality IT education accessible, organized, and effective for everyone.",
     "missionTitle": "Our Mission",
-    "missionDesc": "To provide IT students with a unified platform that simplifies learning by offering high-quality resources, interactive tools, and a supportive community.",
+    "missionDesc": "Our goal is to organize study information and add useful learning resources as the project develops.",
     "visionTitle": "Our Vision",
-    "visionDesc": "To become the most trusted and comprehensive educational ecosystem for IT students worldwide."
+    "visionDesc": "We aim to grow into a trusted source of study information for IT students."
   },
   "Team": {
     "badge": "Our Team",
@@ -431,11 +326,11 @@
       },
       "1": {
         "title": "Building the Platform",
-        "desc": "We're building a complete ecosystem of resources, summaries, videos, and learning tools — all in one place."
+        "desc": "The site currently provides study-area overviews and information about planned resource categories. The library and learning tools have not launched."
       },
       "2": {
         "title": "Growing Forward",
-        "desc": "A larger, smarter platform built for more students, more tools, and what comes next."
+        "desc": "Future work may add learning resources and tools after they are implemented and verified."
       }
     },
     "future": {
@@ -444,31 +339,32 @@
     }
   },
   "AboutCTA": {
-    "title": "Ready to start",
-    "titleHighlight": "your journey?",
-    "description": "Join thousands of IT students and take your learning experience to the next level with IT-SUM.",
-    "button": "Get Started for Free",
+    "title": "The resource library",
+    "titleHighlight": "is in development",
+    "description": "Review the categories planned for the library and its current availability.",
+    "button": "See planned categories",
     "features": {
-      "freeForever": "Free forever",
-      "noCard": "No credit card",
-      "startQuickly": "Start in 30 seconds"
+      "freeForever": "Planned resource categories",
+      "noCard": "Library not available yet",
+      "startQuickly": "Study-area overviews"
     }
   },
   "DepartmentsPage": {
-    "eyebrow": "Academic Programs",
-    "title1": "Explore Our",
-    "title2": "Academic Departments",
-    "description": "Discover IT programs and resources organized by department. Choose your path and start learning.",
-    "search": "Search departments...",
+    "eyebrow": "STUDY AREA OVERVIEW",
+    "title1": "Explore IT",
+    "title2": "study areas",
+    "description": "These are general topic overviews, not an official program catalog. Detailed subject and resource data are not available yet.",
+    "search": "Search study areas...",
+    "searchLabel": "Search study areas by name or description",
     "stats": {
       "departments": "Departments",
       "subjects": "Subjects",
       "summaries": "Summaries",
       "resources": "Resources"
     },
-    "explore": "Explore Department",
-    "noResults": "No departments found",
-    "noResultsDescription": "Try searching with another department name.",
+    "explore": "Browse resources",
+    "noResults": "No study areas found",
+    "noResultsDescription": "Try another name or search term.",
     "it": {
       "name": "Information Technology",
       "desc": "Focuses on computing systems, software development, networks, and emerging technologies."
@@ -491,168 +387,112 @@
     }
   },
   "DepartmentsFeatured": {
-    "eyebrow": "FEATURED DEPARTMENT",
-    "title": "Information Technology",
-    "description": "The Information Technology department provides students with a strong foundation in modern technologies, programming, networks, databases, and software development.",
-    "features": [
-      "Modern Curriculum",
-      "Industry Relevant",
-      "Expert Instructors",
-      "Practical Learning"
-    ],
-    "button": "Explore IT Department",
-    "whyTitle": "Why Choose IT-SUM?",
-    "reasons": [
-      {
-        "title": "High Quality Content",
-        "description": "Well-structured summaries and resources created by experts."
-      },
-      {
-        "title": "Easy to Access",
-        "description": "All materials are organized and easy to find."
-      },
-      {
-        "title": "Free for Students",
-        "description": "IT-SUM is a non-profit platform dedicated to supporting students."
-      },
-      {
-        "title": "Always Updated",
-        "description": "Content is reviewed and updated regularly."
-      }
-    ]
+    "eyebrow": "INFORMATION NOTE",
+    "title": "The study areas are general overviews",
+    "description": "This page does not provide official program details, course lists, or resource counts. Contact IT-SUM if you need verified information.",
+    "button": "Contact IT-SUM"
+  },
+  "SubjectsPage": {
+    "status": "Not available yet",
+    "title": "The subjects directory is in development",
+    "description": "A subject catalog is not available in this project yet. You can review general study-area overviews instead.",
+    "departments": "View study areas"
   },
   "resources": {
     "hero": {
-      "title": "All Learning",
-      "highlight": "Resources in One Place",
-      "description": "Access a wide variety of learning materials beyond summaries. Slides, books, assignments, labs, code, past exams and more.",
-      "imageAlt": "IT-SUM learning resources",
-
-      "features": {
-        "formats": {
-          "title": "Diverse Formats",
-          "description": "Many file types"
-        },
-        "verified": {
-          "title": "Verified & Safe",
-          "description": "Checked for quality"
-        },
-        "free": {
-          "title": "Free Access",
-          "description": "100% non-profit"
-        },
-        "students": {
-          "title": "For IT Students",
-          "description": "Made for your journey"
-        }
-      }
+      "status": "Library not available yet",
+      "title": "The learning-resource library is in development",
+      "description": "This informational page outlines possible resource categories. Search, item details, previews, and downloads are not currently available."
     },
     "types": {
-      "title": "Browse by",
-      "highlight": "Resource Type",
-      "description": "Find the right resources for your study needs.",
-
+      "statusLabel": "Planned categories",
+      "title": "Possible",
+      "highlight": "resource categories",
+      "description": "These are proposed categories for a future library. They do not represent files currently available to browse or download.",
       "items": {
         "books": {
           "title": "Books & PDFs",
-          "description": "E-books, references and useful guides"
+          "description": "A possible category for books, references, and guides"
         },
         "slides": {
           "title": "Slides & Presentations",
-          "description": "Lecture slides and class presentations"
+          "description": "A possible category for lecture slides and presentations"
         },
         "assignments": {
           "title": "Assignments",
-          "description": "Homework, projects and assignments"
+          "description": "A possible category for coursework and projects"
         },
         "labs": {
           "title": "Labs & Practicals",
-          "description": "Lab manuals and practical guides"
+          "description": "A possible category for lab guides and practical work"
         },
         "code": {
           "title": "Source Code",
-          "description": "Examples, projects and code snippets"
+          "description": "A possible category for code examples and projects"
         },
         "exams": {
           "title": "Past Exams",
-          "description": "Previous exams and practice papers"
+          "description": "A possible category for exam practice materials"
         },
         "cheatsheets": {
           "title": "Cheat Sheets",
-          "description": "Quick reference and summary sheets"
+          "description": "A possible category for quick-reference sheets"
         }
       }
     },
     "find": {
-      "title": "What You Can Find",
+      "title": "Possible ways to organize content",
+      "description": "If the library becomes available, items could be grouped by these study topics.",
       "items": {
         "study": {
           "title": "Study Materials",
-          "description": "Books, notes, and learning references."
+          "description": "A possible grouping for study notes and references."
         },
         "lectures": {
           "title": "Lecture Materials",
-          "description": "Slides, presentations, and class resources."
+          "description": "A possible grouping for lecture materials."
         },
         "code": {
           "title": "Code & Projects",
-          "description": "Source code, mini projects, and programming tasks."
+          "description": "A possible grouping for code and programming projects."
         },
         "practice": {
           "title": "Practice Resources",
-          "description": "Past exams, quizzes, and practice sheets."
+          "description": "A possible grouping for practice materials."
         },
         "additional": {
           "title": "Additional Files",
-          "description": "Guides, templates, and helpful tools."
+          "description": "A possible grouping for supplementary materials."
         }
       }
     },
     "howItWorks": {
-      "title": "How It Works",
-
-      "steps": {
-        "search": {
-          "title": "Search",
-          "description": "Search by subject, type, or keyword."
-        },
-        "explore": {
-          "title": "Explore",
-          "description": "Browse different resources and preview details."
-        },
-        "access": {
-          "title": "Access",
-          "description": "Download and use the resource 100% free."
-        }
-      },
-
-      "cta": {
-        "title": "Everything You Need to Learn",
-        "description": "All resources are collected for IT students to help you learn better and smarter.",
-        "explore": "Explore Departments",
-        "getStarted": "Get Started Now"
-      }
+      "statusLabel": "Current status",
+      "title": "No resource files are available here yet",
+      "description": "The categories above are informational only. The library does not currently support searching, previews, or downloads.",
+      "departments": "View study areas",
+      "contact": "Contact IT-SUM"
     }
   },
   "Auth": {
     "Left": {
-      "brandSubtitle": "Smart Learning. Better Future.",
-      "welcomePill": "Welcome Back",
+      "brandSubtitle": "Study information for IT students.",
+      "welcomePill": "Welcome to IT-SUM",
       "heroTitlePrefix": "Continue your",
       "heroTitleHighlight": "learning journey.",
-      "heroDescription": "Access your subjects, summaries, resources, quizzes, and learning progress in one place.",
+      "heroDescription": "Explore study-area information and planned resource categories. Sign in to reach your student dashboard.",
       "features": {
         "study": {
-          "title": "Study Resources",
-          "description": "Everything you need in one place"
+          "title": "Resource categories",
+          "description": "See what is planned for the library"
         },
         "track": {
-          "title": "Track Progress",
-          "description": "Continue where you left off"
+          "title": "Study areas",
+          "description": "Read general subject overviews"
         },
         "secure": {
-          "title": "Secure Access",
-          "description": "Your learning space stays protected"
+          "title": "Student dashboard",
+          "description": "Sign in to access your account"
         }
       },
       "footerCopy": "© {year} IT-SUM. All rights reserved."
@@ -665,12 +505,30 @@
       "passwordLabel": "Password",
       "passwordPlaceholder": "Enter your password",
       "rememberMe": "Remember me",
-      "forgotPassword": "Forgot password?",
+      "forgotPassword": "Need help signing in? Contact us",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "unexpectedError": "An unexpected error occurred. Please try again.",
       "submitButton": "Sign In",
-      "signingIn": "Signing in\u2026",
-      "secureAccess": "Secure access to your IT-SUM account",
-      "supportPrefix": "Having trouble signing in?",
-      "supportLink": "Contact Support"
+      "signingIn": "Signing in…",
+      "secureAccess": "Secure access to your IT-SUM account"
+    }
+  },
+  "StudentDashboard": {
+    "loading": "Loading your dashboard",
+    "dashboardLabel": "Student dashboard",
+    "welcome": "Welcome back, {name}",
+    "studentId": "Student ID: {id}",
+    "academicYear": "Year {year}",
+    "signOut": "Sign out",
+    "quickAccess": "Quick access",
+    "resources": {
+      "title": "Resource information",
+      "description": "Review the resource categories planned for the library."
+    },
+    "departments": {
+      "title": "Explore departments",
+      "description": "Browse departments and their study areas."
     }
   }
 }

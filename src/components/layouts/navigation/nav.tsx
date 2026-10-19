@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link, usePathname } from "@/src/i18n/navigation";
 import { NavLinksArray } from "@/src/constants";
@@ -12,6 +12,7 @@ import LanguageToggle from "./language-toggle";
 
 export default function Nav() {
   const pathname = usePathname();
+  const locale = useLocale();
   const t = useTranslations("Navigation");
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,7 +24,7 @@ export default function Nav() {
 
   return (
     <motion.nav
-      dir="ltr"
+      dir={locale === "ar" ? "rtl" : "ltr"}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
@@ -35,7 +36,7 @@ export default function Nav() {
       <div
         className={`mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl border px-4 transition-all duration-300 lg:px-5 ${
           scrolled
-            ? "border-black/5 bg-white/85 shadow-[0_8px_30px_rgba(2,8,18,0.06)] backdrop-blur-xl dark:border-white/8 dark:bg-[#0B1120]/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+            ? "border-black/5 bg-white/95 shadow-[0_8px_30px_rgba(2,8,18,0.06)] backdrop-blur-xl dark:border-white/8 dark:bg-[#0B1120]/95 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
             : "border-black/5 bg-white/40 backdrop-blur-md dark:border-white/6 dark:bg-white/2"
         }`}
       >
@@ -51,12 +52,15 @@ export default function Nav() {
               priority
             />
           </div>
-          <h1 className="flex items-baseline text-lg font-bold tracking-tight italic">
+          <span
+            dir="ltr"
+            className="flex items-baseline text-lg font-bold tracking-tight italic"
+          >
             <span className="text-neutral-900 dark:text-white">IT</span>
             <span className="text-[#0284C7] transition-colors duration-300 dark:text-[#06B6D4]">
               -SUM
             </span>
-          </h1>
+          </span>
         </Link>
         <div className="hidden lg:flex lg:items-center lg:gap-1">
           {NavLinksArray.map((item) => {
