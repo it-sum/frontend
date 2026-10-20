@@ -10,7 +10,8 @@ import type {
 const DEMO_TOKEN_PREFIX = "demo-account:";
 const DEMO_TIMESTAMP = "2026-01-01T00:00:00.000Z";
 
-// These mock identities are accepted only by the local development app.
+// These identities create frontend-only demo sessions. Production builds keep
+// them disabled unless the deployment explicitly opts in with an env flag.
 const DEMO_USERS: Record<string, AuthUser> = {
   sadmin: {
     id: "demo-sadmin",
@@ -52,8 +53,15 @@ const DEMO_USERS: Record<string, AuthUser> = {
   },
 };
 
+function areDemoAccountsEnabled() {
+  return (
+    process.env.NODE_ENV === "development" ||
+    process.env.NEXT_PUBLIC_ENABLE_DEMO_ACCOUNTS === "true"
+  );
+}
+
 function getDemoUser(identifier: string) {
-  if (process.env.NODE_ENV !== "development") return undefined;
+  if (!areDemoAccountsEnabled()) return undefined;
   const normalizedIdentifier = identifier.trim().toLowerCase();
   return Object.prototype.hasOwnProperty.call(
     DEMO_USERS,
@@ -64,7 +72,7 @@ function getDemoUser(identifier: string) {
 }
 
 function getDemoUserFromToken(token: string) {
-  if (process.env.NODE_ENV !== "development" || !token.startsWith(DEMO_TOKEN_PREFIX)) {
+  if (!areDemoAccountsEnabled() || !token.startsWith(DEMO_TOKEN_PREFIX)) {
     return undefined;
   }
 
