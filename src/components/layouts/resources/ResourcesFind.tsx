@@ -10,6 +10,7 @@ import {
   Layers3,
   type LucideIcon,
 } from "lucide-react";
+import { RESOURCES_SECTION_CONTAINER_CLASSES } from "@/src/constants/variables";
 
 type FindKey = "study" | "lectures" | "code" | "practice" | "additional";
 
@@ -82,7 +83,7 @@ const ResourcesFind = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-transparent">
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className={RESOURCES_SECTION_CONTAINER_CLASSES}>
         <div className="mb-8 text-center sm:mb-10">
           <h2 className="text-3xl font-bold tracking-[-0.035em] text-zinc-950 sm:text-4xl dark:text-white">
             {t("title")}

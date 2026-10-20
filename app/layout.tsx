@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { alexandria, inter, montserrat, notoSansArabic } from "@/src/lib/fonts";
+import { alexandria, inter, montserrat } from "@/src/lib/fonts";
+import {
+  getLocaleDirection,
+  isArabicLocale,
+  THEME_BOOTSTRAP_SCRIPT,
+} from "@/src/constants/variables";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Metadata");
@@ -13,6 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: title, template: t("titleTemplate") },
     description,
     applicationName: "IT-SUM",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+    },
     openGraph: {
       title,
       description,
@@ -28,18 +40,22 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const fontVariables =
+    isArabicLocale(locale)
+      ? alexandria.variable
+      : `${inter.variable} ${montserrat.variable}`;
 
   return (
     <html
       lang={locale}
-      dir={locale === "ar" ? "rtl" : "ltr"}
+      dir={getLocaleDirection(locale)}
       suppressHydrationWarning
-      className={`${inter.variable} ${montserrat.variable} ${alexandria.variable} ${notoSansArabic.variable}`}
+      className={fontVariables}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('theme');var t=s||'dark';if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+            __html: THEME_BOOTSTRAP_SCRIPT,
           }}
         />
       </head>

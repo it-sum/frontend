@@ -24,7 +24,7 @@ export default async function HomePage({
     <>
       <Responsive />
       <Home />
-      <div className="bg-white text-slate-950 dark:bg-[#020812] dark:text-white">
+      <div className="bg-white text-slate-950 dark:bg-public-background dark:text-white">
         <Features />
         <Recent />
         <Preview />

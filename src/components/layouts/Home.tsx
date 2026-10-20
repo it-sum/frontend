@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, Boxes, Play } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/src/i18n/navigation";
+import { APP_ROUTES, isArabicLocale } from "@/src/constants/variables";
 
 import bgLight from "@/src/assets/images/light.webp";
 import bgDark from "@/src/assets/images/dark.webp";
@@ -9,7 +10,7 @@ import bgDark from "@/src/assets/images/dark.webp";
 export default async function Home() {
   const t = await getTranslations("HomePage");
   const locale = await getLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
 
   // فصل آخر كلمتين من العنوان لتلوينهما
   const titleText = t("title");
@@ -21,7 +22,7 @@ export default async function Home() {
     <main className="pt-16">
       <section
         dir={isArabic ? "rtl" : "ltr"}
-        className="relative isolate min-h-[calc(100dvh-4rem)] overflow-hidden bg-white dark:bg-[#020812]"
+        className="relative isolate min-h-[calc(100dvh-4rem)] overflow-hidden bg-white dark:bg-public-background"
       >
         <div
           aria-hidden="true"
@@ -43,7 +44,7 @@ export default async function Home() {
             sizes="46vw"
             className="object-cover object-right opacity-0 transition-opacity duration-700 dark:opacity-100"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-white via-white/75 to-white/5 dark:from-[#020812] dark:via-[#020812]/65 dark:to-[#020812]/5" />
+          <div className="absolute inset-0 bg-linear-to-r from-white via-white/75 to-white/5 dark:from-public-background dark:via-public-background/65 dark:to-public-background/5" />
         </div>
 
         <div
@@ -86,7 +87,7 @@ export default async function Home() {
             {/* الأزرار - تم جعلها متساوية الحجم ومتجاوبة */}
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
               <Link
-                href="/resources"
+                href={APP_ROUTES.RESOURCES}
                 className="group flex h-12 w-full items-center justify-center gap-5 rounded-lg bg-linear-to-r from-[#079bf5] via-[#08bddd] to-[#32d575] px-6 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)] sm:flex-1"
               >
                 {t("ctaPrimary")}

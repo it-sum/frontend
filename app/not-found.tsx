@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { APP_ROUTES } from "@/src/constants/variables";
 
 export default function NotFound() {
   return (
@@ -16,7 +17,7 @@ export default function NotFound() {
         </div>
 
         <Link
-          href="/"
+          href={APP_ROUTES.HOME}
           className="rounded-lg bg-primary px-5 py-2 text-primary-foreground transition hover:opacity-90"
         >
           Back to Home

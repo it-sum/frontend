@@ -11,16 +11,17 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Link } from "@/src/i18n/navigation";
+import { APP_ROUTES, isArabicLocale } from "@/src/constants/variables";
 
 const Preview = () => {
   const t = useTranslations("Preview");
-  const isArabic = useLocale() === "ar";
+  const isArabic = isArabicLocale(useLocale());
 
   return (
     <section
       dir={isArabic ? "rtl" : "ltr"}
       aria-labelledby="student-dashboard-preview-title"
-      className="relative overflow-hidden bg-slate-50 py-16 dark:bg-[#020812] sm:py-20"
+      className="relative overflow-hidden bg-slate-50 py-16 dark:bg-public-background sm:py-20"
     >
       <div
         aria-hidden="true"
@@ -46,7 +47,7 @@ const Preview = () => {
             {t("description")}
           </p>
           <Link
-            href="/login"
+            href={APP_ROUTES.LOGIN}
             className="mt-6 inline-flex min-h-11 items-center justify-center gap-3 rounded-lg bg-cyan-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-cyan-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"
           >
             {t("cta")}
@@ -54,7 +55,7 @@ const Preview = () => {
           </Link>
         </div>
 
-        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/5 dark:border-white/10 dark:bg-[#071421] dark:shadow-black/20">
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/5 dark:border-white/10 dark:bg-public-surface dark:shadow-black/20">
           <figcaption className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 px-4 py-3 text-xs dark:border-white/8 sm:px-5">
             <span className="inline-flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
               <LayoutDashboard

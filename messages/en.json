@@ -504,6 +504,7 @@
       "identifierPlaceholder": "Enter your email or student ID",
       "passwordLabel": "Password",
       "passwordPlaceholder": "Enter your password",
+      "demoLoginHint": "Local demo accounts: sadmin, admin, student — leave the password blank.",
       "rememberMe": "Remember me",
       "forgotPassword": "Need help signing in? Contact us",
       "showPassword": "Show password",
@@ -521,6 +522,9 @@
     "studentId": "Student ID: {id}",
     "academicYear": "Year {year}",
     "signOut": "Sign out",
+    "profileTitle": "Your profile",
+    "workspaceTitle": "Workspace",
+    "workspaceUnavailable": "Student learning information is not available yet.",
     "quickAccess": "Quick access",
     "resources": {
       "title": "Resource information",
@@ -530,5 +534,232 @@
       "title": "Explore departments",
       "description": "Browse departments and their study areas."
     }
+  },
+  "DashboardShell": {
+    "openMenu": "Open dashboard navigation",
+    "closeMenu": "Close dashboard navigation",
+    "expandSidebar": "Expand sidebar",
+    "collapseSidebar": "Collapse sidebar"
+  },
+  "AdminDashboard": {
+    "account": "Admin account",
+    "accountAccess": "Signed in as {name}",
+    "overview": "Admin overview",
+    "primaryNavigation": "Admin navigation",
+    "secondaryNavigation": "Additional admin navigation",
+    "eyebrow": "Administration",
+    "title": "Admin overview",
+    "description": "Administrative workspace overview.",
+    "roleDescription": "You have administrator access.",
+    "manageUsers": "Manage users",
+    "settings": "Settings",
+    "security": "Security",
+    "signOut": "Sign out",
+    "restoringSession": "Restoring your session"
+  },
+  "StudentShell": {
+    "workspace": "Student workspace",
+    "navigation": "Student navigation",
+    "primaryNavigation": "Primary student navigation",
+    "secondaryNavigation": "Secondary student navigation",
+    "openMenu": "Open student navigation",
+    "closeMenu": "Close student navigation",
+    "expandSidebar": "Expand sidebar",
+    "collapseSidebar": "Collapse sidebar",
+    "profileAccess": "Profile for {name}",
+    "academicYear": "Academic year {year}",
+    "items": {
+      "dashboard": "Dashboard",
+      "subjects": "Subjects",
+      "videos": "Videos",
+      "summaries": "Summaries",
+      "sheets": "Sheets",
+      "assignments": "Assignments",
+      "quizzes": "Quizzes",
+      "midterm": "Midterm",
+      "final": "Final exam",
+      "leaderboard": "Leaderboard",
+      "ai": "Study assistant",
+      "profile": "Profile",
+      "notifications": "Notifications",
+      "settings": "Settings"
+    }
+  },
+  "StudentContentPages": {
+    "subjects": {
+      "eyebrow": "Student workspace",
+      "title": "Subjects",
+      "description": "This page shows the student subject directory when a verified data source is available.",
+      "primaryTitle": "Subject directory",
+      "primaryDescription": "There is currently no service or verified data for the student subject directory.",
+      "primaryState": "The subject list and its data contract are not available in this project, so no subjects or semester options are shown.",
+      "secondaryTitle": "Academic context",
+      "secondaryDescription": "Study scope details",
+      "secondaryState": "There is no verified source for department or academic-year data here."
+    },
+    "subjectDetails": {
+      "eyebrow": "Student workspace",
+      "title": "Subject details",
+      "description": "Subject details require a verified record from an available data source.",
+      "primaryTitle": "Subject content",
+      "primaryDescription": "The subject record cannot currently be verified or loaded.",
+      "primaryState": "The subject and detail service is not available in this project, so no default content is shown.",
+      "secondaryTitle": "Subject resources",
+      "secondaryDescription": "Lectures and files",
+      "secondaryState": "Resources and files require a verified subject record and content service."
+    },
+    "videos": {
+      "eyebrow": "Student workspace",
+      "title": "Videos",
+      "description": "This page shows the video library and player status when verified data and playback sources are available.",
+      "primaryTitle": "Video library",
+      "primaryDescription": "There are currently no video records or service to retrieve them.",
+      "primaryState": "Video data is unavailable, so no list or empty result that implies a connected library is shown.",
+      "secondaryTitle": "Video playback",
+      "secondaryDescription": "Playback source",
+      "secondaryState": "There is no verified video or playback source for a player to display."
+    },
+    "summaries": {
+      "eyebrow": "Student workspace",
+      "title": "Summaries",
+      "description": "Summaries require verified content records before they can be listed or read.",
+      "primaryTitle": "Summary library",
+      "primaryDescription": "There are currently no summary records or service to retrieve them.",
+      "primaryState": "The summary source is unavailable in this project, so no content or unsupported selectors are shown.",
+      "secondaryTitle": "Summary reader",
+      "secondaryDescription": "Content view",
+      "secondaryState": "A reader cannot open without a verified summary record and content."
+    },
+    "sheets": {
+      "eyebrow": "Student workspace",
+      "title": "Sheets",
+      "description": "This page shows sheet files when verified records and file sources are available.",
+      "primaryTitle": "Sheet library",
+      "primaryDescription": "There are currently no sheet records or service to retrieve them.",
+      "primaryState": "Sheet data is unavailable, so no files or preview and download actions are shown.",
+      "secondaryTitle": "Files",
+      "secondaryDescription": "Preview and download",
+      "secondaryState": "There is no verified file to preview or download right now."
+    },
+    "assignments": {
+      "eyebrow": "Student workspace",
+      "title": "Assignments",
+      "description": "This page shows assignment information when verified records and a supported service are available.",
+      "primaryTitle": "Assignment content",
+      "primaryDescription": "There are currently no assignment records or service to display them.",
+      "primaryState": "The assignment data source is unavailable, so no assignments or invented completion statuses are shown.",
+      "secondaryTitle": "Assignment submission",
+      "secondaryDescription": "Files and actions",
+      "secondaryState": "There is no verified submission service or assignment file to display."
+    }
+  },
+  "StudentFeaturePages": {
+    "quizzes": {
+      "eyebrow": "Student workspace",
+      "title": "Quizzes",
+      "description": "This page shows quiz data when an approved service and source are available.",
+      "primaryTitle": "Quiz records",
+      "primaryDescription": "The quiz list requires a verified data source.",
+      "primaryState": "The quiz service is not available, so no sample quizzes or attempts are shown.",
+      "secondaryTitle": "Results and attempts",
+      "secondaryDescription": "Performance data",
+      "secondaryState": "There is no verified result or attempt data to display."
+    },
+    "midterm": {
+      "eyebrow": "Student workspace",
+      "title": "Midterm",
+      "description": "Midterm data requires an approved contract and data source.",
+      "primaryTitle": "Exam information",
+      "primaryDescription": "Exam information can be shown when a service is connected to a verified contract.",
+      "primaryState": "The midterm service and data are not available in the project.",
+      "secondaryTitle": "Results and attempts",
+      "secondaryDescription": "Performance record",
+      "secondaryState": "There is no verified attempt or result data."
+    },
+    "final": {
+      "eyebrow": "Student workspace",
+      "title": "Final exam",
+      "description": "Final exam data requires an approved service and source.",
+      "primaryTitle": "Exam information",
+      "primaryDescription": "This page displays exam data when a verified source is available.",
+      "primaryState": "The final exam service and data are not available in the project.",
+      "secondaryTitle": "Results and attempts",
+      "secondaryDescription": "Performance record",
+      "secondaryState": "There is no verified attempt or result data."
+    },
+    "leaderboard": {
+      "eyebrow": "Student workspace",
+      "title": "Student leaderboard",
+      "description": "Ranking comparisons require a verified data source and approved academic scope.",
+      "primaryTitle": "Academic ranking",
+      "primaryDescription": "No ranking or points are shown until they come from a verified source.",
+      "primaryState": "The ranking service and comparison scope are unavailable, so no positions or estimated points are shown.",
+      "secondaryTitle": "Comparison scope",
+      "secondaryDescription": "Academic context",
+      "secondaryState": "There is no approved data for determining which students are compared."
+    },
+    "ai": {
+      "eyebrow": "Student workspace",
+      "title": "AI study assistant",
+      "description": "Assistance tools require an authorized integration and verified source before use.",
+      "primaryTitle": "Study assistant",
+      "primaryDescription": "This area currently shows the availability status of the assistance service.",
+      "primaryState": "There is no authorized assistant integration, so no messages are sent and no access to platform data is claimed.",
+      "secondaryTitle": "Assistant source",
+      "secondaryDescription": "Integration status",
+      "secondaryState": "The assistant service and its data source are unavailable in the project."
+    },
+    "notifications": {
+      "eyebrow": "Student workspace",
+      "title": "Notifications",
+      "description": "Notifications require an approved data source before messages or their status can be shown.",
+      "primaryTitle": "Notification center",
+      "primaryDescription": "Notifications can be displayed when a verified service is available.",
+      "primaryState": "The notification service is unavailable, so no messages or unsupported counts are shown.",
+      "secondaryTitle": "Service status",
+      "secondaryDescription": "Data source",
+      "secondaryState": "There is no approved source for notifications or their status."
+    },
+    "profile": {
+      "eyebrow": "Student workspace",
+      "title": "Profile",
+      "description": "This page displays only account fields that are present in the current session.",
+      "primaryTitle": "Available account details",
+      "loading": "Restoring account details…",
+      "unavailable": "No account details are available in the current session.",
+      "fields": {
+        "fullName": "Full name",
+        "studentCode": "Student code",
+        "academicYear": "Academic year",
+        "email": "Email",
+        "status": "Account status"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "suspended": "Suspended"
+      }
+    },
+    "settings": {
+      "eyebrow": "Student workspace",
+      "title": "Settings",
+      "description": "The currently available settings are the site language and appearance.",
+      "appearanceTitle": "Language and appearance",
+      "themeTitle": "Appearance",
+      "themeDescription": "Switch the site between light and dark appearance.",
+      "languageTitle": "Site language",
+      "languageDescription": "Switch between Arabic and English.",
+      "accountTitle": "Account settings",
+      "accountDescription": "Account and privacy settings require approved services and contracts.",
+      "accountUnavailable": "These settings are not supported, and no update or save actions are available."
+    }
+  },
+  "StudentDataState": {
+    "unavailable": "This information is not available yet.",
+    "empty": "There is no information to show yet.",
+    "loading": "Loading information…",
+    "error": "We could not load this information. Please try again later.",
+    "unauthorized": "Sign in is required to view this information.",
+    "forbidden": "You do not have access to this information."
   }
 }

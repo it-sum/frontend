@@ -1,0 +1,92 @@
+.button,
+.placeholder {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--shell-border);
+  border-radius: var(--radius-shell-outer);
+  background: color-mix(in srgb, var(--shell-surface) 82%, transparent);
+  color: var(--shell-brand);
+  box-shadow: var(--shell-control-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.circular {
+  position: relative;
+}
+
+.button {
+  padding: 0;
+  cursor: pointer;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.button[data-theme="dark"] {
+  border-color: var(--shell-border);
+  background: color-mix(in srgb, var(--shell-surface) 82%, transparent);
+  color: var(--shell-brand-strong);
+  box-shadow: var(--shell-control-shadow);
+}
+
+.button:hover {
+  border-color: color-mix(in srgb, var(--shell-brand) 40%, transparent);
+  background: var(--shell-hover);
+  box-shadow: var(--shell-control-shadow);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--shell-brand);
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  stroke-width: 2;
+  transition:
+    color 220ms ease,
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sun {
+  color: var(--theme-sun-icon);
+}
+
+.moon {
+  color: var(--theme-moon-icon);
+  transform: rotate(-12deg);
+}
+
+@media (hover: hover) {
+  .button:hover .icon,
+  .circular:hover .icon {
+    transform: scale(1.08);
+  }
+
+  .button:hover .moon,
+  .circular:hover .moon {
+    transform: rotate(0) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .icon {
+    transition-duration: 0.01ms;
+  }
+}

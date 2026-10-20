@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
+import { VISUAL_ACCENT_COLORS } from "@/src/constants/variables";
 import { ArrowRight } from "lucide-react";
 
 const timelineConfig = [
@@ -157,14 +158,14 @@ const OurStory = () => {
   return (
     <div className="w-full flex justify-center my-4 mb-16 px-4 sm:px-6 lg:px-8">
       <div className="relative w-full max-w-305">
-        <section className="relative overflow-hidden rounded-[22px] border border-blue-500/20 bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 shadow-2xl shadow-blue-950/10 p-8 sm:p-12 lg:p-16 font-sans text-slate-800 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b] dark:text-slate-200 dark:shadow-black/30 dark:border-blue-500/20 transition-colors">
+        <section className="relative overflow-hidden rounded-shell-outer border border-blue-500/20 bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 shadow-2xl shadow-blue-950/10 p-8 sm:p-12 lg:p-16 font-sans text-slate-800 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b] dark:text-slate-200 dark:shadow-black/30 dark:border-blue-500/20 transition-colors">
           <DotPattern
-            color="#008cff"
+            color={VISUAL_ACCENT_COLORS.BLUE}
             className="top-0 right-0"
             maskDirection="to bottom left"
           />
           <DotPattern
-            color="#00d98b"
+            color={VISUAL_ACCENT_COLORS.GREEN}
             className="bottom-0 left-0"
             maskDirection="to top right"
           />

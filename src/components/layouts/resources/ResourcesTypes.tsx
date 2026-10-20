@@ -12,6 +12,7 @@ import {
   GraduationCap,
   type LucideIcon,
 } from "lucide-react";
+import { RESOURCES_SECTION_CONTAINER_CLASSES } from "@/src/constants/variables";
 
 type ResourceKey =
   | "books"
@@ -119,7 +120,7 @@ const ResourcesTypes = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-transparent">
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className={RESOURCES_SECTION_CONTAINER_CLASSES}>
         <div className="mb-8 sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">
             {t("statusLabel")}

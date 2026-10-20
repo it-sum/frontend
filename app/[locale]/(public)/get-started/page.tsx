@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { APP_ROUTES } from "@/src/constants/variables";
 
 export default async function GetStartedPage({
   params,
@@ -6,5 +7,5 @@ export default async function GetStartedPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  redirect(`/${locale}/login`);
+  redirect(`/${locale}${APP_ROUTES.LOGIN}`);
 }

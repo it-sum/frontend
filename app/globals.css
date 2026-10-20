@@ -1,25 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../src/styles/variables.css";
 
-/* 1. تعريف الخطوط الأساسية بشكل منفصل لتجنب التعارض الدائري */
-:root {
-  --default-font: var(--font-montserrat), sans-serif;
-  --heading-font: var(--font-inter), sans-serif;
-}
-
-/* 2. استبدال الخطوط عند تفعيل اللغة العربية */
-html[lang="ar"] {
-  --default-font: var(--font-alexandria), sans-serif;
-  --heading-font: var(--font-alexandria), sans-serif;
-}
-
-/* 3. تطبيق الخط الأساسي على الجسم */
 body {
   font-family: var(--default-font);
 }
 
 @custom-variant dark (&:is(.dark *));
+
+.rounded-shell-outer {
+  border-radius: var(--radius-shell-outer);
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -27,7 +19,35 @@ body {
   /* ربط متغيرات Tailwind بالمتغيرات المنفصلة */
   --font-sans: var(--default-font);
   --font-heading: var(--heading-font);
-  --font-mono: var(--font-inter);
+  --color-shell-background: var(--shell-background);
+  --color-shell-surface: var(--shell-surface);
+  --color-shell-foreground: var(--shell-foreground);
+  --color-shell-muted: var(--shell-muted);
+  --color-shell-border: var(--shell-border);
+  --color-shell-hover: var(--shell-hover);
+  --color-shell-brand: var(--shell-brand);
+  --color-shell-brand-strong: var(--shell-brand-strong);
+  --color-shell-brand-active: var(--shell-brand-active);
+  --color-shell-brand-hover: var(--shell-brand-hover);
+  --color-shell-on-brand: var(--shell-on-brand);
+  --color-public-background: var(--public-background);
+  --color-public-surface: var(--public-surface);
+  --color-public-brand-cyan: var(--public-brand-cyan);
+  --color-public-brand-blue: var(--public-brand-blue);
+  --color-public-brand-cyan-hover: var(--public-brand-cyan-hover);
+  --color-public-brand-blue-hover: var(--public-brand-blue-hover);
+  --color-visual-accent-blue: var(--visual-accent-blue);
+  --color-visual-accent-green: var(--visual-accent-green);
+  --color-visual-accent-blue-highlight: var(--visual-accent-blue-highlight);
+  --color-visual-accent-green-highlight: var(--visual-accent-green-highlight);
+  --shadow-shell-active: var(--shell-active-shadow);
+  --shadow-shell-floating: var(--shell-floating-shadow);
+  --shadow-shell-control: var(--shell-control-shadow);
+  --shadow-shell-controls: var(--shell-control-group-shadow);
+  --shadow-shell-card: var(--shell-card-shadow);
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -67,78 +87,7 @@ body {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-}
-
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --brand-1: #0284c7;
-  --brand-2: #06b6d4;
-  --brand-3: #84cc16;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: #0b1120;
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --radius-shell-outer: var(--shell-outer-radius);
 }
 
 @layer base {
@@ -212,17 +161,25 @@ body {
 }
 
 .team-photo-ring--blue {
-  --team-photo-accent: #008cff;
-  --team-photo-highlight: #b9e6ff;
-  --team-photo-glow: rgb(0 140 255 / 20%);
-  --team-photo-glow-strong: rgb(0 140 255 / 42%);
+  --team-photo-accent: var(--visual-accent-blue);
+  --team-photo-highlight: var(--visual-accent-blue-highlight);
+  --team-photo-glow: color-mix(in srgb, var(--visual-accent-blue) 20%, transparent);
+  --team-photo-glow-strong: color-mix(
+    in srgb,
+    var(--visual-accent-blue) 42%,
+    transparent
+  );
 }
 
 .team-photo-ring--green {
-  --team-photo-accent: #00d98b;
-  --team-photo-highlight: #b9ffe0;
-  --team-photo-glow: rgb(0 217 139 / 20%);
-  --team-photo-glow-strong: rgb(0 217 139 / 42%);
+  --team-photo-accent: var(--visual-accent-green);
+  --team-photo-highlight: var(--visual-accent-green-highlight);
+  --team-photo-glow: color-mix(in srgb, var(--visual-accent-green) 20%, transparent);
+  --team-photo-glow-strong: color-mix(
+    in srgb,
+    var(--visual-accent-green) 42%,
+    transparent
+  );
 }
 
 @keyframes team-photo-float {
@@ -248,6 +205,23 @@ body {
   }
   50% {
     box-shadow: 0 0 17px 2px var(--team-photo-glow-strong);
+  }
+}
+
+@keyframes resources-file-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .resources-file-float {
+    animation: resources-file-float var(--file-float-duration, 5s) ease-in-out
+      var(--file-float-delay, 0s) infinite;
   }
 }
 
