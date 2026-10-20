@@ -17,6 +17,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { APP_ROUTES } from "@/src/constants/variables";
 import { login } from "@/src/services/auth.service";
 import { ApiError } from "@/src/lib/api";
 import { useAuthStore } from "@/src/stores/auth.store";
@@ -169,7 +170,6 @@ const LoginRight = () => {
                 type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 placeholder={t("passwordPlaceholder")}
-                required
                 disabled={isLoading}
                 className={`${inputBaseClass} pe-10`}
               />
@@ -189,6 +189,11 @@ const LoginRight = () => {
                 )}
               </button>
             </div>
+            {process.env.NODE_ENV === "development" && (
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                {t("demoLoginHint")}
+              </p>
+            )}
           </div>
 
           {/* Options */}
@@ -212,7 +217,7 @@ const LoginRight = () => {
             </label>
 
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}${APP_ROUTES.CONTACT}`}
               className="text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
             >
               {t("forgotPassword")}

@@ -4,6 +4,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 import { Users, Code2, Target, Server, Boxes } from "lucide-react";
+import { VISUAL_ACCENT_COLORS } from "@/src/constants/variables";
 
 import seif from "@/src/assets/images/team/seif.webp";
 import ahmed from "@/src/assets/images/team/ahmed.webp";
@@ -35,7 +36,7 @@ const variants = {
     glow: "bg-blue-500/10",
     role: "border-blue-500/20 bg-blue-500/15 text-blue-500",
     skill: "border-blue-500/15 bg-blue-500/7 text-blue-500",
-    dotColor: "#008cff",
+    dotColor: VISUAL_ACCENT_COLORS.BLUE,
     dotPosition: "end-3" as const,
     mask: "to bottom left",
   },
@@ -47,7 +48,7 @@ const variants = {
     glow: "bg-emerald-500/10",
     role: "border-emerald-500/20 bg-emerald-500/15 text-emerald-500",
     skill: "border-emerald-500/15 bg-emerald-500/7 text-emerald-500",
-    dotColor: "#00d98b",
+    dotColor: VISUAL_ACCENT_COLORS.GREEN,
     dotPosition: "start-3" as const,
     mask: "to bottom right",
   },
@@ -79,7 +80,7 @@ const Team = () => {
           </div>
           <h2 className="text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl lg:text-[42px]">
             {t("title")}{" "}
-            <span className="bg-linear-to-r from-[#008cff] via-[#00b9df] to-[#00df8d] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-visual-accent-blue via-[#00b9df] to-[#00df8d] bg-clip-text text-transparent">
               IT-SUM
             </span>
           </h2>

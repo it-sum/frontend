@@ -1,0 +1,131 @@
+:root {
+  --default-font: var(--font-montserrat), sans-serif;
+  --heading-font: var(--font-inter), sans-serif;
+  --shell-outer-radius: 22px;
+  --public-background: #020812;
+  --public-surface: #071421;
+  --public-brand-cyan: #06B6D4;
+  --public-brand-blue: #0284C7;
+  --public-brand-cyan-hover: #0891B2;
+  --public-brand-blue-hover: #0369A1;
+  --visual-accent-blue: #008cff;
+  --visual-accent-green: #00d98b;
+  --visual-accent-blue-highlight: #b9e6ff;
+  --visual-accent-green-highlight: #b9ffe0;
+  --dashboard-sidebar-collapsed-width: 4.5rem;
+  --dashboard-sidebar-expanded-width: 16rem;
+  --dashboard-content-offset-collapsed: 6.5rem;
+  --dashboard-content-offset-expanded: 18rem;
+  --theme-sun-icon: #f59e0b;
+  --theme-moon-icon: #64748b;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --brand-1: #116a5b;
+  --brand-2: #1e4d42;
+  --brand-3: #61c7a1;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: var(--brand-1);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  --shell-background: #eceef1;
+  --shell-surface: var(--card);
+  --shell-foreground: var(--foreground);
+  --shell-muted: var(--muted-foreground);
+  --shell-border: var(--border);
+  --shell-hover: rgb(17 106 91 / 8%);
+  --shell-brand: var(--brand-1);
+  --shell-brand-strong: var(--brand-2);
+  --shell-brand-active: var(--brand-1);
+  --shell-brand-hover: var(--brand-1);
+  --shell-active-shadow: 0 4px 12px rgb(17 106 91 / 25%);
+  --shell-on-brand: #ffffff;
+  --shell-floating-shadow: 0 14px 44px rgb(28 50 58 / 15%);
+  --shell-control-shadow: 0 8px 30px rgb(25 45 52 / 12%);
+  --shell-control-group-shadow: 0 4px 20px rgb(15 23 42 / 5%);
+  --shell-card-shadow: 0 10px 32px rgb(28 50 58 / 8%);
+}
+
+html[dir="rtl"] {
+  --default-font: var(--font-alexandria), sans-serif;
+  --heading-font: var(--font-alexandria), sans-serif;
+}
+
+.dark {
+  --theme-moon-icon: #cbd5e1;
+
+  --background: #0b1120;
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--brand-1);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  --shell-background: #0b1315;
+  --shell-surface: #111c1f;
+  --shell-foreground: #f1f5f9;
+  --shell-muted: #94a3b8;
+  --shell-border: rgb(255 255 255 / 10%);
+  --shell-hover: rgb(21 128 109 / 15%);
+  --shell-brand: var(--brand-1);
+  --shell-brand-strong: #5eead4;
+  --shell-brand-active: #15806d;
+  --shell-brand-hover: var(--shell-brand-strong);
+  --shell-on-brand: #ffffff;
+  --shell-floating-shadow: 0 14px 44px rgb(0 0 0 / 26%);
+  --shell-control-shadow: 0 8px 30px rgb(0 0 0 / 22%);
+  --shell-control-group-shadow: 0 4px 20px rgb(0 0 0 / 20%);
+  --shell-card-shadow: 0 10px 32px rgb(0 0 0 / 16%);
+}

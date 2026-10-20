@@ -1,10 +1,14 @@
+import { APP_ROUTES } from "./variables";
+
+export * from "./variables";
+
 export const NavLinks = {
-  HOME: "/",
-  RESOURCES: "/resources",
-  DEPARTMENTS: "/departments",
-  ABOUT: "/about",
-  CONTACT: "/contact",
-  LOGIN: "/login",
+  HOME: APP_ROUTES.HOME,
+  RESOURCES: APP_ROUTES.RESOURCES,
+  DEPARTMENTS: APP_ROUTES.DEPARTMENTS,
+  ABOUT: APP_ROUTES.ABOUT,
+  CONTACT: APP_ROUTES.CONTACT,
+  LOGIN: APP_ROUTES.LOGIN,
 } as const;
 
 export const NavLinksArray = [

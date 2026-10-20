@@ -5,6 +5,11 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link, usePathname } from "@/src/i18n/navigation";
+import {
+  APP_ROUTES,
+  getLocaleDirection,
+  PUBLIC_BRAND_CLASSES,
+} from "@/src/constants/variables";
 import { NavLinksArray } from "@/src/constants";
 import Logo from "@/src/assets/images/logo.webp";
 import ThemeToggle from "./theme-toggle";
@@ -24,7 +29,7 @@ export default function Nav() {
 
   return (
     <motion.nav
-      dir={locale === "ar" ? "rtl" : "ltr"}
+      dir={getLocaleDirection(locale)}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
@@ -36,11 +41,11 @@ export default function Nav() {
       <div
         className={`mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl border px-4 transition-all duration-300 lg:px-5 ${
           scrolled
-            ? "border-black/5 bg-white/95 shadow-[0_8px_30px_rgba(2,8,18,0.06)] backdrop-blur-xl dark:border-white/8 dark:bg-[#0B1120]/95 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+            ? "border-black/5 bg-white/95 shadow-[0_8px_30px_rgba(2,8,18,0.06)] backdrop-blur-xl dark:border-white/8 dark:bg-background/95 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
             : "border-black/5 bg-white/40 backdrop-blur-md dark:border-white/6 dark:bg-white/2"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href={APP_ROUTES.HOME} className="flex items-center gap-2.5">
           <div className="relative">
             <Image
               src={Logo}
@@ -57,7 +62,7 @@ export default function Nav() {
             className="flex items-baseline text-lg font-bold tracking-tight italic"
           >
             <span className="text-neutral-900 dark:text-white">IT</span>
-            <span className="text-[#0284C7] transition-colors duration-300 dark:text-[#06B6D4]">
+            <span className={`${PUBLIC_BRAND_CLASSES.wordmark} transition-colors duration-300`}>
               -SUM
             </span>
           </span>
@@ -71,7 +76,7 @@ export default function Nav() {
                 href={item.href}
                 className={`relative rounded-lg px-3.5 py-1.5 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? "bg-[#06B6D4]/10 text-[#0284C7] dark:bg-[#06B6D4]/12 dark:text-[#22d3ee]"
+                    ? PUBLIC_BRAND_CLASSES.activeNavigation
                     : // Fixed Tailwind v4 classes here
                       "text-neutral-500 hover:bg-black/4 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-white/6 dark:hover:text-white"
                 }`}
@@ -90,8 +95,8 @@ export default function Nav() {
           <div className="h-5 w-px bg-black/10 dark:bg-white/10" />
 
           <Link
-            href="/login"
-            className="rounded-lg bg-linear-to-r from-[#06B6D4] to-[#0284C7] px-4 py-1.5 text-sm font-semibold text-white transition-all duration-200 hover:from-[#0891B2] hover:to-[#0369A1]"
+            href={APP_ROUTES.LOGIN}
+            className={`rounded-lg ${PUBLIC_BRAND_CLASSES.primaryGradient} px-4 py-1.5 text-sm font-semibold text-white transition-all duration-200 ${PUBLIC_BRAND_CLASSES.primaryGradientHover}`}
             style={{ boxShadow: "0 6px 16px -4px rgba(6, 182, 212, 0.4)" }}
           >
             {t("login")}

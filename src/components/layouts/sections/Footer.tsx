@@ -5,6 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
+  APP_ROUTES,
+  isArabicLocale,
+  type PublicRoute,
+} from "@/src/constants/variables";
+import {
   ArrowRight,
   BookOpen,
   ChevronRight,
@@ -17,7 +22,10 @@ import {
 } from "lucide-react";
 import Logo from "@/src/assets/images/logo.webp";
 
-type FooterLink = { label: string; href: string };
+type FooterLink = {
+  label: string;
+  href: PublicRoute | typeof APP_ROUTES.DASHBOARD;
+};
 type FooterColumn = {
   key: "platform" | "explore" | "company";
   icon: React.ElementType;
@@ -31,8 +39,8 @@ const footerColumns: FooterColumn[] = [
     icon: LayoutGrid,
     iconClass: "text-sky-400",
     links: [
-      { label: "dashboard", href: "/dashboard" },
-      { label: "login", href: "/login" },
+      { label: "dashboard", href: APP_ROUTES.DASHBOARD },
+      { label: "login", href: APP_ROUTES.LOGIN },
     ],
   },
   {
@@ -40,8 +48,8 @@ const footerColumns: FooterColumn[] = [
     icon: BookOpen,
     iconClass: "text-emerald-400",
     links: [
-      { label: "departments", href: "/departments" },
-      { label: "resources", href: "/resources" },
+      { label: "departments", href: APP_ROUTES.DEPARTMENTS },
+      { label: "resources", href: APP_ROUTES.RESOURCES },
     ],
   },
   {
@@ -49,8 +57,8 @@ const footerColumns: FooterColumn[] = [
     icon: Users,
     iconClass: "text-purple-400",
     links: [
-      { label: "about", href: "/about" },
-      { label: "contact", href: "/contact" },
+      { label: "about", href: APP_ROUTES.ABOUT },
+      { label: "contact", href: APP_ROUTES.CONTACT },
     ],
   },
 ];
@@ -58,7 +66,7 @@ const footerColumns: FooterColumn[] = [
 const Footer = () => {
   const t = useTranslations("Footer");
   const locale = useLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
 
   const arrowClass =
     "transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1";
@@ -81,7 +89,10 @@ const Footer = () => {
       <div className="relative z-10 mx-auto grid max-w-screen-2xl grid-cols-1 gap-8 py-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
         {/* BRAND SECTION */}
         <div className="md:col-span-2 lg:col-span-1 xl:col-span-1">
-          <Link href={`/${locale}`} className="inline-flex items-center gap-2">
+          <Link
+            href={`/${locale}${APP_ROUTES.HOME}`}
+            className="inline-flex items-center gap-2"
+          >
             <div className="relative flex h-9 w-9 items-center justify-center">
               <Image
                 src={Logo}

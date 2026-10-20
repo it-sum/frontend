@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { APP_ROUTES } from "@/src/constants/variables";
 
 type ErrorPageProps = {
   error: Error & {
@@ -37,7 +38,7 @@ export default function Error({ error, reset }: ErrorPageProps) {
           </button>
 
           <Link
-            href="/"
+            href={APP_ROUTES.HOME}
             className="rounded-lg border px-5 py-2 transition hover:bg-muted"
           >
             Go Home

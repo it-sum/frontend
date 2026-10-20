@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useLocale } from "next-intl";
+import { isArabicLocale } from "@/src/constants/variables";
 import DepartmentsHero from "@/src/components/layouts/departments/DepartmentsHero";
 import DepartmentsGrid from "@/src/components/layouts/departments/DepartmentsGrid";
 import DepartmentsFeatured from "@/src/components/layouts/departments/DepartmentsFeatured";
@@ -9,7 +10,7 @@ import DepartmentsFeatured from "@/src/components/layouts/departments/Department
 export default function DepartmentsPage() {
   const [search, setSearch] = useState("");
   const locale = useLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
 
   return (
     <main

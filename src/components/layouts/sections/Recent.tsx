@@ -3,19 +3,20 @@
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, BookOpen, Info } from "lucide-react";
 import { Link } from "@/src/i18n/navigation";
+import { APP_ROUTES, isArabicLocale } from "@/src/constants/variables";
 
 const Recent = () => {
   const t = useTranslations("Recent");
-  const isArabic = useLocale() === "ar";
+  const isArabic = isArabicLocale(useLocale());
 
   return (
     <section
       dir={isArabic ? "rtl" : "ltr"}
       aria-labelledby="resource-status-title"
-      className="bg-white py-14 dark:bg-[#020812] sm:py-16"
+      className="bg-white py-14 dark:bg-public-background sm:py-16"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-white/8 dark:bg-[#071421] sm:flex-row sm:items-center sm:justify-between sm:p-7">
+        <div className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-white/8 dark:bg-public-surface sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div className="flex min-w-0 items-start gap-4">
             <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
               <BookOpen aria-hidden="true" className="size-5" />
@@ -38,7 +39,7 @@ const Recent = () => {
           </div>
 
           <Link
-            href="/resources"
+            href={APP_ROUTES.RESOURCES}
             className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition-colors hover:border-cyan-500 hover:text-cyan-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 dark:border-white/12 dark:bg-white/5 dark:text-slate-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
           >
             {t("viewAll")}

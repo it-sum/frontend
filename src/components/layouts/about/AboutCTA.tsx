@@ -3,6 +3,11 @@
 import { Link } from "@/src/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import {
+  APP_ROUTES,
+  isArabicLocale,
+  VISUAL_ACCENT_COLORS,
+} from "@/src/constants/variables";
+import {
   ArrowRight,
   Rocket,
   ShieldCheck,
@@ -20,7 +25,7 @@ const features: { icon: LucideIcon; textKey: string; color: string }[] = [
 const AboutCTA = () => {
   const t = useTranslations("AboutCTA");
   const locale = useLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
 
   const arrowClass = `transition-transform duration-300 ${
     isArabic
@@ -32,18 +37,18 @@ const AboutCTA = () => {
     <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {}
-        <div className="relative overflow-hidden rounded-[22px] border border-blue-500/20 bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 p-8 shadow-2xl shadow-blue-950/10 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b] dark:border-blue-500/20 dark:shadow-black/30 sm:p-10 lg:p-12">
+        <div className="relative overflow-hidden rounded-shell-outer border border-blue-500/20 bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 p-8 shadow-2xl shadow-blue-950/10 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b] dark:border-blue-500/20 dark:shadow-black/30 sm:p-10 lg:p-12">
           {}
           <div className="pointer-events-none absolute left-1/2 top-0 h-64 w-96 -translate-x-1/2 rounded-full bg-cyan-500/5 blur-[100px] dark:bg-cyan-500/10" />
 
           {}
           <DotPattern
-            color="#008cff"
+            color={VISUAL_ACCENT_COLORS.BLUE}
             className="top-0 right-0"
             maskDirection="to bottom left"
           />
           <DotPattern
-            color="#00d98b"
+            color={VISUAL_ACCENT_COLORS.GREEN}
             className="bottom-0 left-0"
             maskDirection="to top right"
           />
@@ -72,7 +77,7 @@ const AboutCTA = () => {
             <div className="flex w-full flex-col items-center gap-6 lg:w-auto lg:items-end">
               {}
               <Link
-                href="/resources"
+                href={APP_ROUTES.RESOURCES}
                 className="group inline-flex h-12 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-400 px-8 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(8,174,214,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(8,174,214,0.3)] md:w-auto md:text-base"
               >
                 {t("button")}

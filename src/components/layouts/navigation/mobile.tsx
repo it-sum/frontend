@@ -6,6 +6,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import { X } from "lucide-react";
 import { Link } from "@/src/i18n/navigation";
+import {
+  APP_ROUTES,
+  isArabicLocale,
+  PUBLIC_BRAND_CLASSES,
+} from "@/src/constants/variables";
 import { NavLinksArray } from "@/src/constants";
 import Logo from "@/src/assets/images/logo.webp";
 import ThemeToggle from "./theme-toggle";
@@ -54,7 +59,7 @@ const linkVariants: Variants = {
 export default function Mobile() {
   const t = useTranslations("Navigation");
   const locale = useLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -122,13 +127,13 @@ export default function Mobile() {
         }}
         className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-xl transition-all duration-300 lg:hidden ${
           scrolled
-            ? "border-black/5 bg-white/95 shadow-sm dark:border-white/8 dark:bg-[#0B1120]/95"
-            : "border-black/5 bg-white/85 dark:border-white/6 dark:bg-[#0B1120]/85"
+            ? "border-black/5 bg-white/95 shadow-sm dark:border-white/8 dark:bg-background/95"
+            : "border-black/5 bg-white/85 dark:border-white/6 dark:bg-background/85"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex h-16 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href={APP_ROUTES.HOME} className="flex items-center gap-2.5">
               <Image
                 src={Logo}
                 alt="IT-SUM"
@@ -143,7 +148,7 @@ export default function Mobile() {
                 className="flex items-baseline text-xl font-bold tracking-tight"
               >
                 <span className="dark:text-white text-neutral-900">IT</span>
-                <span className="dark:text-[#06B6D4] text-[#0284C7] transition-colors duration-300">
+                <span className={`${PUBLIC_BRAND_CLASSES.wordmark} transition-colors duration-300`}>
                   -SUM
                 </span>
               </span>
@@ -192,13 +197,13 @@ export default function Mobile() {
               animate="open"
               exit="closed"
               ref={menuPanelRef}
-              className="fixed inset-x-0 top-0 z-50 max-h-dvh overflow-y-auto overscroll-contain border-b border-black/5 bg-white/95 shadow-2xl backdrop-blur-2xl dark:border-white/5 dark:bg-[#0B1120]/95 lg:hidden"
+              className="fixed inset-x-0 top-0 z-50 max-h-dvh overflow-y-auto overscroll-contain border-b border-black/5 bg-white/95 shadow-2xl backdrop-blur-2xl dark:border-white/5 dark:bg-background/95 lg:hidden"
             >
               {/* Header inside popup: Logo + Close button */}
               <div className="mx-auto max-w-7xl px-6">
                 <div className="flex h-16 items-center justify-between">
                   <Link
-                    href="/"
+                    href={APP_ROUTES.HOME}
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-2.5"
                   >
@@ -217,7 +222,7 @@ export default function Mobile() {
                       <span className="dark:text-white text-neutral-900">
                         IT
                       </span>
-                      <span className="dark:text-[#06B6D4] text-[#0284C7] transition-colors duration-300">
+                      <span className={`${PUBLIC_BRAND_CLASSES.wordmark} transition-colors duration-300`}>
                         -SUM
                       </span>
                     </span>
@@ -301,9 +306,9 @@ export default function Mobile() {
                   className="flex flex-col gap-3"
                 >
                   <Link
-                    href="/login"
+                    href={APP_ROUTES.LOGIN}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center px-4 py-3.5 text-sm font-semibold text-white bg-linear-to-r from-[#06B6D4] to-[#0284C7] rounded-xl hover:from-[#0891B2] hover:to-[#0369A1] transition-all duration-200"
+                    className={`flex items-center justify-center px-4 py-3.5 text-sm font-semibold text-white ${PUBLIC_BRAND_CLASSES.primaryGradient} rounded-xl ${PUBLIC_BRAND_CLASSES.primaryGradientHover} transition-all duration-200`}
                     style={{
                       boxShadow: "0 8px 20px -4px rgba(6, 182, 212, 0.3)",
                     }}

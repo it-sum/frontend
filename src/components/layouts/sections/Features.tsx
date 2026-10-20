@@ -3,6 +3,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
+import { APP_ROUTES } from "@/src/constants/variables";
 import {
   ArrowLeft,
   ArrowRight,
@@ -18,7 +19,10 @@ type FeatureItem = {
   titleKey: string;
   descKey: string;
   color: FeatureColor;
-  href: "/resources" | "/departments" | "/about";
+  href:
+    | typeof APP_ROUTES.RESOURCES
+    | typeof APP_ROUTES.DEPARTMENTS
+    | typeof APP_ROUTES.ABOUT;
 };
 
 const featuresData: FeatureItem[] = [
@@ -27,21 +31,21 @@ const featuresData: FeatureItem[] = [
     titleKey: "Features.resourcesTitle",
     descKey: "Features.resourcesDescription",
     color: "emerald",
-    href: "/resources",
+    href: APP_ROUTES.RESOURCES,
   },
   {
     icon: Compass,
     titleKey: "Features.departmentsTitle",
     descKey: "Features.departmentsDescription",
     color: "violet",
-    href: "/departments",
+    href: APP_ROUTES.DEPARTMENTS,
   },
   {
     icon: Sparkles,
     titleKey: "Features.aboutTitle",
     descKey: "Features.aboutDescription",
     color: "amber",
-    href: "/about",
+    href: APP_ROUTES.ABOUT,
   },
 ];
 
@@ -84,7 +88,7 @@ const FeatureCard = ({
   return (
     <Link
       href={feature.href}
-      className="group relative flex min-h-42 overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-[0_4px_18px_rgba(15,23,42,0.035)] backdrop-blur-sm transition-colors hover:border-cyan-400/35 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500 dark:border-[#172638] dark:bg-[#071421]/90 dark:shadow-[0_4px_20px_rgba(0,0,0,0.18)] dark:hover:border-[#21364d] dark:hover:bg-[#081725]"
+      className="group relative flex min-h-42 overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-[0_4px_18px_rgba(15,23,42,0.035)] backdrop-blur-sm transition-colors hover:border-cyan-400/35 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500 dark:border-[#172638] dark:bg-public-surface/90 dark:shadow-[0_4px_20px_rgba(0,0,0,0.18)] dark:hover:border-[#21364d] dark:hover:bg-[#081725]"
     >
       <div
         aria-hidden="true"

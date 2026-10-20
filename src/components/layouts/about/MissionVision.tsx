@@ -3,6 +3,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Eye, Target, type LucideIcon } from "lucide-react";
+import { VISUAL_ACCENT_COLORS } from "@/src/constants/variables";
 
 // =========================================================
 // TYPES & DATA CONFIG
@@ -46,15 +47,15 @@ const variantStyles: Record<
     border: "border-blue-500/20",
     bg: "bg-linear-to-br from-blue-500/6 via-white to-blue-500/3 dark:from-[#06172a] dark:via-[#061321] dark:to-[#05203b]",
     iconBg: "border-blue-500/30 bg-blue-500/10",
-    iconText: "text-[#008cff]",
-    dotColor: "#008cff",
+    iconText: "text-visual-accent-blue",
+    dotColor: VISUAL_ACCENT_COLORS.BLUE,
   },
   emerald: {
     border: "border-emerald-500/20",
     bg: "bg-linear-to-br from-emerald-500/6 via-white to-emerald-500/3 dark:from-[#05211f] dark:via-[#061817] dark:to-[#06241f]",
     iconBg: "border-emerald-500/30 bg-emerald-500/10",
-    iconText: "text-[#00d98b]",
-    dotColor: "#00d98b",
+    iconText: "text-visual-accent-green",
+    dotColor: VISUAL_ACCENT_COLORS.GREEN,
   },
 };
 
@@ -81,7 +82,7 @@ const MissionVision = () => {
           {/* Title */}
           <h2 className="text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl lg:text-[40px]">
             {t("titlePrefix")}{" "}
-            <span className="bg-linear-to-r from-[#008cff] to-[#007bff] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-visual-accent-blue to-[#007bff] bg-clip-text text-transparent">
               {t("missionText")}
             </span>{" "}
             {t("separator")}{" "}

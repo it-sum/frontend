@@ -12,6 +12,10 @@ export function SessionRestorer() {
     let cancelled = false;
 
     async function restore() {
+      // A locale transition can remount this component while the in-memory
+      // session is still valid. Do not let a refresh without a cookie clear it.
+      if (useAuthStore.getState().accessToken) return;
+
       try {
         const res = await refresh();
         if (!cancelled) {

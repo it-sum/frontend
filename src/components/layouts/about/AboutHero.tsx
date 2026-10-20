@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
+import { VISUAL_ACCENT_COLORS } from "@/src/constants/variables";
 import {
   GraduationCap,
   Users,
@@ -112,7 +113,7 @@ const AboutHero = () => {
         className="pointer-events-none absolute left-[43%] top-[48%] hidden h-24 w-24 opacity-30 lg:block"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #008cff 1.2px, transparent 1.2px)",
+            `radial-gradient(circle, ${VISUAL_ACCENT_COLORS.BLUE} 1.2px, transparent 1.2px)`,
           backgroundSize: "10px 10px",
         }}
       />
@@ -135,7 +136,7 @@ const AboutHero = () => {
             {t("titleStart")}
             <br />
             {t("titleMiddle")}{" "}
-            <span className="bg-linear-to-r from-[#008cff] to-[#00d982] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-visual-accent-blue to-[#00d982] bg-clip-text text-transparent">
               {t("titleHighlight")}
             </span>
           </h1>
@@ -174,7 +175,7 @@ const AboutHero = () => {
           <p className="mb-2 inline-flex rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-[11px] text-slate-600 dark:border-white/10 dark:bg-[#081522] dark:text-slate-300">
             {t("dashboard.demoLabel")}
           </p>
-          <div className="overflow-hidden rounded-[22px] border border-slate-200 bg-slate-50 shadow-2xl shadow-blue-950/10 dark:border-[#17304a] dark:bg-[#04101d] dark:shadow-black/30">
+          <div className="overflow-hidden rounded-shell-outer border border-slate-200 bg-slate-50 shadow-2xl shadow-blue-950/10 dark:border-[#17304a] dark:bg-[#04101d] dark:shadow-black/30">
             <div className="grid min-h-102.5 grid-cols-[112px_1fr] sm:grid-cols-[135px_1fr]">
               {/* Sidebar */}
               <aside className="border-r border-slate-200 p-4 dark:border-white/7">

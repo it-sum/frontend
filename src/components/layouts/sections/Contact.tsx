@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { isArabicLocale } from "@/src/constants/variables";
 import {
   ArrowRight,
   ChevronDown,
@@ -34,7 +35,7 @@ const SUBJECT_OPTIONS = [
 const Contact = ({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) => {
   const t = useTranslations("Contact");
   const locale = useLocale();
-  const isArabic = locale === "ar";
+  const isArabic = isArabicLocale(locale);
   const Heading = headingLevel;
 
   const [formData, setFormData] = useState({

@@ -1,12 +1,9 @@
-"use client";
-
-import Image from "next/image";
 import { Info } from "lucide-react";
-import { useTranslations } from "next-intl";
-import folder from "@/src/assets/images/folder.webp";
+import { getTranslations } from "next-intl/server";
+import ResourcesFileVisual from "@/src/components/layouts/resources/ResourcesFileVisual";
 
-const ResourcesHero = () => {
-  const t = useTranslations("resources.hero");
+const ResourcesHero = async () => {
+  const t = await getTranslations("resources.hero");
 
   return (
     <section className="relative w-full overflow-hidden bg-transparent">
@@ -28,15 +25,8 @@ const ResourcesHero = () => {
           aria-hidden="true"
           className="relative flex min-h-56 items-center justify-center sm:min-h-72 lg:min-h-80"
         >
-          <div className="absolute size-3/4 rounded-full bg-cyan-500/8 blur-3xl dark:bg-cyan-500/10" />
-          <Image
-            src={folder}
-            alt=""
-            width={650}
-            height={520}
-            priority
-            className="relative z-10 h-auto w-full max-w-lg select-none object-contain drop-shadow-[0_24px_35px_rgba(0,40,130,0.12)]"
-          />
+          <div className="absolute size-3/4 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,rgba(6,182,212,0)_70%)] dark:bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,rgba(6,182,212,0)_70%)]" />
+          <ResourcesFileVisual />
         </div>
       </div>
     </section>
